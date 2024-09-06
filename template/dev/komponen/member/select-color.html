@@ -1,0 +1,19 @@
+<a href="javascript:void(0)" class="btn btn-xs btn-primary" 
+                                    data-rel="popover" data-html="true" 
+                                    data-content="<div style='width: 200px;'>
+                                            <div class='form-group'>
+                                                <select name='color' class='form-control select-color'>
+                                                    <option value=''>Select Color</option>
+                                                    {foreach from=$itemwish[$a.wishlistid] key=prodpostitemid item=c name=colorp}
+                                                       <option data-productid='{$a.kodeproduk}' value='{$c.colorid}'>{$c.colorname}</option>
+                                                    {/foreach}
+                                                </select>
+                                            </div>
+                                            <div class='form-group'>
+                                                <select name='size' class='form-control size' id='select-size-{$a.kodeproduk}'>
+                                                    <option value=''>Select Size</option>
+                                                </select>
+                                            </div>
+                                                <a href='#' data-url='{$fulldomain}/cart/buy' id='addto-{$a.kodeproduk}' class='btn btn-block btn-xs btn-primary'>Add &nbsp;<i class='fa fa-arrow-right'></i></a>
+                                            </div>"
+                                    title="Select Color & Size">add to cart</a>

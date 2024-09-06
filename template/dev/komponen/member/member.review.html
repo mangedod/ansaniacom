@@ -1,0 +1,49 @@
+<h3>{$namaaksi}</h3>
+    <hr>
+<div class="table-responsive">
+ <table class="table table-bordered table-center">
+    <thead>
+        <tr>
+            <th>No</th>
+            <th width="60px">Pictures</th>
+            <th>Product Name</th>
+            <th class="text-center">Number Of Review</th>
+            <th></th>
+        </tr>
+    </thead>
+     <tbody>
+        {if $jml_review neq '0' or $jml_review neq ''}
+            {foreach from=$list_transaksi key=transaksiid item=a}
+            <tr>
+                <td>{$a.no}</td>
+                <td><a href="{$a.link_produk}"><img src="{$a.gambar_m}" height="70" width="80" /></a></td>
+                <td><a href="{$a.link_produk}"><strong>{$a.nama}</strong></a></td>
+                <td><a href="{$a.link}">{$a.jumlah_review} review</a></td>
+                <td class="text-center"><a href="{$a.link}"><i class="fa fa-pencil-square"></i> Write A Review</a></td>
+            </tr>
+            {/foreach}
+        {else}
+            <tr>
+                <td colspan="5">
+                    <div class="alert alert-warning mb-0">
+                        No data review in <strong>the Review of your product</strong>.
+                    </div>
+                </td>
+            </tr>
+        {/if}
+     </tbody>
+ </table>
+</div>
+<div class="pagination-holder">
+    <div class="row">
+{if $jml_review neq '0'}
+        <div class="col-md-6 text-right">
+            <ul class="pagination">
+                {foreach from=$stringpage key=pageid item=a}
+                    <li class="{$a.class}"><a href="{$a.link}"> {$a.nama} </a></li>
+                {/foreach}
+            </ul><!-- /.pagination -->
+        </div>
+{/if}
+    </div><!-- /.row -->
+</div><!-- /.pagination-holder -->

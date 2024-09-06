@@ -1,0 +1,113 @@
+
+            <h3>Order Tracking</h3>
+            <hr>
+
+            <div class="row text-center">
+                <div class="col-md-12">
+                    <center>
+                        Welcome to our Order Tracking page!<br />
+                        Please enter Your order number to track your order status.<br /> 
+                        If you do not know Your order number, please check the order confirmation email {$title} send it to your email address.<br /><br />
+                        {if $berhasil eq '1'}
+                            <div class="alert alert-success">{$pesanhasil}</div>
+                            <a href="{$fulldomain}/member/ordertracking"  class="button">Kembali</strong></a>
+                        {elseif $berhasil eq '0'}
+                            <div class="alert alert-danger">{$pesanhasil}</div>
+                            <ul>
+                                {foreach from=$pesan key=id item=i}
+                                <li>{$i.pesan}</li>
+                                {/foreach}
+                            </ul><br clear="all" />
+                            <a href="{$fulldomain}/member/ordertracking" class="button"> Kembali</a>
+                        {/if}
+                        {literal}
+                        <script>
+                            function checkform()
+                            {
+                                var validEmail  = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+                                if (document.getElementById("useremail").value == "")
+                                {
+                                    alert("Email tidak boleh kosong, silahkan isi terlebih dahulu");
+                                    $("#useremail").focus();
+                                    return false;
+                                }
+                                else if (! validEmail.test(document.getElementById("useremail").value))
+                                {
+                                    alert("Email tidak valid, silahkan ulangi kembali");
+                                    $("#useremail").focus();
+                                    return false;
+                                }
+                                if (document.getElementById("invoice").value == "")
+                                {
+                                    alert("Invoice cannot be empty");
+                                    $("#uname").focus();
+                                    return false;
+                                }
+                                else
+                                {
+                                    return true;
+                                }
+                            }
+                        </script>
+                        {/literal}
+                        <form role="form" action="{$fulldomain}/member/ordertracking" method="post" onsubmit="return checkform();">
+                            <input type="hidden" name="action" value="cekorder" />
+                                <div class="form-group">
+                                    <input type="text" data-original-title="Invoice Number" name="invoice" data-content="Enter the number of the invoice here." data-trigger="focus" data-placement="left" data-toggle="popover" placeholder="Enter The Number Of The Invoice" id="invoiceid" class="form-control" required style="width: 36%;"/>
+                                </div>
+
+                              <button class="btn btn-primary" type="submit">Check Status</button>
+                        </form>
+                    </center>
+                </div>
+            </div>
+            <br>
+            <br>
+            {if $tracking eq '1'}
+            <div class="panel-group panel-accordion" id="accordion" role="tablist" aria-multiselectable="true">
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingOne">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" class="text-uppercase" data-parent="#accordion" href="" aria-expanded="true" aria-controls="collapseOne">
+                                  Order #{$invoiceid} {if $tanggaltransaksi neq '0000-00-00'}| Booked on : {$tanggaltransaksi} {/if}
+                                </a>
+                        </h4>
+                    </div>
+                    {if $jumlahtransaksi eq '0'}
+                    <div class="alert alert-warning">Transaction data with number invoice <strong>#{$invoiceid}</strong> not found. Please repeat it again.</div>
+                    {else}
+                    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                        <div class="panel-body">
+                            {if $status eq '4'}
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                    {$jmlproduk} Products {if $tanggaltransaksi neq '0000-00-00'}| Posted on {$tanggaltransaksi} {/if}| Sent to <a href="#">{$namalengkap}</a> | Completed <i class="fa fa-check"></i>
+                                </div>
+                            </div>
+                            {/if}
+                            <div class="clearfix">&nbsp;</div>
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-striped table-simple">
+                                    <thead>
+                                        <tr>
+                                            <th>Date</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>{if $tanggaltransaksi neq '0000-00-00'}{$tanggaltransaksi}{/if}</td>
+                                            <td>
+                                                {$ketstatuskirim}
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p><strong>The Package Contains :</strong> {foreach from=$detailproduk key=transaksidetailid item=a}<a href="">{$a.namaprod} - {$a.namawarna} ({$a.namasize}), </a>{/foreach}</p>
+                        </div>
+                    </div>
+                    {/if}
+                </div>
+            </div>
+            {/if}

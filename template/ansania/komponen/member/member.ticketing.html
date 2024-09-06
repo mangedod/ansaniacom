@@ -1,0 +1,52 @@
+<h3>Ticketing</h3>
+<hr>
+<div class="table-responsive">
+ <table class="table table-bordered table-center">
+     <thead>
+         <tr>
+            <th>No</th>
+            <th>Subject</th>
+            <th>Category Question</th>
+            <th width="120" class="text-center">Status</th>
+            <th>Date</th>
+        </tr>
+     </thead>
+     <tbody>
+        {if $totalticketing neq '0'}
+            {foreach from=$dataticketing key=ticketingid item=k}
+            <tr>
+                <td>{$k.no}</td>
+                <td><a href="{$k.link}"><strong>{$k.judul}</strong></a></td>
+                <td>{$k.kategori}</td>
+                <td>{if $k.is_closed eq '0'}<i class="fa fa-unlock"></i>{else}<i class="fa fa-lock"></i>{/if} {$k.stats} </td>
+                <td class="text-right mail-date">{$k.tanggal}</td>
+            </tr>
+            {/foreach}
+        {else}
+            <tr>
+                <td colspan="5">
+                    <div class="alert alert-warning mb-0">
+                        You have yet to submit questions to ticketing, to send us a question please click the button <strong>Create a Ticket</strong>.
+                    </div>
+                </td>
+            </tr>
+        {/if}
+     </tbody>
+ </table>
+</div>
+<div class="pagination-holder">
+    <div class="row">
+        <div class="col-md-6 text-left">
+            <a href="{$fulldomain}/member/addticketing" class="btn btn-primary btn-xs">Create a Ticket</a>
+        </div>
+{if $totalticketing neq '0'}
+        <div class="col-md-6 text-right">
+            <ul class="pagination">
+                {foreach from=$stringpage key=pageid item=a}
+                    <li class="{$a.class}"><a href="{$a.link}"> {$a.nama} </a></li>
+                {/foreach}
+            </ul><!-- /.pagination -->
+        </div>
+{/if}
+    </div><!-- /.row -->
+</div><!-- /.pagination-holder -->

@@ -1,0 +1,137 @@
+<!-- FOOTER -->
+<footer class="footer">
+
+    <!-- CONTAINER -->
+    <div class="container">
+        <div class="row foorow-2 foorow">
+
+            <div class="col-md-3 col-sm-6 col-xs-6">
+                <h3>Information</h3>
+               <nav>
+                    <ul class="links">
+                        <li><a href="{$fulldomain}/about">About Us</a></li>
+                        <li><a href="{$fulldomain}/termcondition">Terms and Conditions</a></li>
+                        <li><a href="{$fulldomain}/disclaimer">Disclaimer</a></li>
+                        <!--<li><a href="{$fulldomain}/faq">Delivery</a></li>
+                        <li><a href="{$fulldomain}/faq">Payment</a></li>
+                        <li><a href="{$fulldomain}/">Gift Cards</a></li>-->
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="col-md-3 col-sm-6 col-xs-6">
+                <h3>Services</h3>
+               <nav>
+                    <ul class="links">
+                        <li><a href="{$fulldomain}/faq">FAQ</a></li>
+                        <li><a href="{$fulldomain}/faq">How to Buy</a></li>
+                        <li><a href="{$fulldomain}/faq">How to Sell</a></li>
+                        <li><a href="{$fulldomain}/faq">How to Design</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="col-md-3 col-sm-6 col-xs-6">
+                <h3>Contact Us</h3>
+                <address>
+                {$contactringkas}
+                <br>
+                    {$contacttelp}<br>
+                    <a href="mailto:{$contactemail}">{$contactemail}</a><br>
+                    <br>
+                   <img src="{$lokasiwebtemplate}images/payments.png" alt="">
+                </address>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-6">
+                <h3>Follow Us</h3>
+                <ul class="social social-boxed">
+                    <li class="facebook"><a href="http://www.facebook.com/{$webfacebook}" target=_blank><i class="fa fa-facebook"></i></a></li>
+                    <li class="twitter"><a href="https://twitter.com/{$webtwitter}" target=_blank><i class="fa fa-twitter"></i></a></li>
+                    <li class="youtube"><a href="https://www.youtube.com/{$contactyoutube}" target=_blank><i class="fa fa-youtube-play"></i></a></li>
+                    <li class="instagram"><a href="https://www.instagram.com/{$contactig}" target=_blank><i class="fa fa-instagram"></i></a></li>
+                </ul>
+                <div class="clearfix">&nbsp;</div>
+                <p>Enter Your Email to stay updated</p>
+                <div id="feedback-form">
+                    <form action="#" method="post">
+                        <input name="EMAIL" placeholder="Stay update, stay awaesome" required type="email" class="pull-left">
+                        <button type="submit" class="btn btn-default pull-right">GO</button>
+                    </form>
+                    <div class="success-block"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</footer>
+<!-- /.footer -->
+
+<!-- Popup: Login -->
+<div class="block-popup popup plogin" id="login">
+    <a href="" class="pclose small"><i class="custom-icon custom-icon-close-s"></i></a>
+    <h3 class="text-center">Login to account</h3>
+
+    {if $notifpesan neq ''}
+    <hr>
+    <div class="alert {if $berhasil eq '1'}  alert-success {else} alert-danger{/if} alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        {$notifpesan}
+    </div>
+    <hr>
+    {/if}
+    {if $login eq ''}
+        <form action="{$fulldomain}/member/login" class="loginform" method="post" name="login">
+            {if $last neq ''}<input type="hidden" name="uri" value="{$last}" />{/if}
+            <div class="formwrap">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Masukan Username atau Email" value="{$cookname}" name="user">
+                </div>
+                <div class="form-group has-feedback">
+                    <input type="password" class="form-control login-password" placeholder="Password" value="{$cookpass}" name="pass" id="login-password">
+                </div>
+            </div>
+            <div class="form-group text-center">
+                <button type="submit" class="btn btn-default block btn-validation">Login</button>
+                <a href="{$fulldomain}/member/lupapassword">Forgot password?</a>
+            </div>
+        </form>
+    {/if}
+    <div class="footlogin highlight text-center">
+        <ul class="social">
+            <li><a href="{$fulldomain}/librari/fbconnect/index.php" class="fa fa-facebook-square"></a></li>
+            <li><a href="#" class="fa fa-google-plus-square"></a></li>
+        </ul>
+        <p>Or login with your social account</p>
+    </div>
+    <!-- <a href="{$fulldomain}/" class="a-privacy text-center">Privacy Policy</a> -->
+</div>
+<!-- /.popup -->
+
+
+<!-- ScrollTop Button -->
+<a href="#" class="scrolltop">
+    <i class="custom-icon custom-icon-scrolltop"></i>
+</a>
+
+<script src="{$lokasiwebtemplate}js/jquery-2.1.1.min.js"></script>
+{if $kanal eq 'contact'}
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
+{/if}
+<script src="{$lokasiwebtemplate}js/bootstrap.min.js"></script>
+{if $kanal eq 'cart' and $aksi eq 'confirm'}
+<script src="{$lokasiwebtemplate}js/moment.min.js"></script>
+<script src="{$lokasiwebtemplate}js/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+<script src="{$lokasiwebtemplate}js/bootstrap-datepicker/locales/bootstrap-datepicker.en-IE.min.js"></script>
+<!-- <script src="{$lokasiwebtemplate}js/bootstrap-datepicker/locales/bootstrap-datepicker.id.min.js"></script> -->
+{/if}
+<script src="{$lokasiwebtemplate}js/jquery.plugins.js"></script>
+
+        <script src="{$lokasiwebtemplate}js/jssocials.min.js"></script>
+        <script>
+            $("#share").jsSocials({
+                shares: [ "facebook", "twitter"]
+            });
+        </script>
+<script src="{$lokasiwebtemplate}js/custom.js"></script>
+</body>
+</html>

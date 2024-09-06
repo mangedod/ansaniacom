@@ -1,0 +1,60 @@
+<!-- BLOGBAR -->
+<div class="col-sm-8">
+<!-- row -->
+<div class="row">
+
+    {foreach from=$datadetail key=id item=ch}
+    <div class="col-md-12">
+    	<div class="blog-post">
+        {if $ch.gambar neq ''}
+        <div class="post-thumb">
+           <a href="{$ch.link}" class="black"> <img src="{$ch.gambar}" alt="{$ch.nama}"></a>
+        </div>
+        {/if}
+        <h2><a href="{$ch.link}">{$ch.nama}</a></h2>
+            <a href="{$ch.link}" class="grey">{$ch.tanggal}</a> -
+            <a href="{$ch.link}" class="grey">{$ch.namasec}</a> 
+        <p>{$ch.ringkas}</p>
+		</div>
+    </div>
+    {/foreach}
+    
+</div>
+<!-- /.row -->
+
+<div class="clearfix">&nbsp;</div>
+
+<div class="col-md-12 text-right pagination-box">
+    <ul class="pagination">
+    {foreach from=$stringpage key=pageid item=a}
+        {if $a.link neq ''}
+            <li class="{$a.class}"><a href="{$a.link}">{$a.nama}</a></li>
+        {else}
+            <li class="{$a.class}"><a href="javascript:void(0)">{$a.nama}</a></li>
+        {/if}
+    {/foreach}
+    </ul>
+</div>
+</div>
+
+<aside class="blogbar col-sm-4">
+<!-- widget -->
+<div class="panel panel-dark blog-category">
+    <div class="panel-heading">
+        <h3 class="panel-title">BLOG TERPOPULER</h3>
+    </div>
+    <div class="panel-body">
+          {foreach from=$datapopuler key=id item=a}
+            <div class="blog-populer-item">
+                <div class="blog-populer-item-img">
+                    <img src="{$a.gambar}" alt="{$a.nama}" />
+                </div>
+               <a href="{$a.link}">{$a.nama}</a>
+            </div>
+        {/foreach}
+    </div>
+</div>
+
+
+</aside>
+<!-- /.blogbar -->

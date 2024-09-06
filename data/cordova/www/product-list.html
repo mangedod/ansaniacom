@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Ansania</title>
+    <meta content="IE=edge" http-equiv="x-ua-compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <!-- Fonts -->
+    <!-- Icons -->
+    <link href="css/ionicons.min.css" media="all" rel="stylesheet" type="text/css">
+    <!-- Styles -->
+    <link href="css/keyframes.css" rel="stylesheet" type="text/css">
+    <link href="css/materialize.min.css" rel="stylesheet" type="text/css">
+    <link href="css/swiper.css" rel="stylesheet" type="text/css">
+    <link href="css/swipebox.min.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+	<script src="js/jquery-2.1.0.min.js"></script>
+    <script src="js/fastclick.js"></script>
+	<script type="text/javascript">
+    
+	var url = window.location.pathname;
+    var filename = url.substring(url.lastIndexOf('/') + 1);
+	
+ 
+  
+	</script>
+    <script type="text/javascript" src="js/main.js"></script>
+
+  <script type="text/javascript" src="js/iscroll.js"></script>
+	<script type="text/javascript">
+    var myScroll;
+    function loaded () {
+        myScroll = new IScroll('#content', { mouseWheel: true });
+    }
+    </script>
+</head>
+
+  <body>
+ 
+        
+    <div class="m-scene" id="main">
+
+           <!-- Page Content -->
+      <div id="content" class="grey-blue page">
+
+        <!-- Toolbar -->
+        <div id="toolbar"  class="primary-color">
+          <div class="open-left waves-effect waves-circle">
+            <a href="javascript:history.back();"><i class="fal fa-arrow-left"></i></a>
+          </div>
+          <span class="title">&nbsp;</span>
+		  
+        </div>
+        
+        <div class="maincontent">
+		
+		 <div class="tabs">
+        	<div class="tab tab-active" onClick="javascript:fade('product.html');">Terbaru</div>
+            <div class="tab" onClick="javascript:fade('product-kategori.html');">Kategori</div>
+        </div>
+        
+       
+        
+        <!-- Main Content -->
+        <div class="animated fadeinup" id="bloglist">
+        	<div id="load_data"  class="product-list"></div>
+			<div id="load_data_message"><div class="loading"><center><img src="img/loading.svg" /></center></div></div>
+        </div> <!-- End of Page Content --> 
+        
+        <script> 
+        $(document).ready(function(){
+		
+		
+ 
+         var limit = 5;
+         var start = 0;
+         var action = 'inactive';
+		 var datalist = "";
+		 var lastid = "";
+		 var secid = getvar('secid'); 
+		 var subid = getvar('subid');   
+		 
+		 function load_country_data(limit, start)
+         {
+			   var urls ="http://localhost:8080/ansaniacom/api/android/index.php/product/list/"+secid+"/"+subid+"/"+start+"/"+limit+"/?callback=?";
+			   
+			  
+			  	$.ajax({
+				  type: "GET",
+				  url: urls,
+				  crossDomain: true,
+				  cache: false,
+				  success: function(data){
+				  
+				  	  
+				  	
+					  if(data['status']=="OK")
+					  {
+							var datalist = "";
+							var dl = data['datalist'];
+							var namasec = data['namasec'];
+							var jml = dl.length;
+							
+							$(".title").html(namasec);
+							
+							if(jml>0)
+							{
+	
+							    for (var key in dl) {
+								if (dl.hasOwnProperty(key)) {
+								   datalist += '<div class="grid"><div class="grid-item gallery-item-card  waves-effect waves-ripple animated fadeinup delay-1  waves-effect"><a href="javascript:fade(\'product-read.html?action=read&id='+dl[key]["id"]+'\')">';
+								  datalist += ' <img src="' + dl[key]["gambar"] + '" alt=""><div class="gallery-item-header"><div class="gallery-item-author"><span><strong>'+dl[key]["nama"]+'</strong></span>';
+								  datalist += '<span class="small harga">Rp.'+dl[key]["harga"]+'</span></div></div></a></div>';
+							 
+								}
+							  }
+							  $("#load_data").append(datalist);
+														
+							}
+														
+							if(datalist == '' || datalist == null)
+							{
+								 $('#load_data_message').html("");
+								 action = 'active';
+							}
+							else
+							{
+								 $('#load_data_message').html("<div class=\"loading\"><center><img src=\"img/loading.svg\" /></center></div>");
+								 action = "inactive";
+							}
+					  }
+				 }
+			  });
+         }
+        
+         if(action == 'inactive')
+         {
+			  action = 'active';
+			  load_country_data(limit, start);
+         }
+        
+		  $("#content").scroll(function(){
+          if($("#content").scrollTop() + $("#content").height() > $("#load_data").height() && action == 'inactive')
+          {
+			   action = 'active';
+			   start = start + limit;
+			   setTimeout(function(){
+				load_country_data(limit, start);
+			   }, 1000);
+          }
+         });
+         
+        });
+        </script>
+        
+		</div><br><br><div class="steps-controllers">
+              <div  class="waves-effect waves-ripple"><a href="javascript:fade('index.html')"><span class="menubuttom"><span class="fal fa-home-alt"></span></span><br>Home</a></div>
+              <div class="waves-effect waves-ripple"><a href="javascript:fade('product.html')" class="active"><span class="menubuttom"><span class="fal fa-search"></span></span><br>Produk</a></div>
+              <div class="waves-effect waves-ripple"><a href="javascript:fade('transaksi.html')"><span class="menubuttom"><span class="fal fa-list-alt"></span></span><br>Transaksi</a></div>
+              <div class="waves-effect waves-ripple"><a href="javascript:fade('pesan.html')"><span class="menubuttom"><span class="fal fa-envelope"></span></span><br>Inbox</a></div>
+              <div class="waves-effect waves-ripple"><a href="javascript:fade('setting.html')"><span class="menubuttom"><span class="fal fa-user"></span></span><br>Akun</a></div>
+       </div>
+ </div> <!-- End of Page Container -->
+    
+    <script type="text/javascript" src="cordova.js"></script>
+    <script src="js/jquery.swipebox.min.js"></script>   
+    <script src="js/jquery.smoothState.min.js"></script> 
+    <script src="js/materialize.min.js"></script> 
+    <script src="js/swiper.min.js"></script>  
+    <script src="js/jquery.mixitup.min.js"></script>
+    <script src="js/masonry.min.js"></script>
+    <script src="js/chart.min.js"></script>
+    <script src="js/functions.js"></script>
+ 
+  </body>
+</html>

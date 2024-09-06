@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Ansania</title>
+    <meta content="IE=edge" http-equiv="x-ua-compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <!-- Fonts -->
+    <!-- Icons -->
+    <!-- Styles -->
+    <link href="css/keyframes.css" rel="stylesheet" type="text/css">
+    <link href="css/materialize.min.css" rel="stylesheet" type="text/css">
+    <link href="css/swiper.css" rel="stylesheet" type="text/css">
+    <link href="css/swipebox.min.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+	<script src="js/jquery-2.1.0.min.js"></script>
+	<script src="js/fastclick.js"></script>
+	<script type="text/javascript">
+    var url = window.location.pathname;
+    var filename = url.substring(url.lastIndexOf('/') + 1);
+ 	 
+	 if(localStorage.tour == "" || localStorage.tour == null ) {
+        window.location.href = "tour.html";
+    }
+ 	
+	</script>
+    <script type="text/javascript" src="js/iscroll.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+    
+	
+</head>
+
+  <body>
+    <div class="m-scene bg-ff" id="main"> 
+
+      <!-- Page Content -->
+      <div id="content">
+
+        <!-- Toolbar -->
+         <!-- Toolbar -->
+        <div id="toolbar"  class="white-color">
+         
+            <span class="title"><img src="img/logo.png" /></span>
+             <div class="open-right waves-effect waves-circle">
+            	<a href="javascript:fade('notifikasi.html');"><i class="fal fa-bell"></i></a>
+          	 </div>
+          
+        </div>
+        
+         <div id="wrapper">
+          <div id="scroller">
+            <!-- Main Content -->
+        <div class="animated fadein">
+        
+        <script>
+		
+			var urls ="http://localhost:8080/ansaniacom/api/android/index.php/home/slide/?callback=?";
+			var dataString ="useremail="+localStorage.login;
+		
+			  $.ajax({
+				  type: "POST",
+				  url: urls,
+				  data: dataString,
+				  crossDomain: true,
+				  cache: false,
+				  success: function(data){
+					 
+					  if(data['status']=="OK")
+					  {
+						var slides = data['slide'];
+						var dataslide = "";
+
+						  for (var key in slides) {
+							if (slides.hasOwnProperty(key)) {
+							  dataslide += '<div class="swiper-slide">';
+							  dataslide += '<img src="' + slides[key]["gambar"] + '" alt="" />';
+							  dataslide += "</div>";
+							}
+						  }
+						 $("#banner-home-item").html(dataslide);
+						 
+						 var swiper1 = new Swiper('.s1', {
+							pagination: '.swiper-pagination',
+							paginationClickable: true,
+							autoplay: 4000,
+							loop: true
+						});
+		
+					  }
+					 
+				  }
+			  });
+		  
+		</script>
+        
+        
+        
+        <div class="h-banner animated fadein swiper-container s1" id="slider1">
+        
+           <div class="swiper-wrapper" id="banner-home-item">
+		   
+                <div class="loading"><center><img src="img/loading.svg"></center></div>
+            
+		</div>
+           <div class="swiper-pagination white-bullet">
+           </div>
+          	
+         </div>
+        </div>
+        <div class="topmenu animated fadein" id="topmenu">
+        	<div class="topmenu-nama"><span class="fal fa-user"></span> <script>document.write(localStorage.userfullname);</script></div>
+            <div class="topmenu-poin">&nbsp;</div>
+        </div>
+        
+
+         <script> 
+       		 $(document).ready(function(){
+			 
+			  if(localStorage.userid > 0)
+			  {
+			  
+			  }
+			  else
+			  {
+			  	$(".topmenu-nama").html("Selamat Datang!");
+			  }
+        
+         
+        });
+        </script>
+       
+		
+       <!-- Main Content -->
+        <div class="animated fadein">
+        
+        <div class="menuhome">
+                               
+                 <div class="menu-home waves-effect waves-ripple">
+                    <a href="javascript:fade('product.html');"><span class="menuhome-item" style="background:#cc3872"><i class="fal fa-shopping-bag"></i></span></a><br>
+                    <a href="javascript:fade('product.html');">Produk</a>
+                </div>
+                 <div class="menu-home waves-effect waves-ripple">
+                    <a href="javascript:fade('channel.html');"><span class="menuhome-item" style="background:#cc3872"><i class="fal fa-shopping-cart"></i></span></a><br>
+                    <a href="javascript:fade('channel.html');">Channel</a>
+                </div>
+                <div class="menu-home waves-effect waves-ripple">
+                    <a href="javascript:fade('promo.html');"><span class="menuhome-item" style="background:#cc3872"><i class="fal fa-star"></i></span></a><br>
+                    <a href="javascript:fade('promo.html');">Promo</a>
+                </div>              
+                 <div class="menu-home waves-effect waves-ripple">
+                    <a href="javascript:fade('blog.html');"><span class="menuhome-item" style="background:#cc3872"><i class="fal fa-calendar-star"></i></span></a><br>
+                    <a href="javascript:fade('blog.html');">Blog</a>
+                </div>
+                 <div class="menu-home waves-effect waves-ripple">
+                    <a href="javascript:fade('video.html');"><span class="menuhome-item" style="background:#cc3872"><i class="fal fa-globe"></i></span></a><br>
+                    <a href="javascript:fade('video.html');">Video</a>
+                </div>
+                 <div class="menu-home waves-effect waves-ripple">
+                    <a href="javascript:fade('reseller.html');"><span class="menuhome-item" style="background:#cc3872"><i class="fal fa-user-alt"></i></span></a><br>
+                    <a href="javascript:fade('reseller.html');">Reseller</a>
+                </div>
+               
+				 <div class="menu-home waves-effect waves-ripple">
+                    <a href="javascript:fade('testimoni.html');"><span class="menuhome-item" style="background:#cc3872"><i class="fal fa-comment-alt-smile"></i></span></a><br>
+                    <a href="javascript:fade('testimoni.html');">Testimoni</a>
+                </div>
+                <div class="menu-home waves-effect waves-ripple">
+                    <a href="javascript:fade('aplikasi.html');"><span class="menuhome-item" style="background:#cc3872"><i class="fal fa-globe"></i></span></a><br>
+                    <a href="javascript:fade('aplikasi.html');">Tentang</a>
+                </div>
+                
+               
+              
+               
+                
+               
+               
+            </div>
+            
+            
+        
+            <br clear="all">
+            <div class="animated fadein training-preview p-10 p-b-0 ">Blog Ansania</div>
+        	   <br clear="all">       
+            <!-- Main Content -->
+            <div class="animated fadein bg-white m-t-15" id="bloglist">
+                <div id="load_data"></div>
+            </div> <!-- End of Page Content --> 
+        
+				<script> 
+                $(document).ready(function(){
+                
+                        loading("load_data","2");
+                        
+                        var urls ="http://localhost:8080/ansaniacom/api/android/index.php/blog/depan/?callback=?";
+                       
+                      
+                        $.ajax({
+                          type: "GET",
+                          url: urls,
+                          crossDomain: true,
+                          cache: false,
+                          success: function(data){
+                          
+                              if(data['status']=="OK")
+                              {
+                                    var dl = data['datalist'];
+                                    var datalist = "";
+                                    var lastid = "";
+            
+                                      for (var key in dl) {
+                                        if (dl.hasOwnProperty(key)) {
+                                          datalist += '<div class="content-depan-card animated fadein delay-1  waves-effect " onClick="javascript:fade(\'blog-read.html?action=read&id='+dl[key]["id"]+'\');">';
+                                          datalist += '<div class="content-depan-image"><a href="javascript:fade(\'blog-read.html?action=read&id='+dl[key]["id"]+'\')"><img src="' + dl[key]["gambar"] + '" alt="" /></a></div>';
+                                          datalist += '<div class="content-depan-preview"><strong><a href="javascript:fade(\'blog-read.html?action=read&id='+dl[key]["id"]+'\')">'+dl[key]["nama"]+'</a></strong></span><br>'+dl[key]["ringkas"]+'</p></div>';
+                                          datalist += '</div>';
+                                     
+                                        }
+                                      }
+                                      $("#load_data").html(datalist);
+                                                                
+                                    setTimeout(function () {
+                                        myScroll.refresh();
+                                    }, 0); 
+                              }
+                         }
+                      });
+                
+                 
+                });
+                </script>
+        
+   
+        
+    
+
+        </div> <!-- End of Main Contents -->
+      
+       
+      </div> <!-- End of Page Content -->
+      
+       <br clear="all"> <br clear="all"> <br clear="all"> <br clear="all">
+		</div>
+      <div class="steps-controllers">
+              <div  class="waves-effect waves-ripple"><a href="javascript:fade('index.html')" class="active"><span class="menubuttom"><span class="fal fa-home-alt"></span></span><br>Home</a></div>
+              <div class="waves-effect waves-ripple"><a href="javascript:fade('product.html')"><span class="menubuttom"><span class="fal fa-search"></span></span><br>Produk</a></div>
+              <div class="waves-effect waves-ripple"><a href="javascript:fade('transaksi.html')"><span class="menubuttom"><span class="fal fa-list-alt"></span></span><br>Transaksi</a></div>
+              <div class="waves-effect waves-ripple"><a href="javascript:fade('pesan.html')"><span class="menubuttom"><span class="fal fa-envelope"></span></span><br>Inbox</a></div>
+              <div class="waves-effect waves-ripple"><a href="javascript:fade('setting.html')"><span class="menubuttom"><span class="fal fa-user"></span></span><br>Akun</a></div>
+       </div>
+ </div> <!-- End of Page Container -->
+    
+    <script type="text/javascript" src="cordova.js"></script>
+    <script src="js/jquery.swipebox.min.js"></script>   
+    <script src="js/jquery.smoothState.min.js"></script> 
+    <script src="js/materialize.min.js"></script> 
+    <script src="js/swiper.min.js"></script>  
+    <script src="js/jquery.mixitup.min.js"></script>
+    <script src="js/masonry.min.js"></script>
+    <script src="js/chart.min.js"></script>
+    <script src="js/functions.js"></script>
+  </body>
+</html>

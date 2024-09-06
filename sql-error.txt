@@ -1,0 +1,94 @@
+2024-03-28 08:39:12 |  | /grosir/read/1708/combo-motif-mix.html Table 'ansa_newansania.tbl_product' doesn't exist SQL: select produkid, secid, subid, kodeproduk, title, content, ringkas, misc_harga, cart, misc_diskon, create_date, misc_matauang, brandid, tag from tbl_product where status='1' and alias='combo-motif-mix' and published='1'
+2024-03-28 08:39:12 |  | /grosir/read/1708/combo-motif-mix.html Table 'ansa_newansania.tbl_product' doesn't exist SQL: update tbl_product set numviews=numviews+1 where kodeproduk='' and produkid=''
+2024-03-28 08:39:12 |  | /grosir/read/1708/combo-motif-mix.html Table 'ansa_newansania.tbl_product' doesn't exist SQL: select kodeproduk,produkid,secid,subid,title,misc_harga,ringkas, misc_matauang,misc_diskon from tbl_product where status='1' 
+				and published='1' and produkid!='' order by update_date desc limit 8
+2024-03-28 09:15:34 |  | /grosir/read/1676/helwa-wood-grosir Table 'ansa_newansania.tbl_product' doesn't exist SQL: select produkid, secid, subid, kodeproduk, title, content, ringkas, misc_harga, cart, misc_diskon, create_date, misc_matauang, brandid, tag from tbl_product where status='1' and alias='helwa-wood-grosir' and published='1'
+2024-03-28 09:15:34 |  | /grosir/read/1676/helwa-wood-grosir Table 'ansa_newansania.tbl_product' doesn't exist SQL: update tbl_product set numviews=numviews+1 where kodeproduk='' and produkid=''
+2024-03-28 09:15:34 |  | /grosir/read/1676/helwa-wood-grosir Table 'ansa_newansania.tbl_product' doesn't exist SQL: select kodeproduk,produkid,secid,subid,title,misc_harga,ringkas, misc_matauang,misc_diskon from tbl_product where status='1' 
+				and published='1' and produkid!='' order by update_date desc limit 8
+2024-03-28 12:47:40 |  | /event/ Table 'ansa_newansania.tbl_product' doesn't exist SQL: select misc_harga,misc_diskon,misc_matauang from tbl_product where  status='1' and  kodeproduk=''
+2024-03-28 14:47:59 |  | /event/ Table 'ansa_newansania.tbl_product' doesn't exist SQL: select misc_harga,misc_diskon,misc_matauang from tbl_product where  status='1' and  kodeproduk=''
+2024-03-28 17:11:29 |  | /grosir/read/1659/shinar-polos.html Table 'ansa_newansania.tbl_product' doesn't exist SQL: select produkid, secid, subid, kodeproduk, title, content, ringkas, misc_harga, cart, misc_diskon, create_date, misc_matauang, brandid, tag from tbl_product where status='1' and alias='shinar-polos' and published='1'
+2024-03-28 17:11:29 |  | /grosir/read/1659/shinar-polos.html Table 'ansa_newansania.tbl_product' doesn't exist SQL: update tbl_product set numviews=numviews+1 where kodeproduk='' and produkid=''
+2024-03-28 17:11:29 |  | /grosir/read/1659/shinar-polos.html Table 'ansa_newansania.tbl_product' doesn't exist SQL: select kodeproduk,produkid,secid,subid,title,misc_harga,ringkas, misc_matauang,misc_diskon from tbl_product where status='1' 
+				and published='1' and produkid!='' order by update_date desc limit 8
+2024-03-28 18:21:58 |  | /sale Table 'ansa_newansania.tbl_product' doesn't exist SQL: select count(*) as jml from tbl_product where published='1' and misc_diskon < misc_harga and misc_diskon > 0 
+2024-03-28 19:24:24 |  | /grosir/list/2 Table 'ansa_newansania.tbl_product' doesn't exist SQL: select count(*) as jml from tbl_product where published='1' and grosir='1' 
+2024-03-28 21:32:48 |  | /grosir/read/1630/istanbul-turki-combo-c Table 'ansa_newansania.tbl_product' doesn't exist SQL: select produkid, secid, subid, kodeproduk, title, content, ringkas, misc_harga, cart, misc_diskon, create_date, misc_matauang, brandid, tag from tbl_product where status='1' and alias='istanbul-turki-combo-c' and published='1'
+2024-03-28 21:32:48 |  | /grosir/read/1630/istanbul-turki-combo-c Table 'ansa_newansania.tbl_product' doesn't exist SQL: update tbl_product set numviews=numviews+1 where kodeproduk='' and produkid=''
+2024-03-28 21:32:48 |  | /grosir/read/1630/istanbul-turki-combo-c Table 'ansa_newansania.tbl_product' doesn't exist SQL: select kodeproduk,produkid,secid,subid,title,misc_harga,ringkas, misc_matauang,misc_diskon from tbl_product where status='1' 
+				and published='1' and produkid!='' order by update_date desc limit 8
+2024-03-28 23:53:08 |  | /grosir/read/1674/saudia-dua-muka-grosir Table 'ansa_newansania.tbl_product' doesn't exist SQL: select produkid, secid, subid, kodeproduk, title, content, ringkas, misc_harga, cart, misc_diskon, create_date, misc_matauang, brandid, tag from tbl_product where status='1' and alias='saudia-dua-muka-grosir' and published='1'
+2024-03-28 23:53:08 |  | /grosir/read/1674/saudia-dua-muka-grosir Table 'ansa_newansania.tbl_product' doesn't exist SQL: update tbl_product set numviews=numviews+1 where kodeproduk='' and produkid=''
+2024-03-28 23:53:08 |  | /grosir/read/1674/saudia-dua-muka-grosir Table 'ansa_newansania.tbl_product' doesn't exist SQL: select kodeproduk,produkid,secid,subid,title,misc_harga,ringkas, misc_matauang,misc_diskon from tbl_product where status='1' 
+				and published='1' and produkid!='' order by update_date desc limit 8
+2024-03-29 02:24:50 |  | /grosir/read/1627/ultravoal-sonic-a2b-anti-air-dan-bakteri Table 'ansa_newansania.tbl_product' doesn't exist SQL: select produkid, secid, subid, kodeproduk, title, content, ringkas, misc_harga, cart, misc_diskon, create_date, misc_matauang, brandid, tag from tbl_product where status='1' and alias='ultravoal-sonic-a2b-anti-air-dan-bakteri' and published='1'
+2024-03-29 02:24:50 |  | /grosir/read/1627/ultravoal-sonic-a2b-anti-air-dan-bakteri Table 'ansa_newansania.tbl_product' doesn't exist SQL: update tbl_product set numviews=numviews+1 where kodeproduk='' and produkid=''
+2024-03-29 02:24:50 |  | /grosir/read/1627/ultravoal-sonic-a2b-anti-air-dan-bakteri Table 'ansa_newansania.tbl_product' doesn't exist SQL: select kodeproduk,produkid,secid,subid,title,misc_harga,ringkas, misc_matauang,misc_diskon from tbl_product where status='1' 
+				and published='1' and produkid!='' order by update_date desc limit 8
+2024-03-29 03:16:30 |  | /contact You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'm reaching out to offer my expertise in social media management, including st...' at line 1 SQL: insert into tbl_contact (`id`,`nama`,`email`,`pesan`,`phone`,`ip`, `tanggal`) values ('16540','Rana Stoneman','socialmedia1145@outlook.com','Hi, This is Rana. I'm reaching out to offer my expertise in social media management, including strategic calendar planning, captivating post creation as per your business, e-commerce product promotion, SEO-friendly social media captions, and design services such as brochures, posters, and flyers tailored to enhance your brand's social media presence and engage your audience effectively. 
+
+My rate is USD 20 per hour. I can provide you a fixed quote as per your requirements. 
+
+Drop me an email at socialmedia1145@outlook.com to discuss it further.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+','','102.165.16.110', '2024-03-29 03:03:30')
+2024-03-29 08:23:08 |  | /grosir/read/1742/shinar-ansania.html Table 'ansa_newansania.tbl_product' doesn't exist SQL: select produkid, secid, subid, kodeproduk, title, content, ringkas, misc_harga, cart, misc_diskon, create_date, misc_matauang, brandid, tag from tbl_product where status='1' and alias='shinar-ansania' and published='1'
+2024-03-29 08:23:08 |  | /grosir/read/1742/shinar-ansania.html Table 'ansa_newansania.tbl_product' doesn't exist SQL: update tbl_product set numviews=numviews+1 where kodeproduk='' and produkid=''
+2024-03-29 08:23:08 |  | /grosir/read/1742/shinar-ansania.html Table 'ansa_newansania.tbl_product' doesn't exist SQL: select kodeproduk,produkid,secid,subid,title,misc_harga,ringkas, misc_matauang,misc_diskon from tbl_product where status='1' 
+				and published='1' and produkid!='' order by update_date desc limit 8
+2024-03-29 09:01:49 |  | /sale/list//3 Table 'ansa_newansania.tbl_product' doesn't exist SQL: select count(*) as jml from tbl_product where published='1' and misc_diskon < misc_harga and misc_diskon > 0 
+2024-03-29 10:29:08 |  | /grosir/read/1678/kasual-sonic-grosir Table 'ansa_newansania.tbl_product' doesn't exist SQL: select produkid, secid, subid, kodeproduk, title, content, ringkas, misc_harga, cart, misc_diskon, create_date, misc_matauang, brandid, tag from tbl_product where status='1' and alias='kasual-sonic-grosir' and published='1'
+2024-03-29 10:29:08 |  | /grosir/read/1678/kasual-sonic-grosir Table 'ansa_newansania.tbl_product' doesn't exist SQL: update tbl_product set numviews=numviews+1 where kodeproduk='' and produkid=''
+2024-03-29 10:29:08 |  | /grosir/read/1678/kasual-sonic-grosir Table 'ansa_newansania.tbl_product' doesn't exist SQL: select kodeproduk,produkid,secid,subid,title,misc_harga,ringkas, misc_matauang,misc_diskon from tbl_product where status='1' 
+				and published='1' and produkid!='' order by update_date desc limit 8
+2024-03-29 10:34:19 |  | /grosir/read/1680/koloni-polos-2-grosir Table 'ansa_newansania.tbl_product' doesn't exist SQL: select produkid, secid, subid, kodeproduk, title, content, ringkas, misc_harga, cart, misc_diskon, create_date, misc_matauang, brandid, tag from tbl_product where status='1' and alias='koloni-polos-2-grosir' and published='1'
+2024-03-29 10:34:19 |  | /grosir/read/1680/koloni-polos-2-grosir Table 'ansa_newansania.tbl_product' doesn't exist SQL: update tbl_product set numviews=numviews+1 where kodeproduk='' and produkid=''
+2024-03-29 10:34:19 |  | /grosir/read/1680/koloni-polos-2-grosir Table 'ansa_newansania.tbl_product' doesn't exist SQL: select kodeproduk,produkid,secid,subid,title,misc_harga,ringkas, misc_matauang,misc_diskon from tbl_product where status='1' 
+				and published='1' and produkid!='' order by update_date desc limit 8
+2024-03-29 11:43:03 |  | /sale/list/2 Table 'ansa_newansania.tbl_product' doesn't exist SQL: select count(*) as jml from tbl_product where published='1' and misc_diskon < misc_harga and misc_diskon > 0 
+2024-03-29 13:14:47 |  | /grosir/read/1628/istanbul-turki-combo-a Table 'ansa_newansania.tbl_product' doesn't exist SQL: select produkid, secid, subid, kodeproduk, title, content, ringkas, misc_harga, cart, misc_diskon, create_date, misc_matauang, brandid, tag from tbl_product where status='1' and alias='istanbul-turki-combo-a' and published='1'
+2024-03-29 13:14:47 |  | /grosir/read/1628/istanbul-turki-combo-a Table 'ansa_newansania.tbl_product' doesn't exist SQL: update tbl_product set numviews=numviews+1 where kodeproduk='' and produkid=''
+2024-03-29 13:14:47 |  | /grosir/read/1628/istanbul-turki-combo-a Table 'ansa_newansania.tbl_product' doesn't exist SQL: select kodeproduk,produkid,secid,subid,title,misc_harga,ringkas, misc_matauang,misc_diskon from tbl_product where status='1' 
+				and published='1' and produkid!='' order by update_date desc limit 8
+2024-03-29 13:15:12 |  | /grosir/read/1677/monokrom-grosir Table 'ansa_newansania.tbl_product' doesn't exist SQL: select produkid, secid, subid, kodeproduk, title, content, ringkas, misc_harga, cart, misc_diskon, create_date, misc_matauang, brandid, tag from tbl_product where status='1' and alias='monokrom-grosir' and published='1'
+2024-03-29 13:15:12 |  | /grosir/read/1677/monokrom-grosir Table 'ansa_newansania.tbl_product' doesn't exist SQL: update tbl_product set numviews=numviews+1 where kodeproduk='' and produkid=''
+2024-03-29 13:15:12 |  | /grosir/read/1677/monokrom-grosir Table 'ansa_newansania.tbl_product' doesn't exist SQL: select kodeproduk,produkid,secid,subid,title,misc_harga,ringkas, misc_matauang,misc_diskon from tbl_product where status='1' 
+				and published='1' and produkid!='' order by update_date desc limit 8
+2024-03-29 14:41:48 |  | /grosir/read/1633/cornskin-grosir Table 'ansa_newansania.tbl_product' doesn't exist SQL: select produkid, secid, subid, kodeproduk, title, content, ringkas, misc_harga, cart, misc_diskon, create_date, misc_matauang, brandid, tag from tbl_product where status='1' and alias='cornskin-grosir' and published='1'
+2024-03-29 14:41:48 |  | /grosir/read/1633/cornskin-grosir Table 'ansa_newansania.tbl_product' doesn't exist SQL: update tbl_product set numviews=numviews+1 where kodeproduk='' and produkid=''
+2024-03-29 14:41:48 |  | /grosir/read/1633/cornskin-grosir Table 'ansa_newansania.tbl_product' doesn't exist SQL: select kodeproduk,produkid,secid,subid,title,misc_harga,ringkas, misc_matauang,misc_diskon from tbl_product where status='1' 
+				and published='1' and produkid!='' order by update_date desc limit 8
+2024-03-30 01:13:27 |  | /grosir/read/1438/saudia-sonic-combo-b-grosir.html Table 'ansa_newansania.tbl_product' doesn't exist SQL: select produkid, secid, subid, kodeproduk, title, content, ringkas, misc_harga, cart, misc_diskon, create_date, misc_matauang, brandid, tag from tbl_product where status='1' and alias='saudia-sonic-combo-b-grosir' and published='1'
+2024-03-30 01:13:27 |  | /grosir/read/1438/saudia-sonic-combo-b-grosir.html Table 'ansa_newansania.tbl_product' doesn't exist SQL: update tbl_product set numviews=numviews+1 where kodeproduk='' and produkid=''
+2024-03-30 01:13:28 |  | /grosir/read/1438/saudia-sonic-combo-b-grosir.html Table 'ansa_newansania.tbl_product' doesn't exist SQL: select kodeproduk,produkid,secid,subid,title,misc_harga,ringkas, misc_matauang,misc_diskon from tbl_product where status='1' 
+				and published='1' and produkid!='' order by update_date desc limit 8
+2024-03-31 12:56:14 |  | /grosir/read//cornskin-metalik-stik.html Table 'ansa_newansania.tbl_product' doesn't exist SQL: select produkid, secid, subid, kodeproduk, title, content, ringkas, misc_harga, cart, misc_diskon, create_date, misc_matauang, brandid, tag from tbl_product where status='1' and alias='cornskin-metalik-stik' and published='1'
+2024-03-31 12:56:14 |  | /grosir/read//cornskin-metalik-stik.html Table 'ansa_newansania.tbl_product' doesn't exist SQL: update tbl_product set numviews=numviews+1 where kodeproduk='' and produkid=''
+2024-03-31 12:56:14 |  | /grosir/read//cornskin-metalik-stik.html Table 'ansa_newansania.tbl_product' doesn't exist SQL: select kodeproduk,produkid,secid,subid,title,misc_harga,ringkas, misc_matauang,misc_diskon from tbl_product where status='1' 
+				and published='1' and produkid!='' order by update_date desc limit 8
+2024-03-31 13:12:43 |  | /grosir/read//cornskin-metalik-stik.html Table 'ansa_newansania.tbl_product' doesn't exist SQL: select produkid, secid, subid, kodeproduk, title, content, ringkas, misc_harga, cart, misc_diskon, create_date, misc_matauang, brandid, tag from tbl_product where status='1' and alias='cornskin-metalik-stik' and published='1'
+2024-03-31 13:12:43 |  | /grosir/read//cornskin-metalik-stik.html Table 'ansa_newansania.tbl_product' doesn't exist SQL: update tbl_product set numviews=numviews+1 where kodeproduk='' and produkid=''
+2024-03-31 13:12:43 |  | /grosir/read//cornskin-metalik-stik.html Table 'ansa_newansania.tbl_product' doesn't exist SQL: select kodeproduk,produkid,secid,subid,title,misc_harga,ringkas, misc_matauang,misc_diskon from tbl_product where status='1' 
+				and published='1' and produkid!='' order by update_date desc limit 8
+2024-04-01 05:02:49 |  | /grosir/read/1404/tierack-misty-double-side.html Table 'ansa_newansania.tbl_product' doesn't exist SQL: select produkid, secid, subid, kodeproduk, title, content, ringkas, misc_harga, cart, misc_diskon, create_date, misc_matauang, brandid, tag from tbl_product where status='1' and alias='tierack-misty-double-side' and published='1'
+2024-04-01 05:02:49 |  | /grosir/read/1404/tierack-misty-double-side.html Table 'ansa_newansania.tbl_product' doesn't exist SQL: update tbl_product set numviews=numviews+1 where kodeproduk='' and produkid=''
+2024-04-01 05:02:49 |  | /grosir/read/1404/tierack-misty-double-side.html Table 'ansa_newansania.tbl_product' doesn't exist SQL: select kodeproduk,produkid,secid,subid,title,misc_harga,ringkas, misc_matauang,misc_diskon from tbl_product where status='1' 
+				and published='1' and produkid!='' order by update_date desc limit 8
+2024-04-01 05:11:49 |  | /grosir/read/1404/tierack-misty-double-side.html Table 'ansa_newansania.tbl_product' doesn't exist SQL: select produkid, secid, subid, kodeproduk, title, content, ringkas, misc_harga, cart, misc_diskon, create_date, misc_matauang, brandid, tag from tbl_product where status='1' and alias='tierack-misty-double-side' and published='1'
+2024-04-01 05:11:49 |  | /grosir/read/1404/tierack-misty-double-side.html Table 'ansa_newansania.tbl_product' doesn't exist SQL: update tbl_product set numviews=numviews+1 where kodeproduk='' and produkid=''
+2024-04-01 05:11:49 |  | /grosir/read/1404/tierack-misty-double-side.html Table 'ansa_newansania.tbl_product' doesn't exist SQL: select kodeproduk,produkid,secid,subid,title,misc_harga,ringkas, misc_matauang,misc_diskon from tbl_product where status='1' 
+				and published='1' and produkid!='' order by update_date desc limit 8

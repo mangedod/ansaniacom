@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+body{
+	font-family: 'Poppins', sans-serif;
+	color: #6c757d !important;
+}
+
+.text-black{
+	color: black !important;
+}
+
+.bg-1{
+	background-color: #373a5d !important;
+}
+
+.bg-2{
+	background-color: #4e549d !important;
+}
+
+.bg-3{
+	background-color: #f3f4ff !important;
+}
+
+.bg-img{
+	background-size: cover;
+}
+
+.text-1{
+	color: #373a5d !important;
+}
+
+.text-warning{
+	color: #f8a23e !important;
+}
+
+h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6{
+	font-weight: bold !important;
+}
+
+.nav-link{
+	margin: auto;
+}
+
+header nav .navbar-nav .nav-link.active{
+	color: #ee6f57 !important;
+}
+
+@media(min-width: 992px){
+	.nav-link{
+		margin-left: 10px;
+	}
+}
+
+.crop-foto{
+	height: 200px;
+	overflow: hidden;
+}
+
+.crop-content{
+	height: 70px;
+	overflow: hidden;
+}
+
+.isi-content img{
+	background-size: cover;
+	width: 100%;
+	height: auto;
+}
+
+.card.produk{
+	background-image: url(../assets/img/Section-Intro1-090-Img-1.png);
+	background-size: cover;
+	border: 0px;
+	height: 500px;
+	background-position: center;
+}
+
+.card.produk div{
+	position: relative;
+	z-index: 1;
+}
+
+.card.produk:after{
+	content: '';
+	background: rgba(190, 174, 226, 0.5);
+	background: linear-gradient(0deg, rgba(0, 0, 0, 0.842) 0%, rgba(255, 204, 204, 0.1) 100%);
+	border-radius: 10px;
+	width: 100%;
+	height: 100%;
+	display: block;
+	position: absolute;
+	left: 0px;
+	bottom: 0px;
+}
+
+@media (min-width: 768px) {
+	.kanan .kiri{
+		position: relative;
+		left: 25px;
+		z-index: 1;
+	}
+	
+	.kanan .kanan{
+		position: relative;
+		right: 25px;
+	}
+	
+	.kiri .kiri{
+		position: relative;
+		left: 25px;
+	}
+	
+	.kiri .kanan{
+		position: relative;
+		right: 25px;
+		z-index: 1;
+	}
+}
+
+footer h5{
+	color: #000 !important;
+}
+
+footer a{
+	color: #6c757d !important;
+}
+
+.form-control{
+	border-radius: 10px !important;
+}
+
+.shadow-sm {
+	box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+}
+
+.shadow {
+	box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
+.shadow-lg {
+	box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.07) !important;
+}
+
+.card {
+	border-radius: 10px;
+}
+
+.card figure {
+	overflow: hidden;
+	position: relative;
+	margin-bottom: 0px;
+	border-radius: 10px;
+}
+
+.card figure:before {
+	z-index: 2;
+	-webkit-transition: .4s all ease;
+	-o-transition: .4s all ease;
+	transition: .4s all ease;
+	-webkit-transform: scale(1.05);
+	-ms-transform: scale(1.05);
+	transform: scale(1.05);
+	position: absolute;
+	content: "";
+	left: 20px;
+	right: 20px;
+	top: 20px;
+	bottom: 20px;
+	opacity: 0;
+	visibility: hidden; 
+}
+    
+.card figure img {
+	-webkit-transition: .3s all ease;
+	-o-transition: .3s all ease;
+	transition: .3s all ease;
+	-webkit-transform: scale(1);
+	-ms-transform: scale(1);
+	transform: scale(1);
+}
+
+.card:hover figure:before {
+	opacity: 1;
+	visibility: visible;
+	-webkit-transform: scale(1);
+	-ms-transform: scale(1);
+	transform: scale(1);
+}
+.card:hover figure img {
+	-webkit-transform: scale(1.2);
+	-ms-transform: scale(1.2);
+	transform: scale(1.2);
+}
+
+.accordion .btn-link{
+	text-decoration: none;
+	background-color: #373a5d !important;
+	color: white;
+	padding-left: 0px;
+	font-weight: 700;
+}
+
+.accordion .card{
+	background-color: #373a5d !important;
+	color: #dbdbdb;
+	border-radius: 0px;
+	margin-top: 10px;
+}
+
+.text-light{
+	color: #dbdbdb !important;
+}
+
+.accordion .card-body{
+	border-top: 1px solid #929292;
+}
+
+.btn{
+	border-radius: 10px !important;
+}
+
+.btn-primary{
+	background-color: #ee6f57 !important;
+	border-color: #ee6f57 !important;
+}
+
+.btn-primary:hover{
+	background-color: #ee6f57 !important;
+	border-color: #ee6f57 !important;
+	box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
+}
+
+.btn-primary:focus{
+	background-color: #ee6f57 !important;
+	border-color: #ee6f57 !important;
+	box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
+}
+
+.radius-10{
+	border-radius: 10px;
+}
+
+.radius-20{
+	border-radius: 20px;
+}
+
+.radius-0{
+	border-radius: 0px;
+}

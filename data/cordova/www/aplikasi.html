@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Ansania</title>
+    <meta content="IE=edge" http-equiv="x-ua-compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+
+    <!-- Fonts -->
+    <!-- Icons -->
+    <link href="css/ionicons.min.css" media="all" rel="stylesheet" type="text/css">
+    <!-- Styles -->
+    <link href="css/keyframes.css" rel="stylesheet" type="text/css">
+    <link href="css/materialize.min.css" rel="stylesheet" type="text/css">
+    <link href="css/swiper.css" rel="stylesheet" type="text/css">
+    <link href="css/swipebox.min.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+	<script src="js/jquery-2.1.0.min.js"></script>
+	<script src="js/fastclick.js"></script>
+	<script type="text/javascript">
+    
+	var url = window.location.pathname;
+    var filename = url.substring(url.lastIndexOf('/') + 1);
+
+	</script>
+    <script type="text/javascript" src="js/main.js"></script>
+
+  <script type="text/javascript" src="js/iscroll.js"></script>
+	<script type="text/javascript">
+    var myScroll;
+    function loaded () {
+        myScroll = new IScroll('#content', { mouseWheel: true });
+    }
+    </script>
+</head>
+
+  <body>
+    <div class="m-scene" id="main">  
+
+    
+      <!-- Page Content -->
+      <div id="content" class="grey-blue page">
+
+        <!-- Toolbar -->
+        <div id="toolbar"  class="primary-color">
+        
+          <span class="title">Ansania</span><div class="open-right waves-effect waves-circle">
+            <a href="javascript:fade('index.html');"><i class="fal fa-bars"></i></a>
+          </div>
+        </div>
+        
+        <script>
+		
+			var urls ="http://localhost:8080/ansaniacom/api/android/index.php/home/slide/?callback=?";
+			var dataString ="useremail="+localStorage.login;
+		
+			  $.ajax({
+				  type: "POST",
+				  url: urls,
+				  data: dataString,
+				  crossDomain: true,
+				  cache: false,
+				  success: function(data){
+					 
+					  if(data['status']=="OK")
+					  {
+						var slides = data['slide'];
+						var dataslide = "";
+
+						  for (var key in slides) {
+							if (slides.hasOwnProperty(key)) {
+							  dataslide += '<div class="swiper-slide">';
+							  dataslide += '<img src="' + slides[key]["gambar"] + '" alt="" />';
+							  dataslide += "</div>";
+							}
+						  }
+						  
+						 $(".swiper-wrapper").html(dataslide);
+					  }
+					 
+				  }
+			  });
+		  
+		</script>
+        
+        <div class="h-banner animated fadeindown" style="margin-top:0px !important;">
+          <div class="parallax">
+            <!-- Slider -->         
+            <div class="swiper-container slider">
+              <div class="swiper-wrapper">
+               
+              </div>
+              <!-- Add Pagination -->
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+         </div>
+ 		        
+
+        <!-- Profile Content -->
+        <div class="animated fadein delay-1" style="margin-top:40px"> 
+           
+		  <div class="card m-t-40 animated fadein delay-2 p-5-10" onClick="javascript:fade('tentang.html');">
+            <div class="c-widget">
+              <div class="c-widget-figure primary-color" style="background:#df837d !important;">
+                <i class="fal fa-globe"></i>
+              </div>
+              <div class="c-widget-body">
+                <p class="m-0"><strong>Tentang Ansania</strong></p>
+                <p class="small m-0">Kenali lebih dekat tentang Tentang Ansania</p>
+              </div>
+            </div>
+          </div>
+          
+         
+          
+           <div class="card animated fadein delay-2 p-5-10" onClick="javascript:fade('faq.html');">
+            <div class="c-widget">
+             <div class="c-widget-figure primary-color" style="background:#be6dc1 !important;">
+                <i class="fal fa-question"></i>
+              </div>
+              <div class="c-widget-body">
+                <p class="m-0"><strong>FAQ dan Bantuan</strong></p>
+                <p class="small m-0">Tanya Jawab dan bantuan seputar Ansania</p>
+              </div>
+            </div>
+          </div>
+          
+
+         
+           <div class="card animated fadein delay-2 p-5-10" onClick="javascript:fade('contact.html');">
+            <div class="c-widget">
+              <div class="c-widget-figure primary-color" style="background:#3081b0 !important;">
+                <i class="fal fa-phone"></i>
+              </div>
+              <div class="c-widget-body">
+                <p class="m-0"><strong>Hubungi Kami</strong></p>
+                <p class="small m-0">Hubungi Kami segera untuk informasi lebih lanjut</p>
+              </div>
+            </div>
+          </div> <br clear="all"> <br clear="all"> <br clear="all"> <br clear="all">
+
+        <div class="steps-controllers">
+              <div  class="waves-effect waves-ripple"><a href="javascript:fade('index.html')"><span class="menubuttom"><span class="fal fa-home-alt"></span></span><br>Home</a></div>
+              <div class="waves-effect waves-ripple"><a href="javascript:fade('product.html')"><span class="menubuttom"><span class="fal fa-search"></span></span><br>Produk</a></div>
+              <div class="waves-effect waves-ripple"><a href="javascript:fade('transaksi.html')"><span class="menubuttom"><span class="fal fa-list-alt"></span></span><br>Transaksi</a></div>
+              <div class="waves-effect waves-ripple"><a href="javascript:fade('pesan.html')"><span class="menubuttom"><span class="fal fa-envelope"></span></span><br>Inbox</a></div>
+              <div class="waves-effect waves-ripple"><a href="javascript:fade('setting.html')"><span class="menubuttom"><span class="fal fa-user"></span></span><br>Akun</a></div>
+       </div>
+ </div> <!-- End of Page Container -->
+    
+    <script type="text/javascript" src="cordova.js"></script>
+    <script src="js/jquery.swipebox.min.js"></script>   
+    <script src="js/jquery.smoothState.min.js"></script> 
+    <script src="js/materialize.min.js"></script> 
+    <script src="js/swiper.min.js"></script>  
+    <script src="js/jquery.mixitup.min.js"></script>
+    <script src="js/masonry.min.js"></script>
+    <script src="js/chart.min.js"></script>
+    <script src="js/functions.js"></script>
+ 
+  </body>
+</html>

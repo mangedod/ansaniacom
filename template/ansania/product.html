@@ -1,0 +1,52 @@
+{include file="`$lokasitemplate`komponen/home/header.html"}
+    {if $aksi eq 'read'}
+     <div class="container kanal">
+       <div class="row">
+            <div class="col-md-12">
+                 <ol class="breadcrumb">
+                   <li><a href="{$fulldomain}/">Home</a></li>
+                  <li><a href="{$fulldomain}/product">Produk</a></li>
+                  {if $namasec neq ''}<li><a href="{$link_sec}">{$namasec}</a></li>{/if}
+                  {if $namasub neq ''}<li class="active">{$namasub}</li>{/if}
+                </nav>
+            </div>
+       </div>
+      
+    </div>
+    {else}
+    <div class="container kanal">
+       <div class="row">
+            <div class="col-md-12">
+                <ol class="breadcrumb">
+                  <li><a href="{$fulldomain}/">Home</a></li>
+                  <li><a href="{$fulldomain}/product">Produk</a></li>
+                  {if $namasec neq ''}<li><a href="{$link_sec}">{$namasec}</a></li>{/if}
+                  {if $namasub neq ''}<li class="active">{$namasub}</li>{/if}
+                </nav>
+            </div>
+       </div>
+       <div class="text-left text-title-list">
+            <h1>PRODUCT</h1>
+       </div>
+    </div>
+    {/if}
+
+
+    <div class="container">
+        <div class="row">
+    <!-- CONTENT -->
+
+        {if $aksi eq 'read'}
+            {include file="`$lokasitemplate`komponen/$kanal/$kanal.read.html"}
+        {else}
+            {include file="`$lokasitemplate`komponen/$kanal/$kanal.list.html"}
+        {/if}
+ 
+    <!-- /.content -->
+</div>
+</div>
+</div>
+<!-- /.wrapper -->
+
+<!-- FOOTER -->
+{include file="`$lokasitemplate`komponen/home/footer.html"}

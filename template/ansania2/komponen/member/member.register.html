@@ -1,0 +1,89 @@
+    <!-- HOME -->
+    <div class="overlay home small-medium-size">
+        <div class="bg bg-shop"></div>
+        <div class="container vmiddle">
+            <div class="row text-center text-title-list">
+                <h1 class="text-uppercase" style="font-size: 50px">Register</h1>
+                <h4>Please register yourself</h4>
+            </div>
+        </div>
+    </div>
+    <!-- /.home -->
+
+    <div class="container">
+        <div class="row">
+           <div class="col-md-6 col-md-offset-2">
+
+                {if $pesanhasil neq ''}
+                  <div class="alert {if $berhasil eq '1'}  alert-success {else} alert-danger{/if} alert-dismissible" role="alert">
+                      <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                       {$pesanhasil}.
+                       <ul>
+                       {foreach from=$pesan key=id item=a}
+                          <li>{$a.pesan}</li>
+                       {/foreach}
+                       </ul>
+                  </div>
+                {else}
+                    {if $daftaravatar neq '' }
+                        <div class="daftar-avatar" ><img src="{$daftaravatar}" alt="" border="0" /></div>
+                    {/if}
+                    {if $daftarname neq ''}
+                      Hi <strong>{$daftarname}</strong>, continue by completing the registration process you
+                       the form provided below correctly<hr />
+                      <div class="alert alert-warning">
+                      If you already have an account {$title} before and will be linked
+                       with your sosmed, enter the username and password that you have.
+                      </div>
+                    {else}
+                    {/if}
+                {/if}
+
+              
+                  <form action="{$fulldomain}/member/daftaranggota" class="form-horizontal" method="post" name="registermember">
+                      <input type="hidden" name="register" value="1" />
+                      {if $fbid neq ''}<input type="hidden" name="fbid" value="{$fbid}" />{/if}
+                      {if $gpid neq ''}<input type="hidden" name="gpid" value="{$gpid}" />{/if}
+                      {if $last neq ''}<input type="hidden" name="uri" value="{$last}" />{/if}
+                     <div class="form-group">
+                         <label class="control-label col-md-4">Username :</label>
+                         <div class="col-md-8"><input type="text" name="username"  value="{$daftarusername}" placeholder="Masukan username anda minimal 3 karakter tanpa simbol" class="form-control" required="required"></div>
+                     </div>
+                     <div class="form-group">
+                         <label class="control-label col-md-4">Name :</label>
+                         <div class="col-md-8"><input type="text" name="userfullname"  value="{$daftarname}"  placeholder="Masukan nama lengkap anda" class="form-control" required="required"></div>
+                     </div>
+                     <div class="form-group">
+                         <label class="control-label col-md-4">Email :</label>
+                         <div class="col-md-8"><input type="email" name="useremail"  value="{$daftaremail}"  placeholder="Tulis alamat email anda" class="form-control" required="required"></div>
+                     </div>
+                     <div class="form-group">
+                         <label class="control-label col-md-4">Phone Number :</label>
+                         <div class="col-md-8"><input type="text" name="userphonegsm"  placeholder="Masukan nomor telephone anda"  value="{$daftaruserphonegsm}" class="form-control"></div>
+                     </div>
+                     <div class="form-group">
+                         <label class="control-label col-md-4">Password :</label>
+                         <div class="col-md-8"><input type="password" name="userpassword"  placeholder="Ketik password anda"  class="form-control" required="required"></div>
+                     </div>
+                      <div class="form-group">
+                         <label class="control-label col-md-4">Confirm Password :</label>
+                         <div class="col-md-8"><input type="password" name="userpasswordconf"  placeholder="Ketik ulang password anda"  class="form-control" required="required"></div>
+                     </div>
+                      <fieldset class="custom">
+                      <div class="col-md-8 col-md-offset-4">
+                          <div class="checkbox-group">
+                              <label for="confirm-register"><input id="confirm-register" required="required" type="checkbox">&nbsp; <span>Saya paham dan menyetujui <a href="{$fulldomain}/termcondition">Aturan dan kebijakan </a> dari {$title}.</span></label>
+                          </div>
+                          <div class="clearfix">&nbsp;</div>
+                      </div>
+                      </fieldset>
+                     <div class="form-group">
+                         <div class="col-md-3 col-md-offset-4"><button class="btn btn-primary" type="submit">Daftarkan Sekarang</button></div>
+                       
+                        
+                     </div>
+                  </form>
+                  
+           </div>
+        </div>
+    </div>

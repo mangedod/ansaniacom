@@ -1,0 +1,73 @@
+                              <script src="../../librari/ajax/ajax_prop.js"></script>
+                              <script src="../../librari/ajax/ajax_kota.js"></script>
+                                <div class="tab-pane {if $subaksi eq 'biodata' or $subaksi eq ''}active{/if}" id="biodata">
+                                    <form class="form-horizontal" name="{$fulldomain}/member/setting" method="post">
+                                        <input type="hidden" name="saveacc" value="1">
+                                        <div class="form-group">
+                                            <label for="nama" class="col-sm-4">Username/ Email</label>
+                                            <div class="col-sm-6">
+                                              <input type="text" class="form-control" id="useremail" name="useremail" value="{$useremail}" readonly>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="nama" class="col-sm-4">Full Name&nbsp;&nbsp;<span style="color:red">*</span></label>
+                                            <div class="col-sm-6">
+                                              <input type="text" class="form-control" id="userfullname" placeholder="Full Name" value="{$userfullname}" name="userfullname" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="hari" class="col-sm-4">Date of birth</label>
+                                            <div class="col-sm-2">
+                                              <select name="date" class="form-control" id="date" required  >
+                                                <option value="">Date</option>
+                                                  {html_options values=$dateLoop  output=$dateLoop selected=$dateSelected}
+                                              </select>
+                                            </div>
+                                            <div class="col-sm-2">
+                                              <select name="month" class="form-control" id="month" style="margin-left: 30px;" required >
+                                                  <option value="">Month</option>
+                                                  {html_options values=$monthLoop  output=$monthLoop selected=$monthSelected}
+                                              </select>
+                                            </div>
+                                            <div class="col-sm-2">
+                                              <select name="year" class="form-control" id="year" style="margin-left: 60px;"    required>
+                                                <option value="">Year</option>
+                                                {html_options values=$yearLoop  output=$yearLoop selected=$yearSelected}
+                                              </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="laki-laki" class="col-sm-4">Gender&nbsp;&nbsp;<span style="color:red">*</span></label>
+                                            <div class="col-sm-6">
+                                              <label><input type="radio" name="usergender" id="Male" value="laki-laki" {if $usergender eq 'laki-laki'}checked="checked"{/if}> Male</label>
+                                              &nbsp;&nbsp;
+                                              <label><input type="radio" name="usergender" id="Female" value="perempuan" {if $usergender eq 'perempuan'}checked="checked"{/if}> Female</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="hp" class="col-sm-4">Mobile phone number&nbsp;&nbsp;<span style="color:red">*</span></label>
+                                            <div class="col-sm-6">
+                                              <input type="text" class="form-control" id="userphonegsm" name="userphonegsm" value="{$userpgsm}" placeholder="Mobile phone number">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                <div class="alert alert-info">
+                                                    <p style="margin:0"> <i class="fa fa-info-circle"></i> &nbsp;Asterisk (*) Mandatory.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="col-sm-offset-4 col-sm-10">
+                                                <button type="submit" class="btn btn-primary">Save</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <!-- /.tab-pane #biodata -->

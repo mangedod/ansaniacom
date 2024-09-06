@@ -1,0 +1,30 @@
+*,html{
+	padding:0px;
+	margin:0px;
+	color:#333;
+	font-size:14px;
+	}
+body{
+	font-family: "Rubik",sans-serif;
+	font-size:16px;
+	line-height:24px;
+	text-align:center;
+	background:url('../images/background.jpg') no-repeat center center fixed; 
+	-webkit-background-size: cover; 
+	-moz-background-size: cover;
+	-o-background-size: cover;	
+	background-size: cover;
+	color:#666666
+	}
+.form-group .form-stack .form-control.input-lg {
+	font-size:14px !important;
+	}
+.btn-danger {
+	color:#ffffff;
+	}
+.semibold {
+	color:#FFFFFF;
+	}
+.container{
+	margin-top:1%;
+	}

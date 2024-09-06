@@ -1,0 +1,54 @@
+
+           <h3>Setting</h3>
+           <hr>
+            <!-- =========================================TAB SETTING START ========================================= -->
+                <section id="single-product-tab" class="setting-tab">
+                    {literal}
+                    <script type="text/javascript">
+                        function tampil(data) {
+                            if (data == "tampil") {
+                                $(".shippingaddres").show();
+                            } else {
+                                $(".shippingaddres").hide();
+                            }
+                        }
+                    </script>
+                    {/literal}
+
+                    <div class="no-container">
+                        <div class="tab-holder tab-product-detail">
+
+                            <ul class=" nav nav-tabs text-center">
+                                <li {if $subaksi eq 'biodata' or $subaksi eq ''}class="active"{/if}><a href="{$fulldomain}/member/setting/biodata">Personal Biodata</a></li>
+                                <li {if $subaksi eq 'addressinfo' or $subaksi eq 'deleteaddress'}class="active"{/if}><a href="{$fulldomain}/member/setting/addressinfo">Address Information</a></li>
+                                <li {if $subaksi eq 'changepass'}class="active"{/if}><a href="{$fulldomain}/member/setting/changepass">Change Password</a></li>
+                            </ul>
+                            <!-- /.nav-tabs -->
+
+                            <div class="tab-content">
+                            <br/>
+                            {if $error neq ''}
+                                <div class="alert {$style} alert-dismissible" role="alert" style="min-height: 0px;">
+                                    <button type="button" class="close" data-dismiss="alert" onclick="window.location=('{$backlink}')">
+                                        <span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                    {$error}
+                                </div>
+                            {/if}
+                            {if $subaksi eq 'addressinfo' or $subaksi eq 'deleteaddress'}
+                                {include file="`$lokasitemplate`komponen/member/member.setting.addressinfo.html"}
+                            {elseif $subaksi eq 'changepass'}
+                                {include file="`$lokasitemplate`komponen/member/member.setting.changepass.html"}
+                            {elseif $subaksi eq 'biodata' or $subaksi eq ''}
+                                {include file="`$lokasitemplate`komponen/member/member.setting.biodata.html"}
+                            {/if}
+                            </div>
+                            <!-- /.tab-content -->
+
+                        </div>
+                        <!-- /.tab-holder -->
+                    </div>
+                    <!-- /.container -->
+                </section>
+                <!-- /#single-product-tab -->
+                <!-- ========================================= SETTING TAB : END ========================================= -->
+          

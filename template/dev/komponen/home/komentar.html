@@ -1,0 +1,26 @@
+<div id="share"></div>
+<script src="{$lokasiwebtemplate}js/jssocials.min.js"></script>
+<script>
+    $("#share").jsSocials({
+        shares: ["facebook", "twitter", "googleplus", "whatsapp"]
+    });
+</script>
+<br />
+<br clear="all" />
+<div class="bg-divider"></div>
+<br clear="all" />
+<div style="padding:10px">
+<strong>Berikan Komentar Via Facebook</strong>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/id_ID/sdk.js#xfbml=1&version=v2.10&appId=321539914595425';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<div class="fb-comments" data-href="{$uri}" data-width="100%" data-numposts="5"></div>
+
+</div>

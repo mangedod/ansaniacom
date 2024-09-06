@@ -1,0 +1,30 @@
+<div class="insight-headline">
+
+{foreach from=$datadetail key=id item=ch}
+    <div class="list-content">
+    	<div class="list-content-isi">
+            {if $ch.gambar neq ''}
+            <div class="col-md-3"><img src="{$ch.gambar}" style="width:90%" /></div>
+            {/if}
+            <div class="col-md-8">
+                <h3 style="width:100%">{$ch.nama}</h3>
+                <p>{$ch.testimoni}<br />
+                <span>{$ch.tanggal}</span>
+            </p>
+            </div>
+                   
+        </div>
+    </div>
+{/foreach}
+<div class="paginate pull-right">
+    <ul class="pagination">
+        {foreach from=$stringpage key=pageid item=a}
+            {if $a.link neq ''}
+                <li><a href="{$a.link}">{$a.nama}</a></li>
+            {else}
+                <li><a href="javascript:void(0)">{$a.nama}</a></li>
+            {/if}
+        {/foreach}
+    </ul>
+</div>
+</div>

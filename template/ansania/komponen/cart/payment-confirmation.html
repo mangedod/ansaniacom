@@ -1,0 +1,108 @@
+
+    <!-- HOME -->
+    <div class="overlay home small-medium-size">
+        <div class="bg bg-shop"></div>
+        <div class="container vmiddle">
+            <div class="row text-center text-title-list">
+                <h1 class="text-uppercase">Payment Confirmation</h1>
+                <!-- <h4>Dashboard page</h4> -->
+            </div>
+        </div>
+    </div>
+    <!-- /.home -->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-xs-12 no-margin">
+                    <form method="post" action="{$fulldomain}/cart/save-confirm">
+                        <input type="hidden" name="total" id="total" value="{$subtotalnya}">
+                        <div class="billing-address">
+                            <h4>Payment Confirmation</h4>
+                            <!-- <script type="text/javascript" src="#/librari/ajax/ajax_kota.js"></script> -->
+                            <div class="row field-row">
+                                <div class="col-xs-12 col-sm-6">
+                                    <label>No. Invoice*</label>
+                                    <input type="text" name="invoiceid" id="invoiceid" value="{$invoicenya}" class="le-input" required="required">
+                                </div>
+                                {if $subtotalnya neq ''}
+                                <div class="col-xs-12 col-sm-6">
+                                    <label>Total Tagihan*</label>
+                                    <h3><b>{$subtotal2}</b></h3>
+                                </div>
+                                {/if}
+
+                            </div>
+
+                            <div class="row field-row">
+                                <div class="col-xs-12 col-sm-6">
+                                    <label>Sender Name*</label>
+                                    <input type="text" id="userfullname" class="le-input" name="name" value="{$userfullname}" />
+                                </div>
+                                <div class="col-xs-12 col-sm-6">
+                                    <label>Total*</label>
+                                    <input type="text" name="jumlah_bayar" id="jumlah_bayar" class="le-input" value="{$subtotalnya}" required="required">
+                                </div>
+
+                            </div>
+                            <!-- /.field-row -->
+
+                            <div class="row field-row">
+                                <div class="col-xs-12 col-sm-6" id="inputDate">
+                                    <label>Date *</label>
+                                    <div class="input-group date">
+                                        <input type="text" name="date" value="{$now}" class="form-control" title="Date">
+                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6">
+                                    <label>Destination Bank*</label>
+                                    <select name="bank" id="banktujuan" class="form-control">
+                                        <option value="">Select Bank</option>
+                                        {foreach from=$bank key=id item=b}
+                                        <option value="{$b.id}">{$b.nama}</option>
+                                        {/foreach}
+                                    </select>
+                                </div>
+                            </div>
+                            <!-- /.field-row -->
+
+                            <div class="row field-row">
+                                <div class="col-xs-12 col-sm-6">
+                                    <label>Sender Bank*</label>
+                                    <!-- <input type="text" name="bankdari" id="bankdari" class="le-input" value="" required="required"> -->
+                                    <select name="bankdari" id="bankdari" class="form-control" required="required">
+                                        <option value="">Select Bank</option>
+                                        {foreach from=$bankpengirim key=id item=bp}
+                                        <option value="{$bp.nama}">{$bp.nama}</option>
+                                        {/foreach}
+                                    </select>
+                                </div>
+                                <div class="col-xs-12 col-sm-6">
+                                    <label>Sender Account Number*</label>
+                                    <input type="text" name="norek" id="norek" class="le-input" value="{$norek}" required="required">
+                                </div>
+                            </div>
+                            <!-- /.field-row -->
+
+                            <div class="row field-row">
+                                <div class="col-xs-12 col-sm-12">
+                                    <label>Message</label>
+                                    <textarea name="pesan" id="pesan" class="le-input" data-placeholder="Message"></textarea>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- /.billing-address -->
+                        <div class="col-md-12">
+                            <div class="clearfix">&nbsp;</div>
+                            <button class="btn btn-primary" type="submit">Confirm</button>
+                        </div>
+                        <!-- /.place-order-button -->
+                    </form>
+
+                </div>
+                <!-- /.col -->
+            </div>
+        </div>
+    </div>

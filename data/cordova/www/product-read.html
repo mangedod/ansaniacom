@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Ansania</title>
+    <meta content="IE=edge" http-equiv="x-ua-compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <!-- Fonts -->
+    <!-- Icons -->
+    <!-- Styles -->
+    <link href="css/keyframes.css" rel="stylesheet" type="text/css">
+    <link href="css/materialize.min.css" rel="stylesheet" type="text/css">
+    <link href="css/swiper.css" rel="stylesheet" type="text/css">
+    <link href="css/swipebox.min.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+	<script src="js/jquery-2.1.0.min.js"></script>
+      <script src="js/fastclick.js"></script>
+	<script type="text/javascript">
+    
+	var url = window.location.pathname;
+    var filename = url.substring(url.lastIndexOf('/') + 1);
+	
+ 	</script>
+    <script type="text/javascript" src="js/main.js"></script>
+
+  <script type="text/javascript" src="js/iscroll.js"></script>
+	<script type="text/javascript">
+    var myScroll;
+    function loaded () {
+        myScroll = new IScroll('#content', { mouseWheel: true });
+    }
+    </script>
+</head>
+
+  <body>
+    <div class="m-scene" id="main">
+
+    
+      <!-- Page Content -->
+      <div id="content" class="grey-blue page">
+
+        <!-- Toolbar -->
+        <div id="toolbar"  class="primary-color">
+           <a href="javascript:history.back()" class="open-left">
+            <i class="fal fa-arrow-left"></i>
+          </a>
+           <span class="title">Detail Produk</span>
+        </div>
+        
+               
+		<script>
+			
+			  var id = getvar("id");
+			  var urls ="http://localhost:8080/ansaniacom/api/android/index.php/product/read/"+id+"/?callback=?";
+		
+			  $.ajax({
+				  type: "GET",
+				  url: urls,
+				  crossDomain: true,
+				  cache: false,
+				  success: function(data){
+				  	
+					  var datalist;
+					  
+					  datalist = "";
+					  
+					  if(data['status']=="OK")
+					  {
+						  var dl = data['detailgaleri'];
+						  var jml = dl.length;
+							if(jml>0)
+							{
+								datalist += '<div class="swiper-container swiper-product slider m-b-20" style="height:auto"><div class="swiper-wrapper">';
+								for (var key in dl) 
+								{
+									if (dl.hasOwnProperty(key)) {								
+									  datalist += '<div class="swiper-slide"><img src="' + dl[key]["gambar"] + '" alt="" /></div>';
+									  datalist += '';
+							 
+									}
+							 	}
+								  datalist += '</div></div>';
+							}
+						  
+						  datalist += '<div class="blog-fullwidth animated fadeinup delay-1">';
+						  datalist += '<div class="blog-preview p-20"><h4><strong>'+data["detailnama"]+'</strong></h4></p>';
+						  datalist += '<p><span style="color:#e8740d"><strong>Rp.'+data["harganya"]+'</strong></span><br><br>'+data["detaillengkap"]+'</p>';
+						  datalist += '<p><br>Ketersediaan: '+data["stock"]+' tersedia';
+
+						  datalist += '<br><div class="boxbeli"><a href="https://api.whatsapp.com/send?text=Hai Ansania, apakah '+data["detailnama"]+' masih tersedia?&phone=6282110698844" id="beli" class="waves-effect btn-large waves-light primary-color animated bouncein delay-2 button w100 button-block button-positive"><i class="fal fa-shopping-cart"></i>  Beli Sekarang</a></center></div></div>';
+						  
+						 					  
+						  
+						  //datalist += '<br><div class="boxbeli"><div class="box-beli-jumlah"><select id="jml" class="browser-default m-b-30"><option value="1">1</option><option value="2">2</option><option value="3">3</option></select></div><div class="box-beli-btn"><button onclick="beli()" id="beli" class="waves-effect btn-large waves-light primary-color animated bouncein delay-2 button w100 button-block button-positive"><i class="icon-cart"></i>  Beli Sekarang</button></center></div></div>';
+						  datalist += '</div></div>';						
+						  $("#bloglist").append(datalist);
+						  delete(datalist);
+							
+					  }
+					 
+				  }
+			  });
+							
+	
+		</script>
+        
+      <!-- Main Content -->
+	  
+        <div class="animated fadeinup" id="bloglist"> 
+
+               
+        </div>
+		
+		<script>
+		//Kirim Komentar
+		function beli()
+		{
+			
+			var id = getvar("id");
+			var jml = $("#jml").val();
+			
+			var urls="http://localhost:8080/ansaniacom/api/android/index.php/cart/buy/?callback=?";
+			
+		
+			var dataString="jml="+jml+"&userid="+localStorage.userid+"&id="+id+"&orderid="+localStorage.transid;
+	
+			if(jml>0)
+			{
+				$.ajax({
+					type: "POST",
+					url: urls,
+					data: dataString,
+					crossDomain: true,
+					cache: false,
+					beforeSend: function(){ $("#beli").val('Masukan ke Keranjang...');},
+					success: function(data){
+						
+						if(data['status']=="OK")
+						{
+							alert(data['message']);
+							localStorage.transid = data['transid'];
+							slide("cart.html?action=read&transid="+data['transid']);						
+						}
+						else if(data['status']=="ERROR")
+						{
+							//alert(data['message']);
+						}
+					}
+				});
+			}return false;
+	
+		}
+		</script>
+		
+		<br><br>
+        <div class="steps-controllers">
+              <div  class="waves-effect waves-ripple"><a href="javascript:fade('index.html')"><span class="menubuttom"><span class="fal fa-home-alt"></span></span><br>Home</a></div>
+              <div class="waves-effect waves-ripple"><a href="javascript:fade('product.html')" class="active"><span class="menubuttom"><span class="fal fa-search"></span></span><br>Produk</a></div>
+              <div class="waves-effect waves-ripple"><a href="javascript:fade('transaksi.html')"><span class="menubuttom"><span class="fal fa-list-alt"></span></span><br>Transaksi</a></div>
+              <div class="waves-effect waves-ripple"><a href="javascript:fade('pesan.html')"><span class="menubuttom"><span class="fal fa-envelope"></span></span><br>Inbox</a></div>
+              <div class="waves-effect waves-ripple"><a href="javascript:fade('setting.html')"><span class="menubuttom"><span class="fal fa-user"></span></span><br>Akun</a></div>
+       </div>
+ </div> <!-- End of Page Container -->
+    
+    <script type="text/javascript" src="cordova.js"></script>
+
+    <script src="js/jquery.swipebox.min.js"></script>   
+    <script src="js/jquery.smoothState.min.js"></script> 
+    <script src="js/materialize.min.js"></script> 
+    <script src="js/swiper.min.js"></script>  
+    <script src="js/jquery.mixitup.min.js"></script>
+    <script src="js/functions.js"></script>
+  </body>
+</html>

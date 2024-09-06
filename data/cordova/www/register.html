@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Ansania</title>
+    <meta content="IE=edge" http-equiv="x-ua-compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <!-- Fonts -->
+    <!-- Icons -->
+    <link href="css/ionicons.min.css" media="all" rel="stylesheet" type="text/css">
+    <!-- Styles -->
+    <link href="css/keyframes.css" rel="stylesheet" type="text/css">
+    <link href="css/materialize.min.css" rel="stylesheet" type="text/css">
+    <link href="css/swiper.css" rel="stylesheet" type="text/css">
+    <link href="css/swipebox.min.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+  <script src="js/jquery-2.1.0.min.js"></script>
+  <script src="js/fastclick.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
+  <script type="text/javascript" src="js/iscroll.js"></script>
+	<script type="text/javascript">
+    var myScroll;
+    function loaded () {
+        myScroll = new IScroll('#content', { mouseWheel: true });
+    }
+    </script>
+</head>
+
+  <body style="background: #d14c80 !important;"> 
+    <div class="m-scene" id="main-login">
+    
+       <!-- Toolbar -->
+        <div id="toolbar" class="primary-color animated fadeindown">
+          <a href="login.html" class="open-left">
+            <i class="fal fa-arrow-left"></i>
+          </a>
+           <span class="title">Mendaftar</span>
+        </div>
+
+      
+      <!-- Page Content -->
+      <div id="content-login" class="login" style="background: url(img/bg.main.png) top right repeat-x #d14c80;">
+
+        <!-- Main Content -->
+        <div class="login-form animated fadein delay-2" style="top:0px">
+       
+        	
+
+          
+           <div class="input-field">
+            <i class="fal fa-user prefix"></i> 
+            <input class="validate" id="username" type="text"  placeholder="Username" required> 
+          </div>
+           <div class="input-field">
+            <i class="fal fa-envelope prefix"></i> 
+            <input class="validate" id="useremail" type="email"  placeholder="Alamat Email" required> 
+          </div>
+           <div class="input-field">
+            <i class="fal fa-lock prefix"></i> 
+            <input class="validate" id="userpassword" type="password"   placeholder="Password" required> 
+          </div>
+          <div class="input-field">
+            <i class="fal fa-user prefix"></i> 
+            <input class="validate" id="userfullname" type="text"  placeholder="Nama Lengkap"  required> 
+          </div>
+          <div class="input-field">
+            <i class="fal fa-mobile-android prefix"></i> 
+            <input class="validate" id="userphonegsm" type="text"  placeholder="Nomor Handphone"  required> 
+          </div>
+
+          <div class="padding" style="margin:20px 0px 20px 0px;">
+          Dengan anda melakukan pendaftaran berarti anda
+          telah menyetujui term dan kondisi</div>
+
+           <button class="waves-effect waves-light btn-large accent-color width-100 m-b-20 animated bouncein delay-4 button button-block button-positive" id="signup">Daftar Sekarang</button>
+         
+        </div><!-- End of Main Contents -->
+      
+       
+      </div> <!-- End of Page Content -->
+
+
+ </div> <!-- End of Page Container -->
+    
+    
+
+    <script type="text/javascript" src="js/sweetalert.min.js"></script>
+    <script type="text/javascript" src="js/auth.js"></script>
+    <script src="js/jquery.swipebox.min.js"></script>   
+    <script src="js/jquery.smoothState.min.js"></script> 
+    <script src="js/materialize.min.js"></script> 
+    <script src="js/swiper.min.js"></script>  
+    <script src="js/jquery.mixitup.min.js"></script>
+    <script src="js/functions.js"></script>
+    <script src="cordova.js"></script>
+  </body>
+</html>

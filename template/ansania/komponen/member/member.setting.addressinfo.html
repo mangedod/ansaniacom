@@ -1,0 +1,78 @@
+                                
+                                <script type="text/javascript" src="{$fulldomain}/librari/ajax/ajax_kota.js"></script>
+                                <script type="text/javascript" src="{$fulldomain}/librari/ajax/ajax_kec.js"></script>
+                                <div class="tab-pane {if $subaksi eq 'addressinfo'}active{/if}" id="addressinfo">
+                                    <h5>Shipping Address Proof Transactions</h5>
+                                    <hr />
+                                    <form class="form-horizontal" action="{$fulldomain}/member/setting/addressinfo" method="post">
+                                        <input type="hidden" name="saveper" value="1" />
+                                        <div class="form-group">
+                                            <label for="alamat" class="col-sm-3">Address</label>
+                                            <div class="col-sm-6">
+                                                <textarea name="useraddress" class="form-control" id="useraddress" cols="30" required>{$useraddress}</textarea>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="negara" class="col-sm-3">Country</label>
+                                            <div class="col-sm-6">
+                                                <select name="negaraid" onchange="getNegara(this.value);" class="form-control" required="required">
+                                                    <option value=""> Select Country </option>
+                                                    {foreach from=$datanegara key=id item=j}
+                                                    <option value="{$j.id}" {$j.select}>{$j.namanegara}</option>
+                                                    {/foreach}
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="provinsi" class="col-sm-3">Province</label>
+                                            <div class="col-sm-6">
+                                                <select name="propinsiid" id="propinsiid" class="form-control" onChange="getKota(this.value);" required="required">
+                                                    <option value=""> Select Province </option>
+                                                    {foreach from=$datapropinsi key=id item=p}
+                                                    <option value="{$p.id}" {$p.select}>{$p.namapropinsi}</option>
+                                                    {/foreach}
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="kota" class="col-sm-3">City</label>
+                                            <div class="col-sm-6">
+                                                <select name="cityname" id="kotaId2" class="form-control" onChange="getKec(this.value);" required="required">
+                                                    <option value=""> Select  </option>
+                                                    {foreach from=$datakota key=idkota item=p}
+                                                        <option value="{$p.idkota}" {$p.select}>{$p.kota}</option>
+                                                    {/foreach}
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="kecamatan" class="col-sm-3">Districts</label>
+                                            <div class="col-sm-6">
+                                                <select name="kecid" id="kecid" class="form-control" required="required">
+                                                    <option value=""> Select Districts </option>
+                                                    {foreach from=$datakecamatan key=kecid item=p}
+                                                        <option value="{$p.kecid}" {$p.select}>{$p.namakecamatan}</option>
+                                                    {/foreach}
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="emailserver" class="col-sm-3">Postal code</label>
+                                            <div class="col-sm-6">
+                                                <input class="form-control" value="{$userpostcode}" name="userpostcode" type="text" required="required">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="col-sm-offset-3 col-sm-10">
+                                                <button type="submit" class="btn btn-primary">Save</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <!-- /.tab-pane #addressinfo -->

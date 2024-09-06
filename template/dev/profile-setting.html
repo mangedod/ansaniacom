@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title>Trijee Sports Wear | Dashboard</title>
+    <link rel="apple-touch-icon" sizes="57x57" href="images/favicon/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="images/favicon/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/favicon/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="images/favicon/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="images/favicon/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="images/favicon/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="images/favicon/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="images/favicon/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="images/favicon/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="images/favicon/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+	<link rel="manifest" href="images/favicon/manifest.json">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="images/favicon/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- Preloader -->
+<div id="preloader">
+    <div id="status">&nbsp;</div>
+</div>
+
+<!-- WRAPPER -->
+<div class="wrapper">
+
+    <!-- HEADER -->
+    <header class="header sides">
+        <div class="hbottom right-pos dark">
+            <div class="container-fluid">
+                <div class="col-md-2 col-sm-3 logo not-sticky hidden-xs hidden-sm">
+                    <a href="index.html"><img width="139" src="images/logo-putih.png" alt=""></a>
+                </div>
+                <div class="col-md-2 col-sm-4 iconmenu pull-right">
+                   <a href="#" class="hidden-xs">Logout</a>
+                    <!-- <a href="#" class="a-search"><i class="custom-icon custom-icon-ico-search"></i></a> -->
+                    <a href="cart.html" class="visible-xs"><i class="custom-icon custom-icon-ico-cart-w"></i></a>
+                    <div class="hcart pull-right hidden-xs">
+                    <a href="cart.html"><i class="custom-icon custom-icon-ico-cart-w"></i></a>
+	                    <div class="dropdown">
+	                        <nav>
+	                            <ul class="hcart-list">
+	                                <li>
+	                                    <a href="product.html" class="fig pull-left"><img width="60" src="images/products/7.jpg" alt=""></a>
+	                                    <div class="block">
+	                                        <a href="product.html">Lutton</a>
+	                                        <div class="cost">1 x IDR 175.000,-</div>
+	                                    </div>
+	                                </li>
+	                                <li>
+	                                    <a href="product.html" class="fig pull-left"><img width="60" src="images/products/8.jpg" alt=""></a>
+	                                    <div class="block">
+	                                        <a href="product.html">Alexander</a>
+	                                        <div class="cost">2 x IDR 165.000,-</div>
+	                                    </div>
+	                                </li>
+	                                <li>
+	                                    <a href="product.html" class="fig pull-left"><img width="60" src="images/products/5.jpg" alt=""></a>
+	                                    <div class="block">
+	                                        <a href="product.html">Bima</a>
+	                                        <div class="cost">1 x IDR 95.000,-</div>
+	                                    </div>
+	                                </li>
+	                            </ul>
+	                        </nav>
+	                        <div class="hcart-total">
+	                            <a href="cart.html" class="btn btn-default">Cart</a>
+	                            <div class="total">Total - <ins>IDR 435.000,-</ins></div>
+	                        </div>
+	                    </div>
+                </div>
+                </div>
+                <div class="col-md-2 contact-info">
+                	<div class="logo pull-left">
+	                    <a href="index.html"><img width="139" src="images/logo-putih.png" alt="Logo Ansania"></a>
+	                </div>
+                </div>
+                <div class="col-md-8 col-sm-8 mainmenu">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <div class="mobile-logo visible-xs">
+                    	<a href="index.html"><img width="139" src="images/logo-putih.png" alt=""></a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="navbar-collapse">
+                        <nav class="text-center">
+                            <form class="navbar-form navbar-right search-form">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control search-input" placeholder="Search">
+                                        <!--DO NOT NEED TRAILING SLASH "/" As HTML5 FORMS SLASHES ARE NO LONGER REQUIRED-->
+                                        <span class="input-group-btn"><button type="submit" class="btn btn-default search-btn" data-target="#search-form" name="q"><i class="fa fa-search"><!--FONT AWESOME font @ "http://fortawesome.github.io/Font-Awesome/" --></i></button></span>
+                                    </div>
+                              </form>
+                            <ul class="nav navbar-nav navbar-right">
+
+                                <li class="dropdown dropdown-menushop">
+                                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">Product &nbsp;<i class="fa fa-caret-down"></i> </a>
+                                    <div class="menushop dropdown-menu">
+                                        <div class="divtable">
+                                        <div class="col-md-3 col-sm-4">
+                                            <h4>KID</h4>
+                                            <ul>
+                                                <li><a href="#">Catalog Grid</a></li>
+                                                <li><a href="#">Catalog Grid Right Sidebar</a></li>
+                                                <li><a href="#">Catalog Grid Left Sidebar</a></li>
+                                                <li><a href="#">Catalog List</a></li>
+                                                <li><a href="#">Catalog List Right Sidebar</a></li>
+                                                <li><a href="#">Catalog List Left Sidebar</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-3 col-sm-4">
+                                            <h4>MAN</h4>
+                                            <ul>
+                                                <li><a href="#">Product Page</a></li>
+                                                <li><a href="#">Shopping Cart</a></li>
+                                                <li><a href="#">Shopping Cart Empty</a></li>
+                                                <li><a href="#">Proceed to Checkout</a></li>
+                                                <li><a href="#">Confirmation Page</a></li>
+                                                <li><a href="#">Compare Page</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-3 col-sm-4">
+                                            <h4>WOMEN</h4>
+                                            <ul class="shop-category">
+                                                <li><a href="#" data-img="img-briefcases">Briefcases &amp; Satchels</a></li>
+                                                <li><a href="#" data-img="img-totes">Totes &amp; Messengers </a></li>
+                                                <li><a href="#" data-img="img-luggage">Luggage</a></li>
+                                                <li><a href="#" data-img="img-technology">Technology</a></li>
+                                                <li><a href="#" data-img="img-leather">Leather Accessories</a></li>
+                                                <li><a href="#" data-img="img-laptops">Laptops Bags</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-3 category-imgs hidden-sm">
+                                            <ul>
+                                                <li id="img-briefcases">
+                                                    <a href="#"><img width="240" src="images/products/1.jpg" alt=""></a>
+                                                </li>
+                                                <li id="img-totes">
+                                                    <a href="#"><img width="240" src="images/products/6.jpg" alt=""></a>
+                                                </li>
+                                                <li id="img-luggage">
+                                                    <a href="#"><img width="240" src="images/products/10.jpg" alt=""></a>
+                                                </li>
+                                                <li id="img-technology">
+                                                    <a href="#"><img width="240" src="images/products/11.jpg" alt=""></a>
+                                                </li>
+                                                <li id="img-leather">
+                                                    <a href="#"><img width="240" src="images/products/13.jpg" alt=""></a>
+                                                </li>
+                                                <li id="img-laptops">
+                                                    <a href="#"><img width="240" src="images/products/14.jpg" alt=""></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </li>
+                               	<li><a href="#">Custom</a></li>
+                                <li><a href="#">Blog</a></li>
+                                <li><a href="#">About Us</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <div class="search">
+                <div class="container">
+                    <form action="http://camaro.aisconverse.com/">
+                        <div class="col-sm-6 col-sm-offset-3 col-xs-10">
+                            <input type="text" autofocus placeholder="Start typing...">
+                        </div>
+                        <div class="col-md-1 col-xs-2">
+                            <a href="#" class="sclose"><i class="custom-icon custom-icon-lightclose"></i></a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- /.header -->
+
+    <!-- HOME -->
+    <div class="overlay home small-medium-size">
+        <div class="bg bg-shop"></div>
+        <div class="container vmiddle">
+            <div class="row text-center text-title-list">
+                <h1 class="text-uppercase" style="font-size: 50px">Setting</h1>
+                <h4>Profile Setting</h4>
+            </div>
+        </div>
+    </div>
+    <!-- /.home -->
+
+    <div class="container">
+        <div class="row">
+           <div class="col-md-3">
+                <div class="list-group dashboard-menu">
+                  <a href="#" class="list-group-item">
+                    Dashboard
+                  </a>
+                  <a href="#" class="list-group-item">Order History</a>
+                  <a href="#" class="list-group-item">Order Tracking</a>
+                  <a href="#" class="list-group-item">Wishlist</a>
+                  <a href="#" class="list-group-item">Payment Confirmation</a>
+                  <a href="#" class="list-group-item">Ticketing Support</a>
+                  <a href="#" class="list-group-item active">Profile Setting</a>
+                </div>
+           </div>
+           <div class="col-md-9">
+
+           <h3>Setting</h3>
+           <hr>
+            <!-- =========================================TAB SETTING START ========================================= -->
+                <section id="single-product-tab" class="setting-tab">
+
+                    <script type="text/javascript">
+                        function tampil(data) {
+                            if (data == "tampil") {
+                                $(".shippingaddres").show();
+                            } else {
+                                $(".shippingaddres").hide();
+                            }
+                        }
+                    </script>
+
+
+                    <div class="no-container">
+                        <div class="tab-holder tab-product-detail">
+
+                            <ul class=" nav nav-tabs text-center">
+                                <li class="active"><a href="#description" data-toggle="tab">Biodata Pribadi</a></li>
+                                <li><a href="#additional-info" data-toggle="tab">Informasi Alamat</a></li>
+                                <li><a href="#reviews" data-toggle="tab">Ganti Password</a></li>
+                            </ul>
+                            <!-- /.nav-tabs -->
+
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="description">
+                                    <form class="form-horizontal" name="http://www.klik4it.com/member/settings.html" method="post">
+                                        <input type="hidden" name="saveacc" value="1">
+                                        <div class="form-group">
+                                            <label for="nama" class="col-sm-4">Username/Alamat Email</label>
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control" id="useremail" name="useremail" value="viesel_0408@yahoo.com" >
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="nama" class="col-sm-4">Nama Lengkap&nbsp;&nbsp;<span style="color:red">*</span></label>
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control" id="userfullname" placeholder="Nama Lengkap" value="Selvia Awalia Rahayu" name="userfullname" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="hari" class="col-sm-4">Tanggal Lahir</label>
+                                            <div class="col-sm-2">
+                                                <select name="date" class="form-control" id="date">
+                                                        <option value="">Tanggal</option>
+                                                      <option value="01">01</option>
+                                                      <option value="02">02</option>
+                                                      <option value="03">03</option>
+                                                      <option value="04">04</option>
+                                                      <option value="05">05</option>
+                                                      <option value="06">06</option>
+                                                      <option value="07">07</option>
+                                                      <option value="08">08</option>
+                                                      <option value="09">09</option>
+                                                      <option value="10">10</option>
+                                                      <option value="11">11</option>
+                                                      <option value="12">12</option>
+                                                      <option value="13">13</option>
+                                                      <option value="14">14</option>
+                                                      <option value="15">15</option>
+                                                      <option value="16">16</option>
+                                                      <option value="17">17</option>
+                                                      <option value="18">18</option>
+                                                      <option value="19">19</option>
+                                                      <option value="20">20</option>
+                                                      <option value="21">21</option>
+                                                      <option value="22">22</option>
+                                                      <option value="23">23</option>
+                                                      <option value="24">24</option>
+                                                      <option value="25">25</option>
+                                                      <option value="26">26</option>
+                                                      <option value="27">27</option>
+                                                      <option value="28">28</option>
+                                                      <option value="29">29</option>
+                                                      <option value="30">30</option>
+                                                      <option value="31">31</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <select name="month" class="form-control" id="month">
+                                                  <option value="">Bulan</option>
+                                                  <option value="01">01</option>
+                                                  <option value="02">02</option>
+                                                  <option value="03">03</option>
+                                                  <option value="04">04</option>
+                                                  <option value="05">05</option>
+                                                  <option value="06">06</option>
+                                                  <option value="07">07</option>
+                                                  <option value="08">08</option>
+                                                  <option value="09">09</option>
+                                                  <option value="10">10</option>
+                                                  <option value="11">11</option>
+                                                  <option value="12">12</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <select name="year" class="form-control" id="year">
+                                                    <option value="">Tahun</option>
+                                                    <option value="1937">1937</option>
+                                                    <option value="1938">1938</option>
+                                                    <option value="1939">1939</option>
+                                                    <option value="1940">1940</option>
+                                                    <option value="1941">1941</option>
+                                                    <option value="1942">1942</option>
+                                                    <option value="1943">1943</option>
+                                                    <option value="1944">1944</option>
+                                                    <option value="1945">1945</option>
+                                                    <option value="1946">1946</option>
+                                                    <option value="1947">1947</option>
+                                                    <option value="1948">1948</option>
+                                                    <option value="1949">1949</option>
+                                                    <option value="1950">1950</option>
+                                                    <option value="1951">1951</option>
+                                                    <option value="1952">1952</option>
+                                                    <option value="1953">1953</option>
+                                                    <option value="1954">1954</option>
+                                                    <option value="1955">1955</option>
+                                                    <option value="1956">1956</option>
+                                                    <option value="1957">1957</option>
+                                                    <option value="1958">1958</option>
+                                                    <option value="1959">1959</option>
+                                                    <option value="1960">1960</option>
+                                                    <option value="1961">1961</option>
+                                                    <option value="1962">1962</option>
+                                                    <option value="1963">1963</option>
+                                                    <option value="1964">1964</option>
+                                                    <option value="1965">1965</option>
+                                                    <option value="1966">1966</option>
+                                                    <option value="1967">1967</option>
+                                                    <option value="1968">1968</option>
+                                                    <option value="1969">1969</option>
+                                                    <option value="1970">1970</option>
+                                                    <option value="1971">1971</option>
+                                                    <option value="1972">1972</option>
+                                                    <option value="1973">1973</option>
+                                                    <option value="1974">1974</option>
+                                                    <option value="1975">1975</option>
+                                                    <option value="1976">1976</option>
+                                                    <option value="1977">1977</option>
+                                                    <option value="1978">1978</option>
+                                                    <option value="1979">1979</option>
+                                                    <option value="1980">1980</option>
+                                                    <option value="1981">1981</option>
+                                                    <option value="1982">1982</option>
+                                                    <option value="1983">1983</option>
+                                                    <option value="1984">1984</option>
+                                                    <option value="1985">1985</option>
+                                                    <option value="1986">1986</option>
+                                                    <option value="1987">1987</option>
+                                                    <option value="1988">1988</option>
+                                                    <option value="1989">1989</option>
+                                                    <option value="1990">1990</option>
+                                                    <option value="1991">1991</option>
+                                                    <option value="1992">1992</option>
+                                                    <option value="1993">1993</option>
+                                                    <option value="1994">1994</option>
+                                                    <option value="1995">1995</option>
+                                                    <option value="1996">1996</option>
+                                                    <option value="1997">1997</option>
+                                                    <option value="1998">1998</option>
+                                                    <option value="1999">1999</option>
+                                                    <option value="2000">2000</option>
+                                                    <option value="2001">2001</option>
+                                                    <option value="2002">2002</option>
+                                                    <option value="2003">2003</option>
+                                                    <option value="2004">2004</option>
+                                                    <option value="2005">2005</option>
+                                                    <option value="2006">2006</option>
+
+                                                    </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="pekerjaan" class="col-sm-4">Pekerjaan</label>
+                                            <div class="col-sm-6">
+                                                <select name="pekerjaanid" onChange="getPekerjaan(this.value);" class="form-control">
+                                                    <option value=""> Pilih Pekerjaan </option>
+                                                    <option value="1" >Karyawan</option>
+                                                    <option value="2" >Wiraswasta</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="pendidikan" class="col-sm-4">Pendidikan</label>
+                                            <div class="col-sm-6">
+                                                <select name="pendidikanid" onChange="getPendidikan(this.value);" class="form-control">
+                                                    <option value=""> Pilih Pendidikan </option>
+                                                    <option value="1" >SD/MI</option>
+                                                    <option value="2" >SMP/MTs</option>
+                                                    <option value="3" >SMA/SMK</option>
+                                                    <option value="4" >S1</option>
+                                                    <option value="5" >S2</option>
+                                                    <option value="6" >S3</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="laki-laki" class="col-sm-4">Jenis Kelamin&nbsp;&nbsp;<span style="color:red">*</span></label>
+                                            <div class="col-sm-6">
+                                                <label><input type="radio" name="usergender" id="Male" value="Male"  required> Laki-laki</label> &nbsp;&nbsp;
+                                                <label><input type="radio" name="usergender" id="Female" value="Female"  required> Perempuan</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="hp" class="col-sm-4">Nomor Telepon</label>
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control" id="userphone" name="userphone" value="" placeholder="Nomor Telepon">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="hp" class="col-sm-4">Nomor Handphone&nbsp;&nbsp;<span style="color:red">*</span></label>
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control" id="userphonegsm" name="userphonegsm" value="085222801259" placeholder="Nomor HandPhone" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="emailserver" class="col-md-4">Facebook</label>
+                                            <div class="col-sm-6">
+                                                <input class="form-control" type="text" name="fbid" value="https://www.facebook.com/app_scoped_user_id/10203495435305698/" placeholder="facebook.com/example" />
+                                                <p class="help-block">contoh: facebook.com/example</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="emailserver" class="col-md-4">Twitter</label>
+                                            <div class="col-sm-6">
+                                                <input class="form-control" type="text" name="twitterid" value="@selvia_aw" placeholder="dhewiaaa" />
+                                                <p class="help-block">contoh: @example</p>
+                                            </div>
+
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                <div class="alert alert-info">
+                                                    <p style="margin:0"> <i class="fa fa-info-circle"></i> &nbsp;Yang bertanda bintang (*) Wajib diisi.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="col-sm-offset-4 col-sm-10">
+                                                <button type="submit" class="btn btn-primary">Simpan</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <!-- /.tab-pane #description -->
+
+                                <div class="tab-pane" id="additional-info">
+                                    <h5>Alamat Pengiriman Bukti Transaksi</h5>
+                                    <hr />
+                                    <form class="form-horizontal" action="http://www.klik4it.com/member/settings.html" method="post">
+                                        <input type="hidden" name="saveper" value="1" />
+                                        <div class="form-group">
+                                            <label for="alamat" class="col-sm-3">Alamat</label>
+                                            <div class="col-sm-6">
+                                                <textarea name="useraddress" class="form-control" id="useraddress" cols="30" required>Taman CIhanjuang</textarea>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="negara" class="col-sm-3">Kewarganegaraan</label>
+                                            <div class="col-sm-6">
+                                                <select name="negaraid" onChange="getNegara(this.value);" class="form-control" required="required">
+                                                        <option value="">---Pilih Negara---</option>
+                                                        <option value="3" >Afghanistan</option>
+                                                        <option value="6" >Albania</option>
+                                                        <option value="59" >Algeria</option>
+                                                        <option value="12" >American Samoa</option>
+                                                        <option value="1" >Andorra</option>
+                                                        <option value="9" >Angola</option>
+                                                        <option value="5" >Anguilla</option>
+                                                        <option value="10" >Antarctica</option>
+                                                        <option value="4" >Antigua and Barbuda</option>
+                                                        <option value="11" >Argentina</option>
+                                                        <option value="7" >Armenia</option>
+                                                        <option value="15" >Aruba</option>
+                                                        <option value="14" >Australia</option>
+                                                        <option value="13" >Austria</option>
+                                                        <option value="16" >Azerbaijan</option>
+                                                        <option value="23" >Bahrain</option>
+                                                        <option value="19" >Bangladesh</option>
+                                                        <option value="18" >Barbados</option>
+                                                        <option value="34" >Belarus</option>
+                                                        <option value="20" >Belgium</option>
+                                                        <option value="35" >Belize</option>
+                                                        <option value="25" >Benin</option>
+                                                        <option value="26" >Bermuda</option>
+                                                        <option value="31" >Bhutan</option>
+                                                        <option value="28" >Bolivia</option>
+                                                        <option value="17" >Bosnia and Herzegovina</option>
+                                                        <option value="33" >Botswana</option>
+                                                        <option value="32" >Bouvet Island</option>
+                                                        <option value="29" >Brazil</option>
+                                                        <option value="101" >British Indian Ocean Territory</option>
+                                                        <option value="228" >British Virgin Islands</option>
+                                                        <option value="27" >Brunei Darussalam</option>
+                                                        <option value="22" >Bulgaria</option>
+                                                        <option value="21" >Burkina Faso</option>
+                                                        <option value="138" >Burma</option>
+                                                        <option value="24" >Burundi</option>
+                                                        <option value="111" >Cambodia</option>
+                                                        <option value="45" >Cameroon</option>
+                                                        <option value="36" >Canada</option>
+                                                        <option value="50" >Cape Verde</option>
+                                                        <option value="118" >Cayman Islands</option>
+                                                        <option value="39" >Central African Republic</option>
+                                                        <option value="204" >Chad</option>
+                                                        <option value="44" >Chile</option>
+                                                        <option value="46" >China</option>
+                                                        <option value="51" >Christmas Island</option>
+                                                        <option value="37" >Cocos (Keeling) Islands</option>
+                                                        <option value="47" >Colombia</option>
+                                                        <option value="113" >Comoros</option>
+                                                        <option value="38" >Congo, Democratic Republic of the</option>
+                                                        <option value="40" >Congo, Republic of the</option>
+                                                        <option value="43" >Cook Islands</option>
+                                                        <option value="48" >Costa Rica</option>
+                                                        <option value="42" >Cote d'Ivoire</option>
+                                                        <option value="94" >Croatia</option>
+                                                        <option value="49" >Cuba</option>
+                                                        <option value="52" >Cyprus</option>
+                                                        <option value="53" >Czech Republic</option>
+                                                        <option value="56" >Denmark</option>
+                                                        <option value="55" >Djibouti</option>
+                                                        <option value="57" >Dominica</option>
+                                                        <option value="58" >Dominican Republic</option>
+                                                        <option value="210" >East Timor</option>
+                                                        <option value="60" >Ecuador</option>
+                                                        <option value="62" >Egypt</option>
+                                                        <option value="200" >El Salvador</option>
+                                                        <option value="84" >Equatorial Guinea</option>
+                                                        <option value="64" >Eritrea</option>
+                                                        <option value="61" >Estonia</option>
+                                                        <option value="66" >Ethiopia</option>
+                                                        <option value="69" >Falkland Islands (Islas Malvinas)</option>
+                                                        <option value="71" >Faroe Islands</option>
+                                                        <option value="68" >Fiji</option>
+                                                        <option value="67" >Finland</option>
+                                                        <option value="72" >France</option>
+                                                        <option value="77" >French Guiana</option>
+                                                        <option value="167" >French Polynesia</option>
+                                                        <option value="205" >French Southern and Antarctic Lands</option>
+                                                        <option value="73" >Gabon</option>
+                                                        <option value="76" >Georgia</option>
+                                                        <option value="54" >Germany</option>
+                                                        <option value="78" >Ghana</option>
+                                                        <option value="79" >Gibraltar</option>
+                                                        <option value="85" >Greece</option>
+                                                        <option value="80" >Greenland</option>
+                                                        <option value="75" >Grenada</option>
+                                                        <option value="83" >Guadeloupe</option>
+                                                        <option value="88" >Guam</option>
+                                                        <option value="87" >Guatemala</option>
+                                                        <option value="82" >Guinea</option>
+                                                        <option value="89" >Guinea-Bissau</option>
+                                                        <option value="90" >Guyana</option>
+                                                        <option value="95" >Haiti</option>
+                                                        <option value="92" >Heard Island and McDonald Islands</option>
+                                                        <option value="225" >Holy See (Vatican City)</option>
+                                                        <option value="93" >Honduras</option>
+                                                        <option value="91" >Hong Kong (SAR)</option>
+                                                        <option value="96" >Hungary</option>
+                                                        <option value="104" >Iceland</option>
+                                                        <option value="100" >India</option>
+                                                        <option value="97" selected='selected'>Indonesia</option>
+                                                        <option value="103" >Iran</option>
+                                                        <option value="102" >Iraq</option>
+                                                        <option value="98" >Ireland</option>
+                                                        <option value="99" >Israel</option>
+                                                        <option value="105" >Italy</option>
+                                                        <option value="106" >Jamaica</option>
+                                                        <option value="108" >Japan</option>
+                                                        <option value="107" >Jordan</option>
+                                                        <option value="119" >Kazakhstan</option>
+                                                        <option value="109" >Kenya</option>
+                                                        <option value="112" >Kiribati</option>
+                                                        <option value="115" >Korea, North</option>
+                                                        <option value="116" >Korea, South</option>
+                                                        <option value="117" >Kuwait</option>
+                                                        <option value="110" >Kyrgyzstan</option>
+                                                        <option value="120" >Laos</option>
+                                                        <option value="129" >Latvia</option>
+                                                        <option value="121" >Lebanon</option>
+                                                        <option value="126" >Lesotho</option>
+                                                        <option value="125" >Liberia</option>
+                                                        <option value="130" >Libya</option>
+                                                        <option value="123" >Liechtenstein</option>
+                                                        <option value="127" >Lithuania</option>
+                                                        <option value="128" >Luxembourg</option>
+                                                        <option value="140" >Macao</option>
+                                                        <option value="136" >Macedonia, The Former Yugoslav Republic of</option>
+                                                        <option value="134" >Madagascar</option>
+                                                        <option value="148" >Malawi</option>
+                                                        <option value="150" >Malaysia</option>
+                                                        <option value="147" >Maldives</option>
+                                                        <option value="137" >Mali</option>
+                                                        <option value="145" >Malta</option>
+                                                        <option value="135" >Marshall Islands</option>
+                                                        <option value="142" >Martinique</option>
+                                                        <option value="143" >Mauritania</option>
+                                                        <option value="146" >Mauritius</option>
+                                                        <option value="235" >Mayotte</option>
+                                                        <option value="149" >Mexico</option>
+                                                        <option value="70" >Micronesia, Federated States of</option>
+                                                        <option value="133" >Moldova</option>
+                                                        <option value="132" >Monaco</option>
+                                                        <option value="139" >Mongolia</option>
+                                                        <option value="144" >Montserrat</option>
+                                                        <option value="131" >Morocco</option>
+                                                        <option value="151" >Mozambique</option>
+                                                        <option value="152" >Namibia</option>
+                                                        <option value="161" >Nauru</option>
+                                                        <option value="160" >Nepal</option>
+                                                        <option value="158" >Netherlands</option>
+                                                        <option value="8" >Netherlands Antilles</option>
+                                                        <option value="153" >New Caledonia</option>
+                                                        <option value="163" >New Zealand</option>
+                                                        <option value="157" >Nicaragua</option>
+                                                        <option value="154" >Niger</option>
+                                                        <option value="156" >Nigeria</option>
+                                                        <option value="162" >Niue</option>
+                                                        <option value="155" >Norfolk Island</option>
+                                                        <option value="141" >Northern Mariana Islands</option>
+                                                        <option value="159" >Norway</option>
+                                                        <option value="164" >Oman</option>
+                                                        <option value="170" >Pakistan</option>
+                                                        <option value="177" >Palau</option>
+                                                        <option value="175" >Palestinian Territory, Occupied</option>
+                                                        <option value="165" >Panama</option>
+                                                        <option value="168" >Papua New Guinea</option>
+                                                        <option value="178" >Paraguay</option>
+                                                        <option value="166" >Peru</option>
+                                                        <option value="169" >Philippines</option>
+                                                        <option value="173" >Pitcairn Islands</option>
+                                                        <option value="171" >Poland</option>
+                                                        <option value="176" >Portugal</option>
+                                                        <option value="174" >Puerto Rico</option>
+                                                        <option value="179" >Qatar</option>
+                                                        <option value="180" >Reunion</option>
+                                                        <option value="181" >Romania</option>
+                                                        <option value="182" >Russia</option>
+                                                        <option value="183" >Rwanda</option>
+                                                        <option value="190" >Saint Helena</option>
+                                                        <option value="114" >Saint Kitts and Nevis</option>
+                                                        <option value="122" >Saint Lucia</option>
+                                                        <option value="172" >Saint Pierre and Miquelon</option>
+                                                        <option value="226" >Saint Vincent and the Grenadines</option>
+                                                        <option value="233" >Samoa</option>
+                                                        <option value="195" >San Marino</option>
+                                                        <option value="199" >Sao Tome and Principe</option>
+                                                        <option value="184" >Saudi Arabia</option>
+                                                        <option value="196" >Senegal</option>
+                                                        <option value="186" >Seychelles</option>
+                                                        <option value="194" >Sierra Leone</option>
+                                                        <option value="189" >Singapore</option>
+                                                        <option value="193" >Slovakia</option>
+                                                        <option value="191" >Slovenia</option>
+                                                        <option value="185" >Solomon Islands</option>
+                                                        <option value="197" >Somalia</option>
+                                                        <option value="237" >South Africa</option>
+                                                        <option value="86" >South Georgia and the South Sandwich Islands</option>
+                                                        <option value="65" >Spain</option>
+                                                        <option value="124" >Sri Lanka</option>
+                                                        <option value="187" >Sudan</option>
+                                                        <option value="198" >Suriname</option>
+                                                        <option value="192" >Svalbard</option>
+                                                        <option value="202" >Swaziland</option>
+                                                        <option value="188" >Sweden</option>
+                                                        <option value="41" >Switzerland</option>
+                                                        <option value="201" >Syria</option>
+                                                        <option value="217" >Taiwan</option>
+                                                        <option value="208" >Tajikistan</option>
+                                                        <option value="218" >Tanzania</option>
+                                                        <option value="207" >Thailand</option>
+                                                        <option value="30" >The Bahamas</option>
+                                                        <option value="81" >The Gambia</option>
+                                                        <option value="241" >Timor Leste</option>
+                                                        <option value="206" >Togo</option>
+                                                        <option value="209" >Tokelau</option>
+                                                        <option value="213" >Tonga</option>
+                                                        <option value="215" >Trinidad and Tobago</option>
+                                                        <option value="212" >Tunisia</option>
+                                                        <option value="214" >Turkey</option>
+                                                        <option value="211" >Turkmenistan</option>
+                                                        <option value="203" >Turks and Caicos Islands</option>
+                                                        <option value="216" >Tuvalu</option>
+                                                        <option value="220" >Uganda</option>
+                                                        <option value="219" >Ukraine</option>
+                                                        <option value="2" >United Arab Emirates</option>
+                                                        <option value="74" >United Kingdom</option>
+                                                        <option value="222" >United States</option>
+                                                        <option value="221" >United States Minor Outlying Islands</option>
+                                                        <option value="223" >Uruguay</option>
+                                                        <option value="224" >Uzbekistan</option>
+                                                        <option value="231" >Vanuatu</option>
+                                                        <option value="227" >Venezuela</option>
+                                                        <option value="230" >Vietnam</option>
+                                                        <option value="229" >Virgin Islands</option>
+                                                        <option value="232" >Wallis and Futuna</option>
+                                                        <option value="63" >Western Sahara</option>
+                                                        <option value="234" >Yemen</option>
+                                                        <option value="236" >Yugoslavia</option>
+                                                        <option value="238" >Zambia</option>
+                                                        <option value="239" >Zimbabwe</option>
+                                                    </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="provinsi" class="col-sm-3">Provinsi</label>
+                                            <div class="col-sm-6">
+                                                <select name="propinsiid" onChange="getKota(this.value);" class="form-control" required="required">
+                                                  <option value=""> Pilih Provinsi </option>
+                                                  <option value="1" >Bali</option>
+                                                  <option value="2" >Bangka-belitung</option>
+                                                  <option value="3" >Banten</option>
+                                                  <option value="4" >Bengkulu</option>
+                                                  <option value="5" >DI Yogyakarta</option>
+                                                  <option value="6" >DKI Jakarta</option>
+                                                  <option value="7" >Gorontalo</option>
+                                                  <option value="8" >Jambi</option>
+                                                  <option value="9" selected='selected'>Jawa Barat</option>
+                                                  <option value="10" >Jawa Tengah</option>
+                                                  <option value="11" >Jawa Timur</option>
+                                                  <option value="12" >Kalimantan Barat</option>
+                                                  <option value="13" >Kalimantan Selatan</option>
+                                                  <option value="14" >Kalimantan Tengah</option>
+                                                  <option value="15" >Kalimantan Timur</option>
+                                                  <option value="16" >Lampung</option>
+                                                  <option value="31" >luar negeri</option>
+                                                  <option value="17" >Maluku</option>
+                                                  <option value="18" >Maluku Utara</option>
+                                                  <option value="19" >Nangroe Aceh</option>
+                                                  <option value="20" >NTB</option>
+                                                  <option value="21" >NTT</option>
+                                                  <option value="22" >Papua</option>
+                                                  <option value="23" >Riau</option>
+                                                  <option value="24" >Sulawesi Selatan</option>
+                                                  <option value="25" >Sulawesi Tengah</option>
+                                                  <option value="26" >Sulawesi Tenggara</option>
+                                                  <option value="27" >Sulawesi Utara</option>
+                                                  <option value="28" >Sumatera Barat</option>
+                                                  <option value="29" >Sumatera Selatan</option>
+                                                  <option value="30" >Sumatera Utara</option>
+                                              </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="kota" class="col-sm-3">Kota</label>
+                                            <div class="col-sm-6">
+                                                <select name="cityname" id="kotaId2" class="form-control" required="required">
+                                                      <option value=""> Pilih Kota </option>
+                                                      <option value="1" selected='selected'>Bandung</option>
+                                                      <option value="117" >Bekasi</option>
+                                                      <option value="368" >Bogor</option>
+                                                      <option value="2" >Ciamis</option>
+                                                      <option value="120" >Cianjur</option>
+                                                      <option value="114" >Cirebon</option>
+                                                      <option value="116" >Depok</option>
+                                                      <option value="122" >Garut</option>
+                                                      <option value="129" >Indramayu</option>
+                                                      <option value="132" >Karawang</option>
+                                                      <option value="125" >Kuningan</option>
+                                                      <option value="127" >Majalengka</option>
+                                                      <option value="131" >Purwakarta</option>
+                                                      <option value="121" >Soreang</option>
+                                                      <option value="130" >Subang</option>
+                                                      <option value="115" >Sukabumi</option>
+                                                      <option value="119" >Sukabumi</option>
+                                                      <option value="126" >Sumber</option>
+                                                      <option value="3" >Sumedang</option>
+                                                      <option value="123" >Tasikmalaya</option>
+                                              </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="emailserver" class="col-sm-3">Kode Pos</label>
+                                            <div class="col-sm-6">
+                                                <input class="form-control" value="40559" name="userpostcode" type="text" required="required">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="col-sm-offset-3 col-sm-10">
+                                                <button type="submit" class="btn btn-primary">Simpan</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <h5>Alamat Pengiriman</h5>
+                                    <hr />
+                                    <button class="btn btn-xs btn-primary" onClick="tampil('tampil')">Tambah Alamat Pengiriman</button><br />
+                                    <div class="boxTableAlamat">
+                                        <table class="table table-bordered" width="100%">
+                                            <tbody align="top">
+                                                <tr>
+                                                    <td class="sub_spec_cart" align="center" width="30%">
+                                                        <h6>Rumah</h6>Nama Penerima : Selvia A Rahayu<br /><br /> No Telp : 085222801259<br /><br />
+                                                        <a href="http://www.klik4it.com/member/hapusalamat/1">Hapus</a>
+                                                    </td>
+                                                    <td class="sub_spec_cart" align="left" width="70%">
+                                                        Alamat Pengiriman : Jl. Cihanjuang 40559<br /> Kota : Bandung
+                                                        <br /> Propinsi : Jawa Barat
+                                                    </td>
+
+                                                </tr>
+                                            </tbody>
+                                            <tbody align="top">
+                                                <tr>
+                                                    <td class="sub_spec_cart" align="center" width="30%">
+                                                        <h6>Alamat Rumah</h6> Nama Penerima : Selvia A Rahayu<br /><br /> No Telp : 085222801259<br />
+                                                        <a href="http://www.klik4it.com/member/hapusalamat/2">Hapus</a>
+                                                    </td>
+                                                    <td class="sub_spec_cart" align="left" width="70%">
+                                                        Alamat Pengiriman : Taman CIhanjuang 40559<br /> Kota : Bandung
+                                                        <br /> Propinsi : Jawa Barat
+                                                    </td>
+
+                                                </tr>
+                                            </tbody>
+                                            <tbody align="top">
+                                                <tr>
+                                                    <td class="sub_spec_cart" align="center" width="30%">
+                                                        <h6>Alamat Kantor</h6> Nama Penerima : Selvi<br /><br /> No Telp : 085222801259<br />
+                                                        <a href="http://www.klik4it.com/member/hapusalamat/3">Hapus</a>
+                                                    </td>
+                                                    <td class="sub_spec_cart" align="left" width="70%">
+                                                        Alamat Pengiriman : Jl. Cihanjuang 41055<br /> Kota : Bekasi
+                                                        <br /> Propinsi : Jawa Barat
+                                                    </td>
+
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="shippingaddres" style="display:none">
+                                        <form class="form-horizontal" action="http://www.klik4it.com/member/settings.html" method="post">
+                                            <input type="hidden" name="savepership" value="1" />
+                                            <div class="form-group">
+                                                <label for="emailserver" class="col-sm-3">Alamat Sebagai</label>
+                                                <div class="col-sm-6">
+                                                    <input class="form-control" value="" name="nama" type="text" required="required">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="emailserver" class="col-sm-3">Nama Penerima</label>
+                                                <div class="col-sm-6">
+                                                    <input class="form-control" value="" name="namalengkap" type="text" required="required">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="alamat" class="col-sm-3">Alamat</label>
+                                                <div class="col-sm-6">
+                                                    <textarea name="useraddress" class="form-control" id="useraddress" cols="30" required>Taman CIhanjuang</textarea>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="form-group">
+                                                <label for="provinsi" class="col-sm-3">Provinsi</label>
+                                                <div class="col-sm-6">
+                                                    <select name="propinsiid" onChange="getKota2(this.value);" class="form-control" required="required">
+                                                        <option value=""> Pilih Provinsi </option>
+                                                        <option value="1" >Bali</option>
+                                                        <option value="2" >Bangka-belitung</option>
+                                                        <option value="3" >Banten</option>
+                                                        <option value="4" >Bengkulu</option>
+                                                        <option value="5" >DI Yogyakarta</option>
+                                                        <option value="6" >DKI Jakarta</option>
+                                                        <option value="7" >Gorontalo</option>
+                                                        <option value="8" >Jambi</option>
+                                                        <option value="9" selected='selected'>Jawa Barat</option>
+                                                        <option value="10" >Jawa Tengah</option>
+                                                        <option value="11" >Jawa Timur</option>
+                                                        <option value="12" >Kalimantan Barat</option>
+                                                        <option value="13" >Kalimantan Selatan</option>
+                                                        <option value="14" >Kalimantan Tengah</option>
+                                                        <option value="15" >Kalimantan Timur</option>
+                                                        <option value="16" >Lampung</option>
+                                                        <option value="31" >luar negeri</option>
+                                                        <option value="17" >Maluku</option>
+                                                        <option value="18" >Maluku Utara</option>
+                                                        <option value="19" >Nangroe Aceh</option>
+                                                        <option value="20" >NTB</option>
+                                                        <option value="21" >NTT</option>
+                                                        <option value="22" >Papua</option>
+                                                        <option value="23" >Riau</option>
+                                                        <option value="24" >Sulawesi Selatan</option>
+                                                        <option value="25" >Sulawesi Tengah</option>
+                                                        <option value="26" >Sulawesi Tenggara</option>
+                                                        <option value="27" >Sulawesi Utara</option>
+                                                        <option value="28" >Sumatera Barat</option>
+                                                        <option value="29" >Sumatera Selatan</option>
+                                                        <option value="30" >Sumatera Utara</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="kota" class="col-sm-3">Kota</label>
+                                                <div class="col-sm-6">
+                                                    <select name="cityname" id="kotaId3" class="form-control" required="required">
+                                                        <option value=""> Pilih Kota </option>
+                                                        <option value="1" selected='selected'>Bandung</option>
+                                                        <option value="117" >Bekasi</option>
+                                                        <option value="368" >Bogor</option>
+                                                        <option value="2" >Ciamis</option>
+                                                        <option value="120" >Cianjur</option>
+                                                        <option value="114" >Cirebon</option>
+                                                        <option value="116" >Depok</option>
+                                                        <option value="122" >Garut</option>
+                                                        <option value="129" >Indramayu</option>
+                                                        <option value="132" >Karawang</option>
+                                                        <option value="125" >Kuningan</option>
+                                                        <option value="127" >Majalengka</option>
+                                                        <option value="131" >Purwakarta</option>
+                                                        <option value="121" >Soreang</option>
+                                                        <option value="130" >Subang</option>
+                                                        <option value="115" >Sukabumi</option>
+                                                        <option value="119" >Sukabumi</option>
+                                                        <option value="126" >Sumber</option>
+                                                        <option value="3" >Sumedang</option>
+                                                        <option value="123" >Tasikmalaya</option>
+                                                </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="emailserver" class="col-sm-3">Kode Pos</label>
+                                                <div class="col-sm-6">
+                                                    <input class="form-control" value="40559" name="userpostcode" type="text" required="required">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="emailserver" class="col-sm-3">No Telp</label>
+                                                <div class="col-sm-6">
+                                                    <input class="form-control" value="085222801259" name="userphonegsm" type="text" required="required">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <div class="col-sm-offset-3 col-sm-10">
+                                                    <button type="submit" class="btn btn-primary">Simpan</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <!-- /.tab-pane #additional-info -->
+
+                                <div class="tab-pane" id="reviews">
+                                    <form class="form-horizontal" action="http://www.klik4it.com/member/settings.html" method="post">
+                                        <input type="hidden" name="savepass" value="1">
+                                        <div class="form-group">
+                                            <label for="password" class="col-sm-3">Password Lama</label>
+                                            <div class="col-sm-6">
+                                                <input type="password" id="password1" name="password1" class="form-control" placeholder="******" required="required">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="password-baru" class="col-sm-3">Password Baru</label>
+                                            <div class="col-sm-6">
+                                                <input type="password" id="password2" name="password2" class="form-control" placeholder="******" required="required">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="password-konfirm" class="col-sm-3">Konfirmasi Password Baru</label>
+                                            <div class="col-sm-6">
+                                                <input type="password" id="password3" name="password3" class="form-control" placeholder="******" required="required">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="col-sm-offset-3 col-sm-10">
+                                                <button type="submit" class="btn btn-primary">Simpan</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <!-- /.tab-pane #reviews -->
+                            </div>
+                            <!-- /.tab-content -->
+
+                        </div>
+                        <!-- /.tab-holder -->
+                    </div>
+                    <!-- /.container -->
+                </section>
+                <!-- /#single-product-tab -->
+                <!-- ========================================= SETTING TAB : END ========================================= -->
+          
+           </div>
+        </div>
+    </div>
+
+    
+   
+</div>
+<!-- /.wrapper -->
+
+<!-- FOOTER -->
+<footer class="footer">
+
+    <!-- CONTAINER -->
+    <div class="container">
+        <div class="row foorow-2 foorow">
+
+            <div class="col-md-3 col-sm-6 col-xs-6">
+                <h3>Information</h3>
+               <nav>
+                    <ul class="links">
+                        <li><a href="about-us.html">About Us</a></li>
+                        <li><a href="delivery.html">Delivery</a></li>
+                        <li><a href="payment.html">Payment</a></li>
+                        <li><a href="gift.html">Gift Cards</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="col-md-3 col-sm-6 col-xs-6">
+                <h3>Services</h3>
+               <nav>
+                    <ul class="links">
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="buy.html">How to Buy</a></li>
+                        <li><a href="sell.html">How to Sell</a></li>
+                        <li><a href="design.html">How to Design</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="col-md-3 col-sm-6 col-xs-6">
+                <h3>Contact Us</h3>
+                <address>
+                Jl. KH. Zainul Arifin<br>
+                Komplek Ketapang Indah Blok B2 No. 15 <br>
+                Jakarta Barat <br>
+                <br>
+                    +62 21 72791123<br>
+                    <a href="mailto:info@comarocompany.com">info@trijee.com</a><br>
+                    <br>
+                   <img src="images/payments.png" alt="">
+                </address>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-6">
+                <h3>Follow Us</h3>
+                <ul class="social social-boxed">
+                    <li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li class="youtube"><a href="#"><i class="fa fa-youtube-play"></i></a></li>
+                    <li class="instagram"><a href="#"><i class="fa fa-instagram"></i></a></li>
+                </ul>
+                <div class="clearfix">&nbsp;</div>
+                <p>Enter Your Email to stay updated</p>
+                <div id="feedback-form">
+                    <form action="#" method="post">
+                        <input name="EMAIL" placeholder="Stay update, stay awaesome" required type="email" class="pull-left">
+                        <button type="submit" class="btn btn-default pull-right">GO</button>
+                    </form>
+                    <div class="success-block"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</footer>
+<!-- /.footer -->
+
+
+<!-- ScrollTop Button -->
+<a href="#" class="scrolltop">
+    <i class="custom-icon custom-icon-scrolltop"></i>
+</a>
+
+<script src="js/jquery-2.1.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.plugins.js"></script>
+<script src="js/custom.js"></script>
+</body>
+</html>

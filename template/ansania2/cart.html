@@ -1,0 +1,650 @@
+{include file="`$lokasitemplate`komponen/home/header.html"}
+    {if $kanal eq 'cart' and $aksi eq 'confirm'}
+        {include file="`$lokasitemplate`komponen/cart/payment-confirmation.html"}
+    {elseif $kanal eq 'cart' and $aksi eq 'save-confirm'}
+        {include file="`$lokasitemplate`komponen/cart/save-confirm.html"}
+    {elseif $kanal eq 'cart' and $aksi eq 'detailinvoice'}
+        {include file="`$lokasitemplate`komponen/cart/detailinvoice.html"}
+    {elseif $kanal eq 'cart' and $aksi eq 'tamu'}
+        {include file="`$lokasitemplate`komponen/cart/tamu.html"}
+    {else}
+    <div class="section-breadcrumb">
+        <div class="container">
+            <ol class="breadcrumb">
+              <li><a href="{$fulldomain}/">Home</a></li>
+              <li><a href="{$fulldomain}/cart">Keranjang Belanja</a></li>
+            </ol>
+        </div>
+    </div>
+    <!-- CONTENT -->
+    <div class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                {if $aksi eq 'finish'}
+                    {if $sukses eq '1'}
+                        <center>
+                            <div class="alert alert-success"><center>{$message}</center></div>
+                        <a href="{$fulldomain}/member/history" class="btn btn-warning">View Transaction History</a> </center>
+                    {else}
+                        <center>
+                            <div class="alert alert-danger"><center>{$message}</center></div>
+                        <a href="{$fulldomain}/member/history" class="btn btn-warning">View Transaction History</a> </center>
+                     {/if}
+                {else}
+                    {if $jumlah_keranjang neq '0'}
+
+                        <div class="cart-tab tab-product-detail">
+                            <!-- Nav tabs -->
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="{if $kanal eq 'cart' and ($aksi eq 'buy' or $aksi eq '')}  active{/if}"><a href="{$fulldomain}/cart/buy" aria-controls="shoppingcart" role="tab" >Shopping Cart</a></li>
+                                <li role="presentation" class="{if $aksi eq 'checkout'}  active{/if}"><a href="{$fulldomain}/cart/checkout" aria-controls="shippingadd" role="tab" >Shipping&Payment</a></li>
+                                <li role="presentation" class="{if $aksi eq 'invoice' or $aksi eq 'response'}  active{/if}"><a href="{$fulldomain}/cart/invoice" aria-controls="summary" role="tab" >Summary</a></li>
+                            </ul>
+
+                            <div class="tab-content">
+                            {if $kanal eq 'cart' and ($aksi eq 'buy' or $aksi eq '')}
+                                <div role="tabpanel" class="tab-pane p-0 {if $kanal eq 'cart' and ($aksi eq 'buy' or $aksi eq '')}active{/if}" id="shoppingcart">
+                                    {literal}
+                                    <script type="text/javascript">
+                                        function submitform()
+                                        {
+                                          document.myform.submit();
+                                        }
+                                        function number_format(num,dig,dec,sep) {
+                                            x=new Array();
+                                            s=(num<0?"-":"");
+                                            num=Math.abs(num).toFixed(dig).split(".");
+                                            r=num[0].split("").reverse();
+                                            for(var i=1;i<=r.length;i++){x.unshift(r[i-1]);if(i%3==0&&i!=r.length)x.unshift(sep);}
+                                            return s+x.join("")+(num[1]?dec+num[1]:"");
+                                        }
+                                        function getVoucher(kodevoucher,total_subtotal,orderid)
+                                        {
+                                            // alert ("ok " + total_subtotal);
+                                            $("#hasilvoucher").innerHTML = "";
+                                            jQuery.ajax({
+                                               type: "POST",
+                                               url: "{/literal}{$fulldomain}/{literal}komponen/cart/diskon.php",
+                                               data: 'kodevoucher='+ kodevoucher +'&&total_subtotal=' + total_subtotal +'&&orderid=' + orderid,
+                                               cache: false,
+                                               success: function(responsecek)
+                                               {
+                                                    if(responsecek)
+                                                    {
+                                                        /*$('#inline1').show();
+                                                        $('#inline1').html("Add as Friend Succes.");
+                                                        $('#various1').hide();*/
+                                                        var des3    = responsecek.split('||');
+                                                        var htmlnya3  = des3[0];
+                                                        var subtotal  = des3[1];
+
+                                                        var subtotal2 = "IDR " + number_format (subtotal, 0, ".", "." );
+                                                        $("#hasilvoucher").html(htmlnya3);
+                                                        $("#total_subtotal").val(subtotal);
+                                                        $("#totalpembelian").html("<strong>"+subtotal2+"</strong>");
+
+                                                        $.session.set("totalHarga", subtotal);
+                                                        alert($.session.get("totalHarga"));
+                                                        return false;
+                                                    }
+                                                    else
+                                                    {
+                                                        /*alert ("not ok " + kodevoucher + responsecek)
+                                                        $('#inline1').show();
+                                                        $('#inline1').html("Add as Friend Failed.");
+                                                        return false;*/
+                                                    }
+                                                }
+                                            });
+                                        };
+                                    </script>
+                                    {/literal}
+                                    <table class="table table-bordered table-cart">
+                                    <form name="myform" enctype="multipart/form-data" method="post" action="{$fulldomain}/cart/buy">
+                                      <input type="hidden" value="1" name="update">
+                                      <input type="hidden" value="{$transaksiid}" name="transaksiid">
+                                        <thead>
+                                            <tr>
+                                                <th>Products</th>
+                                                <th>Description</th>
+                                                <th>Price</th>
+                                                <th>Quantity</th>
+                                                <th>Total</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        {foreach from=$dt_keranjang key=id item=a}
+                                            <tr>
+                                                <td class="text-center">
+                                                    <a href="{$a.link_produk}">
+                                                    <div class="cart-item-thumb img-thumbnail">
+                                                        <img src="{$a.image_s}" class="img-responsive" alt="{$a.nama}">
+                                                    </div>
+                                                    </a>
+                                                </td>
+                                                <td><span class="text-uppercase"><b>{$a.nama}</b></span> <br><span><b>Item Nomor </b>{$a.nomor} </td>
+                                                <td class="text-center">
+                                                    <b>{$a.harga_asli}</b>
+                                                </td>
+                                                <td>
+                                                    <div class="input-group spinner" data-trigger="spinner">
+                                                          <input type="hidden" value="{$a.id}" name="id_qty" size="10">
+                                                          <input type="hidden" value="{$a.produkpostid}" name="kode_qty_{$a.id}">
+                                                        <input type="text" value="{$a.qty}" name="qty_{$a.id}" data-rule="quantity">
+                                                        <div class="input-group-addon">
+                                                            <a href="javascript:;" class="spin-up" data-spin="up">
+                                                                <i class="fa fa-plus"></i>
+                                                            </a>
+                                                            <a href="javascript:;" class="spin-down" data-spin="down">
+                                                                <i class="fa fa-minus"></i>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center"><b>{$a.subtotal}</b></td>
+                                                <td class="text-center ">
+                                                    <a onclick="submitform();"><i class="fa fa-refresh"></i></a> - 
+                                                    <a  href="{$fulldomain}/cart/delete-buy/{$a.id}"><i class="fa fa-trash"></i></a>
+                                                </td>
+                                            </tr>
+                                        {/foreach}
+                                        </tbody>
+                                    </form>
+                                    <form method="post" action="{$fulldomain}/cart/checkout">
+                                        <input type="hidden" value="{$orderid}" id="orderid" name="orderid">
+                                        <input type="hidden" value="{$total_subtotalxx}" id="total_subtotal" name="total_subtotal">
+                                        <tfoot>
+                                            <tr>
+                                                <td colspan="6"><b>Voucher Code : </b><input data-placeholder="Enter the product code" name="kodevoucher" id="kodevoucher" type="text"> <a onclick="getVoucher(kodevoucher.value,total_subtotal.value,orderid.value);" class="btn btn-primary">Check</a>
+                                                <br>
+                                                  <span id="hasilvoucher" class="price">
+                                                  {if $kodevoucher neq ''}
+                                                  <div class='alert alert-success'>{$namavoucher} (<strong>{$kodevoucher}</strong>) {$totaldiskon}</div>
+                                                  {/if}
+                                                  </span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="4" class="text-right">
+                                                    <span class="text-uppercase"><b>Total</b></span>
+                                                </td>
+                                                <td colspan="2">
+                                                    <span id="totalpembelian" class="price"><b>{$totaltagihanakhir}</b></span>
+                                                </td>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                        <button type="submit" class="btn btn-primary pull-right">Proceed to Checkout &nbsp;<i class="fa fa-arrow-right"></i></button>
+                                        <a href="{$fulldomain}/product" class="btn btn-default pull-right"><i class="fa fa-arrow-left"></i> Continue Shopping</a>
+                                    </form>
+                                </div>
+                            {elseif $kanal eq 'cart' and $aksi eq 'checkout'}
+                                <div role="tabpanel" class="tab-pane p-0 {if $aksi eq 'checkout'}active{/if}" id="shippingadd">
+                                {literal}
+                                <script>
+                                    function validasi_input(form){
+                                      if (form.userfullname.value == ""){
+                                        alert("Your full name is empty!");
+                                        form.userfullname.focus();
+                                        return (false);
+                                      }
+                                      else if (form.kecid.value == ""){
+                                        alert("Districts cannot be empty!");
+                                        form.kecid.focus();
+                                        return (false);
+                                      }
+                                    return (true);
+                                    }
+                                </script>
+                                {/literal}
+                                <form method="post" id="checkout-form" action="{$fulldomain}/cart/invoice" class="form-horizontal" role="form" onsubmit="return validasi_input(this)">
+                                    <input type="hidden" name="email" id="email" value="{$email}">
+                                    <input type="hidden" name="domain" id="domain" value="{$fulldomain}/">
+                                    <input type="hidden" name="transaksiid" id="transaksiid" value="{$transaksiid}">
+                                    <input type="hidden" value="{$orderid}" id="orderid" name="orderid">
+                                    <table class="table table-bordered table-cart">
+                                        <tbody>
+                                            <tr>
+                                                <td class="text-left" colspan="2">
+                                                    <div class="row p-25">
+                                                        {if $salah neq ''}
+                                                            <div class="alert {$style}">
+                                                                <center>{$salah}<br /><a href="{$fulldomain}/cart" class="btn btn-primary">Kembali</a></center>
+                                                            </div>
+                                                        {/if}
+                                                        {literal}
+                                                        <script type="text/javascript">
+                                                            function tampil(data) {
+                                                                if (data == "8") {
+                                                                    $("#diambil").hide();
+                                                                    // $("#dikirim").hide();
+                                                                    // $("#tamong").hide();
+                                                                    $("#metodep").show();
+                                                                } else if (data == "Pickup Point") {
+                                                                    $("#diambil").show();
+                                                                    // $("#dikirim").hide();
+                                                                    // $("#tamong").show();
+                                                                    $("#metodep").show();
+                                                                } else if (data != "Pickup Point") {
+                                                                    $("#diambil").hide();
+                                                                    // $("#dikirim").show();
+                                                                    // $("#tamong").show();
+                                                                    $("#metodep").show();
+                                                                } else {
+                                                                    $("#diambil").hide();
+                                                                    // $("#dikirim").hide();
+                                                                    // $("#tamong").show();
+                                                                    $("#metodep").show();
+                                                                }
+                                                            }
+
+                                                            function tampil2(data) {
+                                                                if (data == "Transfer") {
+                                                                    $("#transfer").show();
+                                                                } else if (data != "Transfer") {
+                                                                    $("#transfer").hide();
+                                                                } else {
+                                                                    $("#transfer").hide();
+                                                                }
+                                                            }
+
+                                                            function tampildrop(data) {
+                                                                if (data.checked) {
+                                                                    $("#dropship").show();
+                                                                } else {
+                                                                    $("#dropship").hide();
+                                                                }
+                                                            }
+
+                                                            function tampilbtn(data) {
+                                                                if (data.checked) {
+                                                                    $("#btn-notif").removeAttr("disabled");
+                                                                } else {
+                                                                    $("#btn-notif").attr("disable", true);
+                                                                }
+                                                            }
+                                                        </script>
+                                                        <style>
+                                                            #dikirim {
+                                                                display: none;
+                                                            }
+                                                            
+                                                            #diambil {
+                                                                display: none;
+                                                            }
+                                                            
+                                                            #transfer {
+                                                                display: none;
+                                                            }
+                                                            
+                                                            #dropship {
+                                                                display: none;
+                                                            }
+                                                        </style>
+                                                        {/literal}
+                                                        <script type="text/javascript" src="{$fulldomain}/librari/ajax/ajax_kota.js"></script>
+                                                        <script type="text/javascript" src="{$fulldomain}/librari/ajax/ajax_kec.js"></script>
+                                                        <script type="text/javascript" src="{$fulldomain}/librari/ajax/ajax_agen.js"></script>
+                                                        <script type="text/javascript" src="{$fulldomain}/librari/ajax/ajax_ongkos.js"></script>
+                                                        <script type="text/javascript" src="{$fulldomain}/librari/ajax/ajax_total.js"></script>
+                                                        {if $login eq '1'}
+                                                            <div class="col-md-6">
+                                                                <h4>Shipping Address</h4>
+                                                                <div class="form-group">
+                                                                    <div class="col-md-6">
+                                                                        <input type="text" name="userfullname" value="{$namapenerima}" id="nama-penerima" placeholder="Enter your name" required="required">
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <input type="text" name="userphonegsm" value="{$hp}" id="no-hp" placeholder="Enter your phone number" required="required">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <div class="col-md-6">
+                                                                        <input type="text" name="useremail" value="{$email}" id="" placeholder="Enter your email address" required="required">
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <select name="negaraid" onchange="getNegara(this.value);" class="form-control" required="required">
+                                                                            <option  value=""> Select Country </option>
+                                                                            {foreach from=$datanegara key=id item=j}
+                                                                            <option  value="{$j.id}" {$j.select}>{$j.namanegara}</option>
+                                                                            {/foreach}
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <div class="col-md-6">
+                                                                        <select name="propinsiid" id="propinsiid" class="form-control" onChange="getKota(this.value);" required="required">
+                                                                            <option  value=""> Select Province </option>
+                                                                            {foreach from=$datapropinsi key=id item=p}
+                                                                            <option  value="{$p.id}" {$p.select}>{$p.namapropinsi}</option>
+                                                                            {/foreach}
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <select name="cityname" id="kotaId2" class="form-control" onChange="getKec(this.value);" required="required">
+                                                                            <option  value=""> Select City  </option>
+                                                                            {foreach from=$datakota key=idkota item=p}
+                                                                                <option value="{$p.kotaid}" {$p.select}>{$p.namakota}</option>
+                                                                            {/foreach}
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <div class="col-md-6">
+                                                                        <select name="kecid" id="kecid" class="form-control" onChange="getAgen(orderid.value,this.value);" required="required">
+                                                                            <option  value=""> Select Districts </option>
+                                                                            {foreach from=$datakecamatan key=kotaid item=p}
+                                                                                <option  value="{$p.kecid}" {$p.select}>{$p.namakecamatan}</option>
+                                                                            {/foreach}
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <input type="text" name="userpostcode" value="{$kodepos}" id="" placeholder="Enter your postal code" required="required">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <div class="col-md-12">
+                                                                        <textarea name="useraddress" id="alamat" placeholder="Enter your full address" cols="30" rows="10">{$useraddress}</textarea>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        {else}
+                                                            <div class="col-md-6">
+                                                                <h4>Shipping Address</h4>
+                                                                <div class="form-group">
+                                                                    <div class="col-md-6">
+                                                                        <input type="text" name="userfullname" value="{$namapenerima}" id="nama-penerima" placeholder="Enter your name" required="required">
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <input type="text" name="userphonegsm" value="{$hp}" id="no-hp" placeholder="Enter your phone number" required="required">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <div class="col-md-6">
+                                                                        <input type="text" name="useremail" value="{$email}" id="" placeholder="Enter your email address" required="required">
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <select name="negaraid" onchange="getNegara(this.value);" class="form-control" required="required">
+                                                                            <option  value=""> Select Country </option>
+                                                                            {foreach from=$datanegara key=id item=j}
+                                                                            <option  value="{$j.id}" {$j.select}>{$j.namanegara}</option>
+                                                                            {/foreach}
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <div class="col-md-6">
+                                                                        <select name="propinsiid" id="propinsiid" class="form-control" onChange="getKota(this.value);" required="required">
+                                                                            <option  value=""> Select Province </option>
+                                                                            {foreach from=$datapropinsi key=id item=p}
+                                                                            <option  value="{$p.id}" {$p.select}>{$p.namapropinsi}</option>
+                                                                            {/foreach}
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <select name="cityname" id="kotaId2" class="form-control" onChange="getKec(this.value);" required="required">
+                                                                            <option  value=""> Select City  </option>
+                                                                            {foreach from=$datakota key=idkota item=p}
+                                                                                <option value="{$p.kotaid}" {$p.select}>{$p.namakota}</option>
+                                                                            {/foreach}
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <div class="col-md-6">
+                                                                        <select name="kecid" id="kecid" class="form-control" onChange="getAgen(orderid.value,this.value);" required="required">
+                                                                            <option  value=""> Select Districts </option>
+                                                                            {foreach from=$datakecamatan key=kotaid item=p}
+                                                                                <option  value="{$p.kecid}" {$p.select}>{$p.namakecamatan}</option>
+                                                                            {/foreach}
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <input type="text" name="userpostcode" value="{$kodepos}" id="" placeholder="Enter your postal code" required="required">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <div class="col-md-12">
+                                                                        <textarea name="alamat" id="alamat" placeholder="Enter your full address" cols="30" rows="10">{$useraddress}</textarea>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        {/if}
+                                                        <div class="col-md-6">
+                                                            <h4>Shipping Detail</h4>
+                                                            <div class="form-group">
+                                                                <div class="col-md-6">
+                                                                    <select name="pengiriman" id="pengiriman" class="form-control" onChange="getOngkir(kecid.value,orderid.value,this.value);tampil(this.value);" required="required">
+                                                                        <option  value="">Select Shipping</option>
+                                                                        {foreach from=$dataagen key=agenid item=p}
+                                                                        <option  value="{$p.agenid}" {$p.select}>{$p.namaagen}</option>
+                                                                        {/foreach}
+                                                                    </select>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <select name="ongkiridnya" id="ongkirid" class="form-control" required="required" onChange="getTotal(orderid.value,this.value);">
+                                                                        <option  value="">Select Service</option>
+                                                                        {foreach from=$dataongkir key=ongkirid item=p}
+                                                                        <option  value="{$p.ongkirid}" {$p.select}>{$p.ongkir}</option>
+                                                                        {/foreach}
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="clearfix">&nbsp;</div>
+                                                            <div class="pembayaran" id="metodep">
+                                                                <h4>Payment Method</h4>
+                                                                <div class="form-group">
+                                                                    {foreach from=$databank key=bankid item=p}
+                                                                    <div class="col-md-6">
+                                                                        <input type="hidden" name="bank" value="{$p.id}">
+                                                                        <label><input type="radio" name="pembayaran" value="Transfer" required="required"><img width="150" src="{$lokasiwebtemplate}images/payment/bank-transfer.png" alt="{$p.nama}"></label><br>
+                                                                        Manual Bank Transfer
+                                                                    </div>
+                                                                    {/foreach}
+                                                                    <div class="col-md-6">
+                                                                        <label><input type="radio" name="pembayaran" value="CreditCard" required="required"><img width="150" src="{$lokasiwebtemplate}images/payment/master-card.png" alt="CreditCard Master"></label><br>
+                                                                        CreditCard (Master)
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <label><input type="radio" name="pembayaran" value="CreditCard" required="required"><img width="150" src="{$lokasiwebtemplate}images/payment/visa.png" alt="CreditCard Visa"></label><br>
+                                                                        CreditCard (Visa)
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <label><input type="radio" name="pembayaran" value="BankTransfer" required="required"><img width="150" src="{$lokasiwebtemplate}images/payment/atm-bersama.png" alt="ATM Transfer (Bersama)"></label><br>
+                                                                        ATM Transfer (Bersama)
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <label><input type="radio" name="pembayaran" value="BankTransfer" required="required"><img width="150" src="{$lokasiwebtemplate}images/payment/atm-prima.png" alt="ATM Transfer (Prima)"></label><br>
+                                                                        ATM Transfer (Prima)
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <label><input type="radio" name="pembayaran" value="BankTransfer" required="required"><img width="150" src="{$lokasiwebtemplate}images/payment/atm-alto.png" alt="ATM Transfer (Alto)"></label><br>
+                                                                        ATM Transfer (Alto)
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <table class="table table-bordered table-cart">
+                                        <thead>
+                                            <tr>
+                                                <th>Products</th>
+                                                <th>Description</th>
+                                                <th>Price</th>
+                                                <th>Quantity</th>
+                                                <th>Total</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        {foreach from=$dt_keranjang key=id item=a}
+                                            <tr>
+                                                <td class="text-center">
+                                                    <a href="{$a.link_produk}">
+                                                    <div class="cart-item-thumb img-thumbnail">
+                                                        <img src="{$a.image_s}" class="img-responsive" alt="{$a.nama}">
+                                                    </div>
+                                                    </a>
+                                                </td>
+                                                <td><span class="text-uppercase"><b>{$a.nama}</b></span> <br><span><b>Item Nomor : </b>{$a.nomor} 
+                                                </span></td>
+                                                <td class="text-center">
+                                                    <b>{$a.harga_asli}</b>
+                                                </td>
+                                                <td align="center">
+                                                    {$a.qty}
+                                                </td>
+                                                <td class="text-center"><b>{$a.subtotal}</b></td>
+                                            </tr>
+                                        {/foreach}
+                                        </tbody>
+                                        <tfoot>
+                                        <div id="total-area">
+                                        <div id="subtotal-holder">
+                                            {if $totaldiskonn neq '0'}
+                                            <tr>
+                                                <td colspan="4" class="text-right">
+                                                    <span class="text-uppercase"><b>Voucher Discount ({$kodevoucher})</b></span>
+                                                </td>
+                                                <td colspan="2">
+                                                    <div class="value pull-right" id=""><b>(-) {$totaldiskon}</b></div>
+                                                </td>
+                                            </tr>
+                                            {/if}
+                                            <tr>
+                                                <td colspan="4" class="text-right">
+                                                    <span class="text-uppercase"><b>Shipping ({$totalberat} Gram)</b></span>
+                                                    <input type="hidden" value="totalberat" value="{$totalberat}" id="totalberat" />
+                                                </td>
+                                                <td colspan="2">
+                                                    <div class="value pull-right" id="ongkosawal_text"><b>0</b></div>
+                                                    <input type="hidden" value="ongkoskirim" value="{$ongkoskirim}" id="ongkoskirim" />
+                                                </td>
+                                            </tr>
+                                            <tr id="total-field">
+                                                <td colspan="4" class="text-right">
+                                                    <span class="text-uppercase"><b>Grand Total</b></span>
+                                                </td>
+                                                <td colspan="2">
+                                                    <div class="value pull-right" id="totalpembelian"><b>{$totaltagihanakhir}</b></div>
+                                                </td>
+                                            </tr>
+                                        </div>
+                                        </div>
+                                        </tfoot>
+                                    </table>
+                                    <button class="btn btn-primary pull-right" type="submit" id="btn-notif">Proceed to Checkout &nbsp;<i class="fa fa-arrow-right"></i></button>
+                                    <a href="{$fulldomain}/product" class="btn btn-default pull-right"><i class="fa fa-arrow-left"></i> Continue Shopping</a>
+                                </form>
+                                </div>
+                            {else if $aksi eq 'invoice' or $aksi eq 'response'}
+                                <div role="tabpanel" class="tab-pane p-0 {if $aksi eq 'invoice' or $aksi eq 'response'}active{/if}" id="summary">
+                                    <table class="table table-bordered table-cart">
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div class="row p-25">
+                                                        <div class="col-md-12">
+                                                            <h4>Order Details</h4>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="alert {$style} checkout-alert" style="width: 206%;">{$salah}</div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    {if $style neq 'alert-danger'}
+                                    <table class="table table-bordered table-cart">
+                                        <thead>
+                                            <tr>
+                                                <th>Products</th>
+                                                <th>Description</th>
+                                                <th>Price</th>
+                                                <th>Quantity</th>
+                                                <th>Total</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        {foreach from=$detailproduk key=id item=a}
+                                            <tr>
+                                                <td class="text-center">
+                                                    <div class="cart-item-thumb img-thumbnail">
+                                                        <img src="{$a.image_s}" class="img-responsive" alt="{$a.nama}">
+                                                    </div>
+                                                </td>
+                                                <td><span class="text-uppercase"><b>{$a.nama}</b></span> <br><span><b>Item Nomor {$a.nomor}</b></span></td>
+                                                <td class="text-center">
+                                                    <b>{$a.harga_asli}</b>
+                                                </td>
+                                                <td>
+                                                    <center>{$a.qty}</center>
+                                                </td>
+                                                <td class="text-center"><b>{$a.totalharga}</b></td>
+                                            </tr>
+                                        {/foreach}
+                                        </tbody>
+                                        <tfoot>
+                                            {if $total_diskon > 0 }
+                                            <tr>
+                                                <td colspan="4" class="text-right">
+                                                    <span class="text-uppercase"><b>Discount Voucher {$namadiskon} {$diskonnya} ({$kode_voucher})</b></span>
+                                                </td>
+                                                <td colspan="2">
+                                                    <b>(-) {$total_diskon2}</b>
+                                                </td>
+                                            </tr>
+                                            {/if}
+                                            {if $ongkos_kirim > 0 }
+                                            <tr>
+                                                <td colspan="4" class="text-right">
+                                                    <span class="text-uppercase"><b>Shipping ({$totberat} Gram)</b></span>
+                                                </td>
+                                                <td colspan="2">
+                                                    <b>{$ongkos_kirim2}</b>
+                                                </td>
+                                            </tr>
+                                            {/if}
+                                            <tr>
+                                                <td colspan="4" class="text-right">
+                                                    <span class="text-uppercase"><b>Grand Total</b></span>
+                                                </td>
+                                                <td colspan="2">
+                                                    <b>{$totaltagihanakhird}</b>
+                                                </td>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                    {/if}
+                                    <a href="{$fulldomain}/member/history" class="btn btn-primary pull-right">Complete Payment &nbsp;<i class="fa fa-arrow-right"></i></a>
+                                </div>
+                            {/if}
+                            </div>
+                        </div>
+                    {else}
+                        {if $salah neq ''}
+                            <div class="alert {$style}"><center>{$salah} 
+                            <br /><br /><a href="{$fulldomain}/product" class="btn btn-primary">Products Catalog</a><br /></center></div>
+                        {else}
+                            <div class="alert alert-warning"><center>Data of your shopping cart is empty. Please select the products to be purchased. 
+                            <br /><br /><a href="{$fulldomain}/product" class="btn btn-primary">Products Catalog</a><br /></center></div>
+                         {/if}
+                    {/if}
+                {/if}
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.content -->
+    {/if}
+
+</div>
+<!-- /.wrapper -->
+
+{include file="`$lokasitemplate`/komponen/home/footer.html"}

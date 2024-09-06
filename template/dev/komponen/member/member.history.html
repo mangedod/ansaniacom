@@ -1,0 +1,40 @@
+
+           <h3>Order History</h3>
+           <hr>
+
+             <div class="table-responsive">
+                <table class="table table-striped table-normal">
+                    <thead>
+                        <tr>
+                            <th class="normal" width="10%">No</th>
+                            <th width="15%">Transaction Date</th>
+                            <th class="text-center" width="20%">Invoice</th>
+                            <th class="text-center" width="20%">Method Of Payment</th>
+                            <th class="text-center" width="25%">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {foreach from=$listtransaksi key=transaksiid item=i}
+                        <tr>
+                            <td class="normal">{$i.no}</td>
+                            <td>{$i.tanggaltransaksi}</td>
+                            <td class="text-center"><a href="{$i.urldetail}">{$i.invoiceid}</a></td>
+                            <td class="text-center">{$i.pembayaran}</td>
+                            <td class="text-center">{$i.stat} {if $i.status eq '1' and $i.pembayaran eq 'Transfer'}<br /><a href="{$i.link}">Do Payment Confirmation</a>{/if}</td>
+                        </tr>
+                    {/foreach}
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="pagination-holder">
+                <div class="row">
+                    <div class="col-md-6 text-right" style="width: 100%;">
+                        <ul class="pagination">
+                            {foreach from=$stringpage key=pageid item=a}
+                                <li class="{$a.class}"><a href="{$a.link}"> {$a.nama} </a></li>
+                            {/foreach}
+                        </ul><!-- /.pagination -->
+                    </div>
+                </div><!-- /.row -->
+            </div><!-- /.pagination-holder -->

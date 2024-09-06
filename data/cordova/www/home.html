@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Ansania</title>
+    <meta content="IE=edge" http-equiv="x-ua-compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <!-- Fonts -->
+    <!-- Icons -->
+    <link href="css/ionicons.min.css" media="all" rel="stylesheet" type="text/css">
+    <!-- Styles -->
+    <link href="css/keyframes.css" rel="stylesheet" type="text/css">
+    <link href="css/materialize.min.css" rel="stylesheet" type="text/css">
+    <link href="css/swiper.css" rel="stylesheet" type="text/css">
+    <link href="css/swipebox.min.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+	<script src="js/jquery-2.1.0.min.js"></script>
+	<script src="js/fastclick.js"></script>
+	<script type="text/javascript">
+    var url = window.location.pathname;
+    var filename = url.substring(url.lastIndexOf('/') + 1);
+ 
+    if (localStorage.login == "true" && filename == 'login.html') {
+        window.location.href = "index.html";
+		var userfullname = localStorage.userfullname;
+    } else if (localStorage.login == null) {
+        window.location.href = "login.html";
+    } else if (localStorage.login == "false" && filename != 'login.html') {
+        window.location.href = "login.html";
+    }
+	</script>
+    <script type="text/javascript" src="js/main.js"></script>
+    
+  <script type="text/javascript" src="js/iscroll.js"></script>
+  <script type="text/javascript" src="js/pulltorefresh.js"></script>
+	<script type="text/javascript">
+    var myScroll;
+    function loaded () {
+        myScroll = new IScroll('#content', { mouseWheel: true });
+    }
+    </script>
+</head>
+
+  <body>
+    <div class="m-scene bg-ff" id="main"> <!-- Main Container -->
+
+      <!-- Page Content -->
+      <div id="content" class="content-home">
+
+        <!-- Toolbar -->
+         <!-- Toolbar -->
+        <div id="toolbar"  class="primary-color">
+          <span class="title">Ansania</span><div class="open-right waves-effect waves-circle">
+            <a href="javascript:fade('index.html');"><i class="fal fa-bars"></i></a>
+          </div>
+        </div>
+        
+		
+        <div class="animated fadein">
+          <div class="box-status animated fadeindown">
+          	<div class="box-status-img">
+            	<div class="box-status-imgbox">
+                <script>document.write('<img class="circle avatar" src="'+localStorage.avatar+'" alt="">');</script>
+                </div>
+            </div>
+            <div class="box-status-input">
+            	<textarea class="textarea" placeholder="Apa yang anda pikirkan?" onClick="javascript:fade('post.html')"></textarea>
+            </div>
+            <div class="box-status-photo"  onClick="javascript:fade('post.html')"><span class="icon-picture"></span><br>Photo</div>
+          </div>
+          <br clear="all">
+          <div id="load_data"></div>
+		  <div id="load_data_message">
+           <div class="p-20">
+            <div class="animated-background facebook">
+                <div class="background-masker header-top"></div>
+                <div class="background-masker header-left"></div>
+                <div class="background-masker header-right"></div>
+                <div class="background-masker header-bottom"></div>
+                <div class="background-masker subheader-left"></div>
+                <div class="background-masker subheader-right"></div>
+                <div class="background-masker subheader-bottom"></div>
+                <div class="background-masker content-top"></div>
+                <div class="background-masker content-first-end"></div>
+                <div class="background-masker content-second-line"></div>
+                <div class="background-masker content-second-end"></div>
+                <div class="background-masker content-third-line"></div>
+                <div class="background-masker content-third-end"></div>
+            </div>
+           <div class="animated-background facebook">
+                <div class="background-masker header-top"></div>
+                <div class="background-masker header-left"></div>
+                <div class="background-masker header-right"></div>
+                <div class="background-masker header-bottom"></div>
+                <div class="background-masker subheader-left"></div>
+                <div class="background-masker subheader-right"></div>
+                <div class="background-masker subheader-bottom"></div>
+                <div class="background-masker content-top"></div>
+                <div class="background-masker content-first-end"></div>
+                <div class="background-masker content-second-line"></div>
+                <div class="background-masker content-second-end"></div>
+                <div class="background-masker content-third-line"></div>
+                <div class="background-masker content-third-end"></div>
+            </div>
+            
+             <div class="animated-background facebook">
+                <div class="background-masker header-top"></div>
+                <div class="background-masker header-left"></div>
+                <div class="background-masker header-right"></div>
+                <div class="background-masker header-bottom"></div>
+                <div class="background-masker subheader-left"></div>
+                <div class="background-masker subheader-right"></div>
+                <div class="background-masker subheader-bottom"></div>
+                <div class="background-masker content-top"></div>
+                <div class="background-masker content-first-end"></div>
+                <div class="background-masker content-second-line"></div>
+                <div class="background-masker content-second-end"></div>
+                <div class="background-masker content-third-line"></div>
+                <div class="background-masker content-third-end"></div>
+            </div>
+           <div class="animated-background facebook">
+                <div class="background-masker header-top"></div>
+                <div class="background-masker header-left"></div>
+                <div class="background-masker header-right"></div>
+                <div class="background-masker header-bottom"></div>
+                <div class="background-masker subheader-left"></div>
+                <div class="background-masker subheader-right"></div>
+                <div class="background-masker subheader-bottom"></div>
+                <div class="background-masker content-top"></div>
+                <div class="background-masker content-first-end"></div>
+                <div class="background-masker content-second-line"></div>
+                <div class="background-masker content-second-end"></div>
+                <div class="background-masker content-third-line"></div>
+                <div class="background-masker content-third-end"></div>
+            </div>
+            
+             <div class="animated-background facebook">
+                <div class="background-masker header-top"></div>
+                <div class="background-masker header-left"></div>
+                <div class="background-masker header-right"></div>
+                <div class="background-masker header-bottom"></div>
+                <div class="background-masker subheader-left"></div>
+                <div class="background-masker subheader-right"></div>
+                <div class="background-masker subheader-bottom"></div>
+                <div class="background-masker content-top"></div>
+                <div class="background-masker content-first-end"></div>
+                <div class="background-masker content-second-line"></div>
+                <div class="background-masker content-second-end"></div>
+                <div class="background-masker content-third-line"></div>
+                <div class="background-masker content-third-end"></div>
+            </div>
+           <div class="animated-background facebook">
+                <div class="background-masker header-top"></div>
+                <div class="background-masker header-left"></div>
+                <div class="background-masker header-right"></div>
+                <div class="background-masker header-bottom"></div>
+                <div class="background-masker subheader-left"></div>
+                <div class="background-masker subheader-right"></div>
+                <div class="background-masker subheader-bottom"></div>
+                <div class="background-masker content-top"></div>
+                <div class="background-masker content-first-end"></div>
+                <div class="background-masker content-second-line"></div>
+                <div class="background-masker content-second-end"></div>
+                <div class="background-masker content-third-line"></div>
+                <div class="background-masker content-third-end"></div>
+            </div>
+           
+           </div>
+
+		</div>
+          
+        <script> 
+        $(document).ready(function(){
+ 
+         var limit = 10;
+         var start = 0;
+         var action = 'inactive';
+		 var datalist = "";
+		 $("#load_data").html("");
+        
+		 function load_country_data(limit, start)
+         {
+			   var urls ="http://localhost:8080/ansaniacom/api/android/index.php/member/listpost/"+localStorage.userid+"/"+start+"/"+limit+"/?callback=?";
+			   
+		
+			  	$.ajax({
+				  type: "GET",
+				  url: urls,
+				  crossDomain: true,
+				  cache: false,
+				  success: function(data){
+				  
+				  	  
+				  	
+					  if(data['status']=="OK")
+					  {
+
+							var dl = data['datapost'];
+							var lastid = "";
+	
+							  for (var key in dl) {
+								if (dl.hasOwnProperty(key)) {
+								  var gambar = dl[key]['mcontent'];
+								  var hapus = dl[key]['hapusposting'];
+								   var unlike = dl[key]['unlike'];
+								
+								  datalist += '<div class="blog-card" id="post-'+dl[key]["postid"]+'">';
+								  datalist += '<div class="blog-header"><img class="avatar circle" onclick="javascript:fade(\'profile.html?action=read&userid='+dl[key]["userid"]+'\')" src="'+dl[key]["avatar"]+'" alt="" /><div class="blog-author"><span><strong onclick="javascript:fade(\'profile.html?action=read&userid='+dl[key]["userid"]+'\')">'+dl[key]["namalengkap"]+'</strong><i onclick="showdialog(\''+dl[key]["postid"]+'\'); void(\'\');" class="ion-android-more-vertical right btn btn-trans"></i></span><span class="small">'+dl[key]["tgltampil"]+'</span></div> </div>';
+								  datalist += '<div class="blog-preview p-10 status-isi" onclick="javascript:fade(\'post-read.html?action=read&id='+dl[key]["postid"]+'\')"><p>'+dl[key]["isi"]+'</p></div>';
+								  if(gambar!=null){ datalist += '<div class="blog-image" onclick="javascript:fade(\'post-read.html?action=read&id='+dl[key]["postid"]+'\')"><img src="' + gambar + '" alt="" /></div>'; }
+								  datalist += '<div class="blog-preview p-10 status-isi"<small><a class="waves-effect waves-light" href="javascript:fade(\'post-read.html?action=read&id='+dl[key]["postid"]+'\')">&nbsp;<i class="icon-bubble" style="font-size:14px;"></i>&nbsp;' + dl[key]["jmlkomen"] + ' komentar &nbsp;</a>';
+								  if(unlike==0) { datalist += '<a href="javascript:like(\''+dl[key]["postid"]+'\');"><i class="icon-thumbs-up" style="font-size:14px;"></i>&nbsp;' + dl[key]["jmlLike"] + ' disukai</a>'; }
+								  else { datalist += '<a href="javascript:unlike(\''+dl[key]["postid"]+'\');"><i class="icon-thumbs-up" style="font-size:14px;"></i>&nbsp;' + dl[key]["jmlLike"] + ' disukai</a>'; }
+								  datalist += '</small></div>';								  
+								  datalist += '</div><div id="myModal-'+dl[key]["postid"]+'" class="modal"><div class="modal-content"><p>';
+							 	  datalist += '<button class="btn-menu  waves-effect" onclick="javascript:fade(\'post-read.html?action=read&id='+dl[key]["postid"]+'\')">Selengkapnya</button>';
+								  if(hapus==1) { datalist += '<button class="btn-menu  waves-effect" onclick="deletepost(\''+dl[key]["postid"]+'\');">Hapus Postingan</button>'; }
+								  datalist += '<button class="btn-menu  waves-effecte" onclick="hidedialog(\''+dl[key]["postid"]+'\'); void(\'\');">Tutup</button>';
+								  datalist += '</p></div></div>';
+								  delete(hapus);
+								}
+							  }
+							   $("#load_data").append(datalist);
+														
+							if(datalist = '')
+							{
+								 $('#load_data_message').html("");
+								 action = 'active';
+							}
+							else
+							{
+								 loading("load_data_message","5");
+								// $('#load_data_message').html("<div class=\"loading\"><center><img src=\"img/loading.svg\" /></center></div>");
+								 action = "inactive";
+							}
+					  }
+				 }
+			  });
+         }
+        
+         if(action == 'inactive')
+         {
+			  action = 'active';
+			  load_country_data(limit, start);
+         }
+        
+		 $("#content").scroll(function(){
+          if($("#content").scrollTop() + $("#content").height() > $("#load_data").height() && action == 'inactive')
+          {
+			   action = 'active';
+			   start = start + limit;
+			   setTimeout(function(){
+				load_country_data(limit, start);
+			   }, 1000);
+          }
+         });
+         
+        });
+       	
+		//Like
+		function like(id)
+		{
+			var urls ="http://localhost:8080/ansaniacom/api/android/index.php/member/like/"+localStorage.userid+"/"+id+"/?callback=?";
+			$.ajax({
+			  type: "GET",
+			  url: urls,
+			  crossDomain: true,
+			  cache: false,
+			  success: function(data){
+			  	
+				  if(data['status']=="OK")
+				  {
+					slide("post-read.html?action=read&id="+id);
+				  }
+				 }
+			  });
+		}
+		function unlike(id)
+		{
+			var urls ="http://localhost:8080/ansaniacom/api/android/index.php/member/unlike/"+localStorage.userid+"/"+id+"/?callback=?";
+			$.ajax({
+			  type: "GET",
+			  url: urls,
+			  crossDomain: true,
+			  cache: false,
+			  success: function(data){
+			  	
+				  if(data['status']=="OK")
+				  {
+					slide("post-read.html?action=read&id="+id);
+				  }
+				 }
+			  });
+		}
+		function showdialog(id)
+		{
+			var modal = document.getElementById('myModal-'+id);
+			var span = document.getElementsByClassName("close")[0];
+			modal.style.display = "block";
+			return false;
+		}
+		function hidedialog(id)
+		{
+			var modal = document.getElementById('myModal-'+id);
+			var span = document.getElementsByClassName("close")[0];
+			modal.style.display = "none";
+			return false;
+		}
+		function deletepost(id)
+		{
+			var urls ="http://localhost:8080/ansaniacom/api/android/index.php/member/delpost/"+localStorage.userid+"/"+id+"/?callback=?";
+			$.ajax({
+			  type: "GET",
+			  url: urls,
+			  crossDomain: true,
+			  cache: false,
+			  success: function(data){
+			  	
+				  if(data['status']=="OK")
+				  {
+					slide("home.html");
+				  }
+				 }
+			  });
+		}
+		</script>
+
+        <script>
+		  PullToRefresh.init({
+			mainElement: '#load_data',
+			onRefresh: function() { 
+			var fid = $(".blog-card:first-child").attr("id");
+			var fid = fid.replace("post-", "");
+			var datalist = "";
+			
+			var urls ="http://localhost:8080/ansaniacom/api/android/index.php/member/listpost/"+localStorage.userid+"/"+fid+"/pull/?callback=?";
+			   
+		
+			  	$.ajax({
+				  type: "GET",
+				  url: urls,
+				  crossDomain: true,
+				  cache: false,
+				  success: function(data){
+				  
+					  if(data['status']=="OK")
+					  {
+
+							var dl = data['datapost'];
+							var lastid = "";
+	
+							  for (var key in dl) {
+								if (dl.hasOwnProperty(key)) {
+								  var gambar = dl[key]['mcontent'];
+								  var hapus = dl[key]['hapusposting'];
+								   var unlike = dl[key]['unlike'];
+								
+								  datalist += '<div class="blog-card" id="post-'+dl[key]["postid"]+'">';
+								  datalist += '<div class="blog-header"><img class="avatar circle" onclick="javascript:fade(\'profile.html?action=read&userid='+dl[key]["userid"]+'\')" src="'+dl[key]["avatar"]+'" alt="" /><div class="blog-author"><span><strong onclick="javascript:fade(\'profile.html?action=read&userid='+dl[key]["userid"]+'\')">'+dl[key]["namalengkap"]+'</strong><i onclick="showdialog(\''+dl[key]["postid"]+'\'); void(\'\');" class="ion-android-more-vertical right btn btn-trans"></i></span><span class="small">'+dl[key]["tgltampil"]+'</span></div> </div>';
+								  datalist += '<div class="blog-preview p-10 status-isi" onclick="javascript:fade(\'post-read.html?action=read&id='+dl[key]["postid"]+'\')"><p>'+dl[key]["isi"]+'</p></div>';
+								  if(gambar!=null){ datalist += '<div class="blog-image" onclick="javascript:fade(\'post-read.html?action=read&id='+dl[key]["postid"]+'\')"><img src="' + gambar + '" alt="" /></div>'; }
+								  datalist += '<div class="blog-preview p-10 status-isi"<small><a class="waves-effect waves-light" href="javascript:fade(\'post-read.html?action=read&id='+dl[key]["postid"]+'\')">&nbsp;<i class="icon-bubble" style="font-size:14px;"></i>&nbsp;' + dl[key]["jmlkomen"] + ' komentar &nbsp;</a>';
+								  if(unlike==0) { datalist += '<a href="javascript:like(\''+dl[key]["postid"]+'\');"><i class="icon-thumbs-up" style="font-size:14px;"></i>&nbsp;' + dl[key]["jmlLike"] + ' disukai</a>'; }
+								  else { datalist += '<a href="javascript:unlike(\''+dl[key]["postid"]+'\');"><i class="icon-thumbs-up" style="font-size:14px;"></i>&nbsp;' + dl[key]["jmlLike"] + ' disukai</a>'; }
+								  datalist += '</small></div>';								  
+								  datalist += '</div><div id="myModal-'+dl[key]["postid"]+'" class="modal"><div class="modal-content"><p>';
+							 	  datalist += '<button class="btn-menu  waves-effect" onclick="javascript:fade(\'post-read.html?action=read&id='+dl[key]["postid"]+'\')">Selengkapnya</button>';
+								  if(hapus==1) { datalist += '<button class="btn-menu  waves-effect" onclick="deletepost(\''+dl[key]["postid"]+'\');">Hapus Postingan</button>'; }
+								  datalist += '<button class="btn-menu  waves-effecte" onclick="hidedialog(\''+dl[key]["postid"]+'\'); void(\'\');">Tutup</button>';
+								  datalist += '</p></div></div>';
+								  delete(hapus);
+								}
+							  }
+							   $("#load_data").prepend(datalist);
+						
+					  }
+				 }
+			  });
+			
+			
+			
+			}
+		  });
+		</script>
+
+        </div> <!-- End of Main Contents -->
+      
+       
+      </div> <!-- End of Page Content --><br><br><div class="steps-controllers">
+              <div  class="waves-effect waves-ripple"><a href="javascript:fade('index.html')"><span class="menubuttom"><span class="fal fa-home-alt"></span></span><br>Home</a></div>
+              <div ><a href="javascript:fade('kelas.html')"><span class="menubuttom"><span class="icon-book"></span></span><br>Kelas</a></div>
+              <div><a href="javascript:fade('chat.html')"><span class="menubuttom"><span class="icon-bubble-dots"></span></span><br>Chating</a></div>
+              <div ><a href="javascript:fade('notifikasi.html')"><span class="menubuttom"><span class="icon-alarm"></span></span><br>Notifikasi</a></div>
+              <div class="waves-effect waves-ripple"><a href="javascript:fade('setting.html')"><span class="menubuttom"><span class="icon-smile"></span></span><br>Akun</a></div>
+         </div>
+ </div> <!-- End of Page Container -->
+    
+    <script type="text/javascript" src="cordova.js"></script>
+
+    <script src="js/jquery.swipebox.min.js"></script>   
+    <script src="js/jquery.smoothState.min.js"></script> 
+    <script src="js/materialize.min.js"></script> 
+    <script src="js/swiper.min.js"></script>  
+    <script src="js/jquery.mixitup.min.js"></script>
+    <script src="js/masonry.min.js"></script>
+    <script src="js/chart.min.js"></script>
+    <script src="js/functions.js"></script>
+  </body>
+</html>

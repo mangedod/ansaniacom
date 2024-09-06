@@ -1,0 +1,152 @@
+<!-- CONTAINER: product -->
+<div class="container product">
+
+    <!-- Product Gallery -->
+    <div class="col-sm-4 product-gallery magnific-wrap">
+        <div class="img-medium text-center">
+            {if $misc_diskonn neq '0'}
+            <div class="sticker sticker-sale">sale</div>{/if}
+            <!-- Preview Slider -->
+            <div class="medium-slider">
+                {foreach from=$list_image key=albumid item=a}
+                <a href="{$a.image_f}" title="{$a.nama_image}" class="magnific"><img src="{$a.image_m}" alt="{$a.nama_image}"></a>
+                {/foreach}
+            </div>
+        </div>
+
+        <!-- Thumbs Slider -->
+        <div class="thumbs-wrap">
+            <a href="" class="th-prev th-arrow pull-left">
+                <i class="custom-icon custom-icon-arrow-prev"></i>
+            </a>
+            <a href="" class="th-next th-arrow pull-right">
+                <i class="custom-icon custom-icon-arrow-next"></i>
+            </a>
+            <div class="thwrap">
+                <div class="thumbs-slider">
+                    {foreach from=$list_image key=albumid item=a}
+                    <a href="{$a.image_m}" data-bigimg="{$a.image_m}"><img src="{$a.image_s}" alt="{$a.nama_image}"></a>
+                    {/foreach}
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /product gallery -->
+    <div class="col-sm-8 product-description">
+        <div class="row">
+            <h6 class="text-uppercase">{$detailnama}</h6>
+            <div class="cost">
+                {if $misc_diskonn neq '0'}
+                <del>{$price}</del>
+                <span class="new">{$misc_diskon}</span> 
+                {else}
+                <span class="new">{$price}</span> 
+                {/if}
+            </div>
+        </div>
+     
+        <div class="row text-description">
+            <p>{$detailringkas} <br />Kode Produk: {$detailkode}</p>
+            <br clear="all" />
+              <div class="post-share-button">
+                <div id="share"></div> 
+            </div>
+        
+
+        {literal}
+        <script>
+            function submitcart() {
+                document.getElementById("product_addtocart_form").submit();
+            }
+        </script>
+        {/literal} 
+        {if $totalstok neq '0'}
+        <form action="{$fulldomain}/cart/buy" method="post" id="product_addtocart_form" onsubmit="return cekqty()">
+            <input name="form_key" value="6UbXroakyQlbfQzK" type="hidden">
+                <div class="alert alert-info alert-dismissible" role="alert">
+                    Untuk membeli produk ini silahkan untuk memilih item yang akan dibeli dibawah ini
+                </div>
+                <span>Pilihan Item<span><br />
+                <select name="nomor" required style="width:auto;">
+                	<option value="">Pilih Item</option>
+                     {foreach from=$itemprod key=produkpostid item=w name=colorp}
+                     	<option value="{$w.produkpostid}">Nomor {$w.nomor} (Stok Tersedia {$w.stok} buah)</option>
+                     {/foreach}
+                </select>
+                
+            </div>
+
+            <div class="row product-count">
+                <div id="product-navigation">
+                    <div class="input-group spinner pull-left mr-15" data-trigger="spinner">
+                        <input type="text" name="qty" value="1" data-rule="quantity">
+                        <div class="input-group-addon">
+                            <a href="javascript:;" class="spin-up" data-spin="up">
+                                <i class="fa fa-plus"></i>
+                            </a>
+                            <a href="javascript:;" class="spin-down" data-spin="down">
+                                <i class="fa fa-minus"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <a class="btn btn-default add-cart" href="#" onclick="submitcart();"> <i class="custom-icon custom-icon-ico-cart-b"></i> Add to Cart</a>
+                    <a class="btn btn-success" href="https://api.whatsapp.com/send?phone=6282110698844&text=Halo%20Ansania,%20Saya%20menemukan%20produk%20{$detailnama}%20dari%20ansania.com%20apakah%20masih%20ada%20stok?{$uri}"> <i class="fa fa-whatsapp" style="font-size:26px; margin-top:5px"></i> Belaja Via WhatsApps</a>
+                </div>
+            </div>
+        {else}
+            <div class="row text-description">
+                <div class="alert alert-danger">
+                    <strong>Produk ini saat ini tidak tersedia atau stok sudah habis</strong>
+                    <br /><a class="btn btn-success" href="https://api.whatsapp.com/send?phone=6282110698844&text=Halo%20Ansania,%20Saya%20menemukan%20produk%20{$detailnama}%20dari%20ansania.com%20apakah%20masih%20ada%20stok?{$uri}" > <i class="fa fa-whatsapp" style="font-size:26px; margin-top:5px"></i> Belaja Via WhatsApps</a>
+
+                </div>
+            </div>
+            <br clear="all" /> <br clear="all" /> 
+        </form>
+        {/if}
+       	</div> 
+       
+    </div>
+
+    <div class="clearfix">&nbsp;</div>
+
+	
+    <!-- CONTAINER -->
+    <div class="container catalog-square">
+        <div class="row">
+            <div class="page-header2 col-md-12">
+                <h2>Pilihan Produk Lainnya</h2>
+                <div class="owlnav">
+                    <a href="#" class="prev"><i class="fa fa-angle-left"></i></a>
+                    <a href="#" class="next"><i class="fa fa-angle-right"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- row -->
+        <div class="row text-center owlslider">
+            {foreach from=$produklain key=produkid1 item=r}
+            <div class="col-md-3 col-sm-6 citem item">
+                <div class="cimg">
+                    <a href="{$r.link_detail}" class="aimg">
+                        <img src="{$r.image_m}" alt="{$r.namaprod}"> {if $r.cekdiskon neq '0'}
+                        <div class="sticker sticker-sale">sale</div>{/if}
+                    </a>
+                    <div class="product-button">
+                        <a href="{$r.link_detail}"><i class="fa fa-eye"></i></a>
+                        <a href="{$r.link_detail}"><i class="fa fa-heart"></i></a>
+                    </div>
+                </div>
+                <h5><a href="{$r.link_detail}" class="black">{$r.namaprod}</a></h5>
+                <div class="cost">
+                    {if $r.cekdiskon neq '0'}
+                    <del>{$r.hargaasli}</del>
+                    <span class="new">{$r.hargadiskon}</span> {else}
+                    <span class="new">{$r.hargaasli}</span> {/if}
+                </div>
+            </div>
+            {/foreach}
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->

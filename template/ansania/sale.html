@@ -1,0 +1,38 @@
+{include file="`$lokasitemplate`komponen/home/header.html"}
+
+    {if $aksi eq 'read'}
+        <div class="section-breadcrumb">
+            <div class="container">
+                <ol class="breadcrumb">
+                  <li>&nbsp;&nbsp;&nbsp;<a href="{$fulldomain}/">Home</a></li>
+                  <li><a href="{$fulldomain}/product">Product</a></li>
+                  {if $namasec neq ''}<li><a href="{$link_sec}">{$namasec}</a></li>{/if}
+                  {if $namasub neq ''}<li class="active">{$namasub}</li>{/if}
+                </ol>
+            </div>  
+        </div>
+    {else}
+        <!-- HOME -->
+        <div class="overlay home small-medium-size">
+            <div class="bg bg-shop" data-stellar-background-ratio="0.5"></div>
+            <div class="container vmiddle">
+                <div class="row text-center text-title-list">
+                    <h1>Produk Terlaris</h1>
+                    <h4>Banyak produk-produk pilihan kami yang dapat anda miliki <br />seperti produk-produk dibawah ini</h4>
+                </div>
+            </div>
+        </div>
+        <!-- /.home -->
+    {/if}
+
+    <!-- CONTENT -->
+    <div class="content">
+            {include file="`$lokasitemplate`komponen/$kanal/$kanal.list.html"}
+    </div>
+    <!-- /.content -->
+
+</div>
+<!-- /.wrapper -->
+
+<!-- FOOTER -->
+{include file="`$lokasitemplate`komponen/home/footer.html"}

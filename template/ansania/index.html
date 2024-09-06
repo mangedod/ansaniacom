@@ -1,0 +1,144 @@
+{include file="`$lokasitemplate`komponen/home/header.html"}
+<div class="homeslide wow fadeIn">
+    <div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel"> 
+      <ul class="carousel-indicators">
+       {foreach from=$slide key=id item=a}
+        <li data-target="#myCarousel" data-slide-to="{$a.a}"  {if $a.no eq '1'}  class="active" {/if}></li>
+       {/foreach}
+      </ul>
+      <div class="carousel-inner">
+        {foreach from=$slide key=id item=a}
+        <div class="item {if $a.no eq '1'} active {/if}">
+          <a href="{$a.url}"><img src="{$a.gambar}" alt="{$a.nama}" border="0" /></a>
+        </div>
+        {/foreach}
+      </div>
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+   	</div>
+</div>
+
+<div class="benefit  wow fadeIn">
+    <div class="container">
+	<div class="col-md-3" style="background: #f99cbf;">
+    	<div class="benefit-item">
+        	<div class="benefit-icon"><i class="fal fa-flag"></i></div>
+        
+            <div class="benefit-info">
+                <div class="benefit-info-judul">Produk Asli Indonesia</div>
+                Tercipta dari cinta akan
+                produk asli indonesia.
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3" style="background: #ea729f;">
+    	<div class="benefit-item">
+        	<div class="benefit-icon"><i class="fal fa-heart"></i></div>
+        
+            <div class="benefit-info">
+                <div class="benefit-info-judul">Didesain Penuh Cinta</div>
+                Tercipta dari cinta akan
+                produk asli indonesia.
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3" style="background: #e54883;">
+    	<div class="benefit-item">
+        	<div class="benefit-icon"><i class="fal fa-tag"></i></div>
+        
+            <div class="benefit-info">
+                <div class="benefit-info-judul">Harga Terjangkau</div>
+                Kualitas Menawan tetapi harga tetap terjangkau.
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3" style="background: #cc3772;">
+    	<div class="benefit-item">
+        	<div class="benefit-icon"><i class="fal fa-palette"></i></div>
+        
+            <div class="benefit-info">
+                <div class="benefit-info-judul">Desain Paling Beda</div>
+                Tercipta dari cinta akan
+                produk asli indonesia.
+            </div>
+        </div>
+    </div>
+   
+ </div>
+</div>
+
+<div class="container  wow fadeIn">
+     <!-- CONTAINER -->
+    <div class="wow fadeIn" id="productlist">
+        <div class="row">
+            <div class="page-header2 col-md-12">
+                <center>
+                <h2>COLLECTION FEATURED</h2>
+                </center>
+            </div>
+        </div>
+
+         <!-- row -->
+            {foreach from=$dataprodukdepan key=ids item=a}
+            <div class="col-md-4 col-xs-12">
+                <div class="citem item wow fadeIn">
+                <div class="cimg">
+                    <a href="{$a.link_detail}" class="aimg">
+                        <img src="{$a.image_m}" data-src="{$a.image_m}" data-alt-src="{$a.image_m1}" class="product-img" alt="{$a.namaprod}">
+                    </a>                  
+                </div>
+                <h5><a href="{$a.link_detail}" class="black">{$a.namaprod}</a></h5>
+               <!-- <div class="cost">
+                    {if $a.misc_diskonn neq '0'}
+                    <del>{$a.price}</del>
+                    <span class="new">{$a.misc_diskon}</span>
+                    {else}
+                    <span class="new">{$a.price}</span>
+                    {/if}
+                </div> -->
+                </div>
+            </div>
+            {/foreach}
+           
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
+
+</div>
+
+<section class="video-sec  wow fadeIn">
+    <div class="container">
+        {foreach from=$datadepanvideo key=id item=a}
+        <div class="col-md-6">
+            <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{$a.youtubeid}"></iframe>
+          </div>
+      </div>
+        <div class="col-md-6">
+            <h2>{$a.nama}</h2>
+            {$a.ringkas}<br clear="all">
+        </div>
+        {/foreach}
+    </div>
+</section>
+<div class="section-ig  wow fadeIn">
+    <div class="container">
+     
+        {foreach from=$datainstagram key=ids item=a}
+        <div class="col-md-3 col-xs-6">
+            <div class="instagram-img">
+                <a href="{$a.url}" target="_blank">
+                    <img src="{$a.gambar}" class="w-100 terang" alt="{$a.namaprod}">
+                </a>                  
+            </div>             
+        </div>
+        {/foreach}           
+       
+
+    </div>
+</div>
+
+
+<br clear="all" />
+
+{include file="`$lokasitemplate`/komponen/home/footer.html"}

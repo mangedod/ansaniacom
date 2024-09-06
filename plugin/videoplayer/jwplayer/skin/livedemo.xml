@@ -1,0 +1,20 @@
+<skin target='6.0' name='livedemo' author='PS'>
+   <components>
+      <component name='playlist'>
+         <settings>
+            <setting name='backgroundcolor' value='fbfbfb' />
+            <setting name='fontcolor' value='8a8a8a' />
+           
+            <setting name='overcolor' value='black' />
+            <setting name='activecolor' value='373737' />
+            <setting name='titlecolor' value='black' />
+            <setting name='titleovercolor' value='black' />
+            <setting name='titleactivecolor' value='393939' />
+         </settings>
+         <elements>
+            <element name='itemOver' src='not.png' />
+         </elements>
+      </component>
+      ...
+   </components>
+</skin>

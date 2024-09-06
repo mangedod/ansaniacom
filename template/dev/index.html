@@ -1,0 +1,205 @@
+{include file="`$lokasitemplate`komponen/home/header.html"}
+<div class="homeslide">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel"> 
+      <ol class="carousel-indicators">
+       {foreach from=$slide key=id item=a}
+        <li data-target="#myCarousel" data-slide-to="{$a.a}"  {if $a.no eq '1'} active {/if} class="active"></li>
+       {/foreach}
+      </ol>
+      <div class="carousel-inner">
+        {foreach from=$slide key=id item=a}
+        <div class="item {if $a.no eq '1'} active {/if}">
+          <a href="{$a.url}"><img src="{$a.gambar}" alt="{$a.nama}" border="0" /></a>
+        </div>
+        {/foreach}
+      </div>
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+   	</div>
+</div>
+
+<div class="container">
+	<div class="row">
+    <div class="marketplace animated fadeInUp">
+    	 <!--<div class="col-xs-6">
+        <div class="row">
+        <div class="marketplace-item">
+        	<div class="col-md-3 col-xs-12">
+            	<div class="marketplace-item-img">
+                <a href="https://shopee.co.id/ansaniahijabolshop" target="_blank"><img src="{$lokasiwebtemplate}images/img.shopee.jpg" /></a>
+                </div>
+            </div>
+            <div class="col-md-9 col-xs-12">
+            	<a href="https://shopee.co.id/ansaniahijabolshop" target="_blank"><div class="marketplace-item-judul">Belanja di Shopee</div>
+                <p class="hidden-xs">Temukan dan belanja produk-produk kerudung 
+                pilihan Ansania di Shopee.</p></a>
+            </div>
+        </div>
+        </div>
+        </div>
+        <div class="col-xs-6">
+         <div class="row">
+        <div class="marketplace-item">
+        	<div class="col-md-3 col-xs-12">
+            	<div class="marketplace-item-img">
+                <a href="https://www.tokopedia.com/kerudung-ansania/" target="_blank"><img src="{$lokasiwebtemplate}images/img.tokopedia.jpg" /></a>
+                </div>
+            </div>
+            <div class="col-md-9 col-xs-12">
+            	<a href="https://www.tokopedia.com/kerudung-ansania/" target="_blank"><div class="marketplace-item-judul">Belanja di Tokopedia</div>
+                <p class="hidden-xs">Temukan dan belanja produk-produk kerudung 
+                pilihan Ansania di Tokopedia.</p></a>
+            </div>
+        </div>
+        </div>
+        </div>
+        <div class="col-xs-6">
+         <div class="row">
+        <div class="marketplace-item">
+        	<div class="col-md-3 col-xs-12">
+            	<div class="marketplace-item-img">
+                <a href="https://www.bukalapak.com/u/officialansania01" target="_blank"><img src="{$lokasiwebtemplate}images/img.bukalapak.jpg" /></a>
+                </div>
+            </div>
+            <div class="col-md-9 col-xs-12">
+            	<a href="https://www.bukalapak.com/u/officialansania01" target="_blank"><div class="marketplace-item-judul">Belanja di BukaLapak</div>
+                <p class="hidden-xs">Temukan dan belanja produk-produk kerudung 
+                pilihan Ansania di BukaLapak.</p></a>
+            </div>
+        </div>
+        </div>
+        </div> -->
+        <div class="col-xs-6">
+         <div class="row">
+        <div class="marketplace-item">
+        	<div class="col-md-3 col-xs-12">
+            	<div class="marketplace-item-img">
+                <a href="https://wa.me/6282110698844" target="_blank"><img src="{$lokasiwebtemplate}images/img.wa.jpg" /></a>
+                </div>
+            </div>
+            <div class="col-md-9 col-xs-12">
+            	<a href="https://wa.me/6282110698844" target="_blank"><div class="marketplace-item-judul">Belanja via WhatsApp</div>
+                <p class="hidden-xs">Anda juga bisa langsung belanja melalui WhatsApp kami.</p></a>
+            </div>
+        </div>
+        </div>
+        </div>
+        <div class="col-xs-6">
+         <div class="row">
+        <div class="marketplace-item">
+        	<div class="col-md-3 col-xs-12">
+            	<div class="marketplace-item-img">
+                <a href="https://www.instagram.com/ansania_collections/" target="_blank"><img src="{$lokasiwebtemplate}images/img.ig.png" /></a>
+                </div>
+            </div>
+            <div class="col-md-9 col-xs-12">
+            	<a href="https://www.instagram.com/ansania_collections/" target="_blank"><div class="marketplace-item-judul">Belanja via Instagram</div>
+                <p class="hidden-xs">Anda juga bisa langsung belanja dengan DM Instagram kami.</p></a>
+            </div>
+        </div>
+        </div>
+        </div>
+        <!-- <div class="col-xs-4"> 
+         <div class="row">
+        <div class="marketplace-item">
+        	<div class="col-md-3 col-xs-12">
+            	<div class="marketplace-item-img">
+                <a href="{$fulldomain}/product"><img src="{$lokasiwebtemplate}images/img.web.png" /></a>
+                </div>
+            </div>
+            <div class="col-md-9 col-xs-12">
+            	<a href="{$fulldomain}/product"><div class="marketplace-item-judul">Belanja via Website</div>
+                <p class="hidden-xs">Cari produk-produk pilihan kami di website ini .</p></a>
+            </div>
+        </div>
+        </div>
+        </div>-->
+        
+    </div>
+    </div>
+</div>
+
+<!-- CONTENT -->
+<div class="content">
+<div class="container hidden-xs">
+ <div class="row">
+
+     <!-- CONTAINER -->
+    <div class="container wow fadeInUp">
+        <div class="row">
+            <div class="page-header2 col-md-12">
+            	<center>
+                <h2>Produk Terbaru</h2>
+                <span>Temukan Banyak produk terbaru yang cantik dan menarik untuk menambah koleksi fashion anda</span>
+                </center>
+            </div>
+        </div>
+
+        <!-- row -->
+        <div class="row">
+            {foreach from=$dataprodukdepan key=ids item=a}
+            <div class="col-md-3 col-sm-6">
+                <div class="citem item wow fadeInUp">
+                <div class="cimg">
+                    <a href="{$a.link_detail}" class="aimg">
+                        <img src="{$a.image_m}" alt="{$a.namaprod}">
+                        {if $a.misc_diskonn neq '0'}<div class="sticker sticker-sale">sale</div>{/if}
+                    </a>
+                  
+                </div>
+                <h5><a href="{$a.link_detail}" class="black">{$a.namaprod}</a></h5>
+                <div class="cost">
+                    {if $a.misc_diskonn neq '0'}
+                    <del>{$a.price}</del>
+                    <span class="new">{$a.misc_diskon}</span>
+                    {else}
+                    <span class="new">{$a.price}</span>
+                    {/if}
+                </div>
+                </div>
+            </div>
+            {/foreach}
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
+	</div>
+    
+
+</div>
+<!-- /.wrapper -->
+<div class="besthome">
+	<div class="container">
+    	<div class="col-md-4">
+        	<div class="besthome-item">
+            	<div class="besthome-item-icon"><span class="fa fa-gift"></span></div>
+                <h3>Produk Terbaik</h3>
+                Jaminan kualitas terbaik hijab asli produksi
+                Indonesia
+                
+            </div>
+        </div>
+        <div class="col-md-4">
+        	<div class="besthome-item">
+            	<div class="besthome-item-icon"><span class="fa fa-users"></span></div>
+                <h3>Layanan Terbaik</h3>
+                Jaminan kualitas terbaik hijab asli produksi
+                Indonesia
+                
+            </div>
+        </div>
+        <div class="col-md-4">
+        	<div class="besthome-item">
+            	<div class="besthome-item-icon"><span class="fa fa-thumbs-o-up"></span></div>
+                <h3>Kualitas Terbaik</h3>
+                Jaminan kualitas terbaik hijab asli produksi
+                Indonesia
+               
+            </div>
+        </div>
+
+        
+    </div> 
+</div>   
+
+{include file="`$lokasitemplate`/komponen/home/footer.html"}

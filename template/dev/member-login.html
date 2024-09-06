@@ -1,0 +1,134 @@
+{include file="`$lokasitemplate`komponen/home/header.html"}
+{if $aksi eq 'daftar' or $aksi eq 'daftaranggota'}
+    {include file="`$lokasitemplate`komponen/member/member.register.html"}
+{elseif $aksi eq 'lupapassword'}
+    {include file="`$lokasitemplate`komponen/member/lupapassword.html"}
+{else}
+    <!-- HOME -->
+    <div class="overlay home small-medium-size">
+        <div class="bg bg-shop"></div>
+        <div class="container vmiddle">
+            <div class="row text-center text-title-list">
+                <h1 class="text-uppercase" style="font-size: 50px">Member Area</h1>
+                <h4>Halaman untuk member Ansania, dapatkan berbagai kemudahan dan <br />banyak promo dengan menjadi member Ansania</h4>
+            </div>
+        </div>
+    </div>
+    <!-- /.home -->
+
+    <div class="container mt-30">  
+        <div class="row">
+           <div class="col-md-4">
+           <h3 class="text-center">Login ke Ansania</h3>
+
+            {if $notifpesan neq ''}
+            <div class="alert {if $berhasil eq '1'}  alert-success {else} alert-danger{/if} alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                {$notifpesan}
+            </div>
+            {/if}
+            {if $login eq ''}
+			Bila anda sudah memiliki login di Ansania.com, silahkan lanjutkan proses belanja anda dengan login terlebih dahulu<br clear="all" />
+            
+            <form action="{$fulldomain}/member/login" role="form" class="form-horizontal" method="post" name="login">
+                {if $last neq ''}<input type="hidden" name="uri" value="{$last}" />{/if}
+               <div class="form-group">
+                   <div class="col-md-12">
+                   <label class="control-label">Username :</label>
+                       <input type="text" placeholder="Masukan Username atau Email" class="form-control" value="{$cookname}" name="user">
+                   </div>
+               </div>
+               <div class="form-group">
+                   <div class="col-md-12">
+                   <label class="control-label">Password :</label>
+                       <input type="password" placeholder="Password" class="form-control" value="{$cookpass}" name="pass">
+                   </div>
+               </div>
+               <div class="form-group">
+                   
+                   <div class="col-md-6">
+                       <a href="{$fulldomain}/member/lupapassword">Forgot Password ?</a>
+                   </div>
+                   <div class="col-md-6 text-right">
+                       <button class="btn btn-primary" type="submit">Login</button>
+                   </div>
+               </div>
+            </form>
+            {/if}
+          
+                
+           </div>
+           <div class="col-md-1">
+           </div>
+           <div class="col-md-6">
+           <h3 class="text-center">Daftarkan Dulu</h3>
+
+            {if $pesanhasil neq ''}
+            <div class="alert {if $berhasil eq '1'}  alert-success {else} alert-danger{/if} alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                 {$pesanhasil}.
+                 <ul>
+                 {foreach from=$pesan key=id item=a}
+                    <li>{$a.pesan}</li>
+                 {/foreach}
+                 </ul>
+            </div>
+            {/if}
+			Bila anda belum memiliki akun di Ansania.com, silahkan daftarkan diri anda terlebih
+            dahulu dengan melengkapi isian pendaftaran berikut ini.<br clear="all" /><br clear="all" />
+            <form action="{$fulldomain}/register/registrasi" class="form-horizontal" method="post" name="registermember">
+                <input type="hidden" name="register" value="1" />
+                {if $fbid neq ''}<input type="hidden" name="fbcid" value="{$fbid}" />{/if}
+                {if $twid neq ''}<input type="hidden" name="twcid" value="{$twid}" />{/if}
+                {if $gpid neq ''}<input type="hidden" name="gpcid" value="{$gpid}" />{/if}
+                {if $tw_token neq ''}<input type="hidden" name="tw_token" value="{$tw_token}" />{/if}
+                {if $tw_secret neq ''}<input type="hidden" name="tw_secret" value="{$tw_secret}" />{/if}
+                {if $last neq ''}<input type="hidden" name="uri" value="{$last}" />{/if}
+               <div class="form-group">
+                   <label class="control-label col-md-4">Username :</label>
+                   <div class="col-md-8"><input type="text" name="username"  value="{$daftarusername}" class="form-control" placeholder="Masukan username anda minimal 3 karakter tanpa simbol" required="required"></div>
+               </div>
+               <div class="form-group">
+                   <label class="control-label col-md-4">Nama Lengkap :</label>
+                   <div class="col-md-8"><input type="text" name="userfullname"  value="{$daftarname}" class="form-control"  placeholder="Masukan nama lengkap anda" required="required"></div>
+               </div>
+               <div class="form-group">
+                   <label class="control-label col-md-4">Alamat Email :</label> 
+                   <div class="col-md-8"><input type="email" name="useremail"  value="{$daftaremail}" class="form-control"  placeholder="Ketik email anda dengan benar" required="required"></div>
+               </div>
+               <div class="form-group">
+                   <label class="control-label col-md-4">Nomor Handphone :</label>
+                   <div class="col-md-8"><input type="text" name="userphonegsm"  value="{$daftaruserphonegsm}" class="form-control"  placeholder="Masukan nomor handphone anda"></div>
+               </div>
+               <div class="form-group">
+                   <label class="control-label col-md-4">Password :</label>
+                   <div class="col-md-8"><input type="password" name="userpassword"  class="form-control"   placeholder="Ketik password anda" required="required"></div>
+               </div>
+                <div class="form-group">
+                   <label class="control-label col-md-4">Confirm Password :</label>
+                   <div class="col-md-8"><input type="password" name="userpasswordconf"  class="form-control" required="required"  placeholder="Ketik Ulang Password anda"></div>
+               </div>
+                <fieldset class="custom">
+                <div class="col-md-8 col-md-offset-4">
+                    <div class="checkbox-group">
+                        <label for="confirm-register"><input id="confirm-register" required="required" type="checkbox">&nbsp; <span>Saya memahami dan menyetujui <a href="{$fulldomain}/termcondition">Aturan dan kebijakan</a> dari {$title}.</span></label>
+                    </div>
+                    <div class="clearfix">&nbsp;</div>
+                </div>
+                </fieldset>
+               <div class="form-group">
+                   <div class="col-md-8 col-md-offset-4"><button class="btn btn-primary" type="submit">Daftar Sekarang</button></div>
+               </div>
+            </form>
+          
+                
+           </div>
+           
+        </div>
+    </div>
+{/if}
+
+</div>
+<!-- /.wrapper -->
+
+{include file="`$lokasitemplate`/komponen/home/footer.html"}

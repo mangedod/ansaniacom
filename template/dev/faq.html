@@ -1,0 +1,45 @@
+{include file="`$lokasitemplate`komponen/home/header.html"}
+
+   <div class="overlay home small-medium-size">
+        <div class="bg bg-shop"></div>
+        <div class="container vmiddle">
+            <div class="row text-center text-title-list">
+                <h1 class="text-uppercase">Panduan Belanja</h1>
+                <h4>Baca Panduan Belanja dan berbagai pertanyaan terkait Ansania</h4>
+            </div>
+        </div>
+    </div>
+	    <!-- /.home -->
+	
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+            	<ul class="faqlist">
+                {foreach from=$faqsec key=secid item=f}
+                   <li><span>{$f.namasec}</span></li>
+                     {foreach from=$f.list key=idfaq item=c}
+                    	<li class="active"><a href="{$c.url}">{$c.namafaq}</a></li> 
+                     {/foreach}
+                {/foreach}
+                </ul>
+                <br clear="all" /><br clear="all" /> 
+            </div>
+            <div class="col-md-8">
+            	<div class="col-md-1"></div>
+                <div class="col-md-11">
+                <div class="text-faq"><h2>{$detailnama}</h2><br />
+                    {$detaillengkap} 
+                     <br clear="all" /> <br clear="all" />
+                     </div>
+                </div>
+            </div>
+         </div>
+    </div>
+   
+
+    
+   
+</div>
+<!-- /.wrapper -->
+
+{include file="`$lokasitemplate`/komponen/home/footer.html"}

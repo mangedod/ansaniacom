@@ -1,0 +1,24 @@
+{foreach from=$datadetail key=id item=ch}
+ <div class="col-md-6 mt-20 text-center">
+        {if $ch.gambar neq ''}
+        <div class="thumbVideo mb-10">
+            <a href="{$ch.url}"><img src="{$ch.gambar}" alt="{$ch.nama}" class="img-responsive" /></a>
+        </div>
+        {/if}
+        <a href="{$ch.url}">{$ch.nama}</a> 
+ </div>
+{/foreach}
+<br clear="all" /><br clear="all" />
+<center>
+<div class="paginate">
+    <ul class="pagination">
+        {foreach from=$stringpage key=pageid item=a}
+            {if $a.link neq ''}
+                <li><a href="{$a.link}">{$a.nama}</a></li>
+            {else}
+                <li><a href="javascript:void(0)">{$a.nama}</a></li>
+            {/if}
+        {/foreach}
+    </ul>
+</div>
+</center>

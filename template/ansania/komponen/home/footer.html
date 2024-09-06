@@ -1,0 +1,190 @@
+<!-- FOOTER -->
+<footer class="footer"> 
+
+    <!-- CONTAINER -->
+    <div class="container">
+        <div class="row foorow-2 foorow">
+
+            <div class="col-md-3 col-sm-6 col-xs-6">
+                <h3>Informasi</h3>
+               <nav>
+                    <ul class="links">
+                        <li><a href="{$fulldomain}/about">Tentang Kami</a></li>
+                        <li><a href="{$fulldomain}/video">Galeri Video</a></li>
+                        <li><a href="{$fulldomain}/termcondition">Terms and Conditions</a></li>
+                        <li><a href="{$fulldomain}/disclaimer">Disclaimer</a></li>
+                        <li><a href="{$fulldomain}/contact">Hubungi Kami</a></li>
+                    </ul>
+                </nav>
+            </div>
+              <div class="col-md-3 col-sm-6 col-xs-6">
+                <h3>Pelanggan</h3>
+               <nav>
+                    <ul class="links">
+                        <li><a href="{$fulldomain}/cart">Keranjang Belanja</a></li>
+                        <li><a href="{$fulldomain}/member">Login Pelanggan</a></li>
+                        <li><a href="{$fulldomain}/mnember/daftar">Pendaftaran Pelanggan</a></li>
+                        <li><a href="{$fulldomain}/konfirmasi">Konfirmasi Pembayaran</a></li>
+                        <li><a href="{$fulldomain}/faq">Bantuan Belanja</a></li>
+                        <li><a href="{$fulldomain}/testimonial">Testimonial</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="col-md-3 col-sm-6 col-xs-6 hidden-xs">
+                <h3>Katalog Produk</h3>
+               <nav>
+                    <ul class="links">
+                        {foreach from=$productsec key=secid item=s}
+                            <li><a href="{$s.link}">{$s.namasec}</a></li>
+                            {/foreach}
+                                       
+                    </ul>
+                </nav>
+            </div>
+
+           
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <h3>Terhubung</h3>
+                <span class="hidden-xs">Dapatkan informasi terbaru dengan terhubung
+                sosial media kami.<br clear="all" /></span>
+                <ul class="social social-boxed">
+                    <li class="facebook"><a href="http://www.facebook.com/{$webfacebook}" target=_blank><img src="{$lokasiwebtemplate}images/img.facebook.png"></a></li>
+                    <li class="twitter"><a href="https://tiktok.com/{$webtiktok}" target=_blank><img src="{$lokasiwebtemplate}images/img.tiktok.png"></a></li>
+                    <li class="youtube"><a href="https://www.youtube.com/{$webyoutube}" target=_blank><img src="{$lokasiwebtemplate}images/img.youtube.png"></a></li>
+                    <li class="instagram"><a href="https://www.instagram.com/{$webinstagram}" target=_blank><img src="{$lokasiwebtemplate}images/img.instagram.png"></a></li>
+                </ul>
+              
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+    <div class="footer-bottom">
+    	<div class="container">
+        &copy; Ansania Indonesia 2022
+        </div>
+    </div>
+</footer>
+<!-- /.footer -->
+
+<!-- Popup: Login -->
+<div class="block-popup popup plogin" id="login">
+    <a href="" class="pclose small"><i class="custom-icon custom-icon-close-s"></i></a>
+    <h3 class="text-center">Login to account</h3>
+
+    {if $notifpesan neq ''}
+    <hr>
+    <div class="alert {if $berhasil eq '1'}  alert-success {else} alert-danger{/if} alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        {$notifpesan}
+    </div>
+    <hr>
+    {/if}
+    {if $login eq ''}
+        <form action="{$fulldomain}/member/login" class="loginform" method="post" name="login">
+            {if $last neq ''}<input type="hidden" name="uri" value="{$last}" />{/if}
+            <div class="formwrap">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Masukan Username atau Email" value="{$cookname}" name="user">
+                </div>
+                <div class="form-group has-feedback">
+                    <input type="password" class="form-control login-password" placeholder="Password" value="{$cookpass}" name="pass" id="login-password">
+                </div>
+            </div>
+            <div class="form-group text-center">
+                <button type="submit" class="btn btn-default block btn-validation">Login</button>
+                <a href="{$fulldomain}/member/lupapassword">Forgot password?</a>
+            </div>
+        </form>
+    {/if}
+   
+</div>
+<!-- /.popup -->
+
+
+<!-- ScrollTop Button -->
+<a href="#" class="scrolltop">
+    <i class="custom-icon custom-icon-scrolltop"></i>
+</a>
+
+	
+    {if $kanal eq 'contact'}
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA89-Oe9NGsEYYqGCrjBnYmaQYIBgu91Hg">
+        </script>
+    {/if}
+    <script src="{$lokasiwebtemplate}js/bootstrap.min.js"></script>
+    {if $kanal eq 'cart' or $aksi eq 'confirm'}
+    	
+       <script type="text/javascript" src="{$lokasiwebtemplate}js/jquery.basictable.min.js"></script>
+	   <script>
+		$("#table-cart").basictable({
+			breakpoint: 768,
+		});
+		</script>
+
+    {/if}
+    <script src="{$lokasiwebtemplate}js/jquery.plugins.js"></script>
+
+	<script src="{$lokasiwebtemplate}js/jssocials.js"></script>
+    <script>
+        $("#share").jsSocials({
+           shares: ["facebook", "twitter", "googleplus", "whatsapp"]
+        });
+    </script>
+	<script src="{$lokasiwebtemplate}js/moment.min.js"></script>
+    <script src="{$lokasiwebtemplate}js/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+    <script src="{$lokasiwebtemplate}js/bootstrap-datepicker/locales/bootstrap-datepicker.en-IE.min.js"></script>
+    
+    <script src="{$lokasiwebtemplate}js/sweetalert.min.js"></script>
+	<script src="{$lokasiwebtemplate}js/holder.js"></script>
+    <script src="{$lokasiwebtemplate}js/wow.js"></script>
+    <script src="{$lokasiwebtemplate}js/custom.js"></script>
+     {if $alert neq ''}
+    	<script>
+			swal('{$alert}');
+		</script>
+    {/if}
+    {literal}
+     <script>
+	 
+		 $(document).ready(function(){
+		 
+			 $(".aimg").hover(
+				function() {
+					var $img = $(this).find('img');
+					var newSource = $img.data('alt-src');
+					$img.attr("src", newSource);
+				},
+				function() {
+					var $img = $(this).find('img');
+					var newSource = $img.data('src');
+					$img.attr("src", newSource);
+				}
+			);
+		});
+
+
+        wow = new WOW(
+          {
+            animateClass: 'animated',
+            offset:       100
+          }
+        );
+        wow.init();
+		
+      </script>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XGDVNTNV84"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XGDVNTNV84');
+</script>
+
+    {/literal}
+</body>
+</html>

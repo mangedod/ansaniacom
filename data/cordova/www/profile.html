@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Ansania</title>
+    <meta content="IE=edge" http-equiv="x-ua-compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <!-- Fonts -->
+    <!-- Icons -->
+    <link href="css/ionicons.min.css" media="all" rel="stylesheet" type="text/css">
+    <!-- Styles -->
+    <link href="css/keyframes.css" rel="stylesheet" type="text/css">
+    <link href="css/materialize.min.css" rel="stylesheet" type="text/css">
+    <link href="css/swiper.css" rel="stylesheet" type="text/css">
+    <link href="css/swipebox.min.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+	<script src="js/jquery-2.1.0.min.js"></script>
+	      <script src="js/fastclick.js"></script>
+	<script type="text/javascript">    
+	var url = window.location.pathname;
+    var filename = url.substring(url.lastIndexOf('/') + 1);
+	
+ 
+	</script>
+    <script type="text/javascript" src="js/main.js"></script>
+  <script type="text/javascript" src="js/iscroll.js"></script>
+	<script type="text/javascript">
+    var myScroll;
+    function loaded () {
+        myScroll = new IScroll('#content', { mouseWheel: true });
+    }
+    </script>
+</head>
+  <body>
+    <div class="m-scene" id="main">  
+      <!-- Page Content -->
+      <div id="content" class="grey-blue page">
+
+        <!-- Toolbar -->
+        <div id="toolbar"  class="primary-color">
+           <a href="javascript:history.go(-1)" class="open-left">
+            <i class="fal fa-arrow-left"></i>
+          </a>
+           <span class="title">Profile</span>
+        </div>
+       
+        
+          <div class="box-profile animated fadeindown">
+          	<div class="p-10">
+            	<div class="box-imgbox">
+                <br>
+                <center>
+					<img id="avatar" class="circle avatar" src="img/avatar.png" alt="" style="width:150px; height:150px;" />
+               
+                <h3 id="userfullname"></h3>
+                </center>
+                <br>
+                </div>
+            </div>
+          </div>
+       
+        
+          
+            <script> 
+			 var userid = getvar("id");
+			 
+			 if(userid=="null") var userid = localStorage.userid;
+
+       		 $(document).ready(function(){
+					
+					if(userid>0)
+					{
+						var urls ="http://localhost:8080/ansaniacom/api/android/index.php/profile/profile/"+userid+"/userid/?callback=?";
+					}
+					else if(username!="")
+					{
+						var urls ="http://localhost:8080/ansaniacom/api/android/index.php/profile/profile/"+username+"/username/?callback=?";
+					}
+					
+					$.ajax({
+					  type: "GET",
+					  url: urls,
+					  crossDomain: true,
+					  cache: false,
+					  success: function(data){
+						  if(data['status']=="OK")
+						  {
+							
+							$("#linkprofa").attr("href","javascript:fade('profile.html?id="+userid+"');");
+							$("#linkprof").attr("href","javascript:fade('profile-read.html?id="+userid+"');");
+							
+							$("#avatar").attr("src",data['avatar']);
+							$("#userfullname").html(data['userfullname']);
+							$("#userfullname1").html(data['userfullname']);
+							$("#useraddress").html(data['useraddress']);
+							$("#userabout").html(data['userabout']);
+							$("#usergender").html(data['usergender']);
+							$("#lastloggedin").html(data['lastloggedin']);
+							
+						  }
+					 }
+				  });
+			
+			 
+			});
+			</script> 
+            
+     
+           <!-- Main Content -->
+        <div class="animated fadein" id="bloglist">
+        	<div id="load_data"></div>
+			<div id="load_data_message"></div>
+        </div> <!-- End of Page Content --> 
+        
+        <script> 
+        $(document).ready(function(){
+		
+		 loading("load_data_message","5");
+		 
+		 
+         var limit = 5;
+         var start = 0;
+         var action = 'inactive';
+		 var datalist = "";
+		 var lastid = "";        
+		 
+		 function load_country_data(limit, start)
+         {
+			   var urls ="http://localhost:8080/ansaniacom/api/android/index.php/audio/profile/"+userid+"/"+start+"/"+limit+"/?callback=?";
+			   
+			  
+			  	$.ajax({
+				  type: "GET",
+				  url: urls,
+				  crossDomain: true,
+				  cache: false,
+				  success: function(data){
+				  
+				  	  
+					  if(data['status']=="OK")
+					  {
+							var datalist = "";
+							var dl = data['dataaudio'];							
+							var jml = dl.length;
+							
+							if(jml>0)
+							{
+							  for (var key in dl) {
+								if (dl.hasOwnProperty(key)) {
+								  datalist += '<div class="audio-depan-card animated fadein delay-1  waves-effect ">';
+								  datalist += '<div class="audio-depan-image"><a href="javascript:fade(\'audio-read.html?action=read&id='+dl[key]["id"]+'\')"><img src="' + dl[key]["gambar"] + '" alt="" /><div class="durasi">'+dl[key]["durasi"]+'</div></a></div>';
+								  datalist += '<div class="audio-depan-preview"><strong><a href="javascript:fade(\'audio-read.html?action=read&id='+dl[key]["id"]+'\')">'+dl[key]["nama"]+'</a></strong><br><small>'+dl[key]["tanggal"]+' <br> '+dl[key]["views"]+' didengar</small></p></div>';
+								  datalist += '</div>';
+								}
+							  }
+							  $("#load_data").append(datalist);
+							  delete(datalist);
+							}
+							
+							
+							if(datalist == '')
+							{
+								 $('#load_data_message').html("");
+								 action = 'active';
+							}
+							else
+							{
+								 loading("load_data_message",jml);
+								 action = "inactive";
+							}
+							
+					  }
+				 }
+			  });
+         }
+        
+         if(action == 'inactive')
+         {
+			  action = 'active';
+			  load_country_data(limit, start);
+         }
+        
+		  $("#content").scroll(function(){
+          if($("#content").scrollTop() + $("#content").height() > $("#load_data").height() && action == 'inactive')
+          {
+			   action = 'active';
+			   start = start + limit;
+			   setTimeout(function(){
+				load_country_data(limit, start);
+			   }, 1000);
+          }
+         });
+         
+        });
+        </script>
+            
+        <br clear="all"> <br clear="all"> <br clear="all"> <br clear="all">
+
+      <div class="steps-controllers">
+              <div  class="waves-effect waves-ripple"><a href="javascript:fade('index.html')"><span class="menubuttom"><span class="fal fa-home-alt"></span></span><br>Home</a></div>
+              <div class="waves-effect waves-ripple"><a href="javascript:fade('product.html')"><span class="menubuttom"><span class="fal fa-search"></span></span><br>Produk</a></div>
+              <div class="waves-effect waves-ripple"><a href="javascript:fade('transaksi.html')"><span class="menubuttom"><span class="fal fa-list-alt"></span></span><br>Transaksi</a></div>
+              <div class="waves-effect waves-ripple"><a href="javascript:fade('pesan.html')"><span class="menubuttom"><span class="fal fa-envelope"></span></span><br>Inbox</a></div>
+              <div class="waves-effect waves-ripple"><a href="javascript:fade('setting.html')" class="active"><span class="menubuttom"><span class="fal fa-user"></span></span><br>Akun</a></div>
+       </div>
+ </div> <!-- End of Page Container -->
+    
+    <script type="text/javascript" src="cordova.js"></script>
+
+    <script src="js/jquery.swipebox.min.js"></script>   
+    <script src="js/jquery.smoothState.min.js"></script> 
+    <script src="js/materialize.min.js"></script> 
+    <script src="js/swiper.min.js"></script>  
+    <script src="js/jquery.mixitup.min.js"></script>
+    <script src="js/functions.js"></script>
+  </body>
+</html>

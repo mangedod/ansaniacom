@@ -1,0 +1,48 @@
+2018-10-13 18:56:20 |  | Namafile:  | 
+2018-10-13 19:31:09 |  | Namafile: /tmp/php09s3BB | 
+2018-10-13 19:31:11 | avatar-3-f.jpg | /api/android/index.php/member/gantiavatar/3/?callback=? | /tmp/php09s3BB
+2018-10-13 19:31:44 |  | Namafile: /tmp/phpYWr4AF | 
+2018-10-13 19:31:45 | avatar-3-f.jpg | /api/android/index.php/member/gantiavatar/3/?callback=? | /tmp/phpYWr4AF
+2018-10-13 19:36:22 |  | Namafile:  | 
+2018-10-13 19:39:29 |  | Namafile:  | 
+2018-10-13 19:50:30 |  | Namafile:  | 
+2018-10-13 19:57:54 |  | Namafile: /tmp/phpBoGun9 | 
+2018-10-13 19:57:55 | avatar-3-f.jpg | /api/android/index.php/member/gantiavatar/3/file:///storage/emulated/0/Android/data/com.adisumaryadi.apps.dfunstation/cache/1539435483829.jpg?0.12134215722765518/?callback=? | /tmp/phpBoGun9
+2018-10-13 19:58:18 |  | Namafile: /tmp/phpz30ZFU | 
+2018-10-13 19:58:18 | avatar-3-f.jpg | /api/android/index.php/member/gantiavatar/3/file:///storage/emulated/0/Android/data/com.adisumaryadi.apps.dfunstation/cache/.Pic.jpg?0.8336553936090862/?callback=? | /tmp/phpz30ZFU
+2018-10-13 19:59:30 |  | Namafile: /tmp/phpFZp6Pj | 
+2018-10-13 19:59:31 | avatar-5-f.jpg | /api/android/index.php/member/gantiavatar/5/file:///storage/emulated/0/DCIM/Camera/IMG_20181006_153333.jpg?0.6079620219215309/?callback=? | /tmp/phpFZp6Pj
+2018-10-13 19:59:49 |  | Namafile:  | 
+2018-10-13 20:00:31 |  | Namafile: /tmp/phpO3IeTY | 
+2018-10-13 20:00:32 | avatar-5-f.jpg | /api/android/index.php/member/gantiavatar/5/file:///storage/emulated/0/DCIM/Camera/IMG_20181006_141458.jpg?0.9312057764951491/?callback=? | /tmp/phpO3IeTY
+2018-10-13 20:01:25 |  | Namafile: /tmp/phpdU03hf | 
+2018-10-13 20:01:26 | avatar-5-f.jpg | /api/android/index.php/member/gantiavatar/5/file:///storage/emulated/0/DCIM/Camera/IMG_20181006_153333.jpg?0.4018816683261728/?callback=? | /tmp/phpdU03hf
+2018-10-13 20:11:21 |  | Namafile: /tmp/phpcUpHSS | 
+2018-10-13 20:11:22 | avatar-3-f.jpg | /api/android/index.php/member/gantiavatar/3/file:///storage/emulated/0/Android/data/com.adisumaryadi.apps.dfunstation/cache/1539436292019.jpg?0.7229129370124472/?callback=? | /tmp/phpcUpHSS
+2018-10-13 20:20:34 |  | Namafile: /tmp/phpOdtPLe | 
+2018-10-13 20:20:35 | avatar-3-f.jpg | /api/android/index.php/member/gantiavatar/3/file:///storage/emulated/0/Android/data/com.adisumaryadi.apps.dfunstation/cache/1539436843784.jpg?0.6171179095089983/?callback=? | /tmp/phpOdtPLe
+2018-10-13 20:29:09 |  | Namafile: /tmp/phpzaLT1c | 
+2018-10-13 20:29:10 | avatar-5-f.jpg | /api/android/index.php/member/gantiavatar/5/file:///storage/emulated/0/DCIM/Camera/IMG_20181006_141458.jpg?0.0054446273070416495/?callback=? | /tmp/phpzaLT1c
+2018-10-13 20:30:28 |  | Namafile:  | 
+2018-10-13 20:33:02 |  | Namafile: /tmp/phpdchKOz | 
+2018-10-13 20:33:02 | avatar-5-f.jpg | /api/android/index.php/member/gantiavatar/5/file:///storage/emulated/0/Android/data/com.adisumaryadi.apps.dfunstation/cache/1539437594365.jpg?0.1310662963162934/?callback=? | /tmp/phpdchKOz
+2018-10-14 03:39:58 |  | Namafile:  | 
+2018-10-14 03:40:32 |  | Namafile: /tmp/phpxIE44K | 
+2018-10-14 03:40:33 | avatar-5-f.jpg | /api/android/index.php/member/gantiavatar/5/file:///storage/emulated/0/DCIM/Camera/IMG_20181004_162521.jpg?0.025195089025743744/?callback=? | /tmp/phpxIE44K
+2018-10-15 22:07:22 |  | Namafile: /tmp/php6yChVt | 
+2018-10-15 22:07:22 | avatar-28-f.jpg | /api/android/index.php/member/gantiavatar/28/file:///storage/emulated/0/Android/data/com.adisumaryadi.apps.dfunstation/cache/.Pic.jpg?0.424268300573845/?callback=? | /tmp/php6yChVt
+2018-10-22 09:08:05 |  | Array[tmp_name]
+2018-11-15 20:12:56 |  | Array[tmp_name]
+2018-11-15 20:15:09 |  | Array[tmp_name]
+2018-11-16 18:39:11 |  | Namafile: /tmp/phpkPPQkR | 
+2018-11-16 18:39:12 | avatar-52-f.jpg | /api/android/index.php/member/gantiavatar/52/file:///storage/emulated/0/Android/data/com.adisumaryadi.apps.dfunstation/cache/.Pic.jpg?0.3451602628951016/?callback=? | /tmp/phpkPPQkR
+2019-08-23 04:23:35 |  | Namafile:  | 
+2019-10-31 15:53:23 |  | Namafile:  | 
+2019-11-03 06:48:26 |  | Namafile: /tmp/phplfERGh | 
+2019-11-03 06:48:27 | avatar-5010-f.jpg | /api/android/index.php/member/gantiavatar/5010/file:///storage/emulated/0/Android/data/com.ansania.apps/cache/.Pic.jpg?0.46796229868473826/?callback=? | /tmp/phplfERGh
+2019-11-29 21:52:52 |  | Namafile: /tmp/phpliHvwD | 
+2019-11-29 21:52:52 | avatar-5044-f.jpg | /api/android/index.php/member/gantiavatar/5044/file:///storage/emulated/0/Android/data/com.ansania.apps/cache/.Pic.jpg?0.32321056189179576/?callback=? | /tmp/phpliHvwD
+2020-12-10 11:26:51 |  | Namafile: /tmp/php64oB2O | 
+2020-12-10 11:26:51 | avatar-5599-f.jpg | /api/android/index.php/member/gantiavatar/5599/file:///storage/emulated/0/Android/data/com.ansania.apps/cache/.Pic.jpg?0.8942706356744792/?callback=? | /tmp/php64oB2O
+2021-12-12 21:22:33 |  | Namafile: /tmp/php6tjFsi | 
+2021-12-12 21:22:33 | avatar-5838-f.png | /api/android/index.php/member/gantiavatar/5838/file:///storage/emulated/0/Android/data/com.ansania.apps/cache/.Pic.jpg?0.6674165575599416/?callback=? | /tmp/php6tjFsi

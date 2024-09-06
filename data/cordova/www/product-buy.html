@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Ansania</title>
+    <meta content="IE=edge" http-equiv="x-ua-compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <!-- Fonts -->
+    <!-- Icons -->
+    <link href="css/ionicons.min.css" media="all" rel="stylesheet" type="text/css">
+    <!-- Styles -->
+    <link href="css/keyframes.css" rel="stylesheet" type="text/css">
+    <link href="css/materialize.min.css" rel="stylesheet" type="text/css">
+    <link href="css/swiper.css" rel="stylesheet" type="text/css">
+    <link href="css/swipebox.min.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+	<script src="js/jquery-2.1.0.min.js"></script>
+      <script src="js/fastclick.js"></script>
+	<script type="text/javascript">
+    
+	var url = window.location.pathname;
+    var filename = url.substring(url.lastIndexOf('/') + 1);
+	
+ 	</script>
+    <script type="text/javascript" src="js/main.js"></script>
+
+  <script type="text/javascript" src="js/iscroll.js"></script>
+	<script type="text/javascript">
+    var myScroll;
+    function loaded () {
+        myScroll = new IScroll('#content', { mouseWheel: true });
+    }
+    </script>
+</head>
+
+  <body>
+    <div class="m-scene" id="main">
+
+    
+      <!-- Page Content -->
+      <div id="content" class="grey-blue page">
+
+        <!-- Toolbar -->
+        <div id="toolbar"  class="primary-color">
+           <a href="javascript:history.back()" class="open-left">
+            <i class="fal fa-arrow-left"></i>
+          </a>
+           <span class="title">Produk Kerajinan</span>
+        </div>
+        
+               
+		<script>
+			
+			  var id = getvar("id");
+			  var urls ="http://localhost:8080/ansaniacom/api/android/index.php/product/read/"+id+"/?callback=?";
+		
+			  $.ajax({
+				  type: "GET",
+				  url: urls,
+				  crossDomain: true,
+				  cache: false,
+				  success: function(data){
+				  	
+					  var datalist;
+					  
+					  datalist = "";
+					  
+					  if(data['status']=="OK")
+					  {
+						  var dl = data['detailgaleri'];
+						  var jml = dl.length;
+							if(jml>0)
+							{
+								datalist += '<div class="swiper-container swiper-product slider m-b-20"><div class="swiper-wrapper">';
+								for (var key in dl) {
+								if (dl.hasOwnProperty(key)) {								
+								  datalist += '<div class="swiper-slide"><img src="' + dl[key]["gambar"] + '" alt="" /></div>';
+								  datalist += '</div>';
+						 
+								}
+								datalist += '</div>';
+							  }
+														
+							}
+						  
+						  datalist += '<div class="blog-fullwidth animated fadeinup delay-1">';
+						  datalist += '<div class="blog-preview p-20"><h4><strong>'+data["detailnama"]+'</strong></h4></p>';
+						  datalist += '<p><span style="color:#e8740d"><strong>Rp.'+data["harganya"]+'</strong></span><br>'+data["detaillengkap"]+'</p>';
+						  datalist += '<div class="training-preview p-10" style="font-size:16px;"><strong>Spesifikasi</strong></div><br>';
+						  datalist += '<p><br>Ketersediaan: '+data["stock"]+' tersedia';
+						  datalist += '<br>Berat Barang: '+data["berat"]+' grams';
+						  datalist += '<br>Ukuran: '+data["ukuran"]+' centimeter</p>';
+						 				  
+						 					  
+						  
+						  datalist += '<hr><br><div class="blog-fullwidth animated fadeinup delay-1">Anda membutuhkan informasi lebih lanjut tentang produk ini? Segera hubungi Penjual melalui WhatsApp<br><center><a href="whatsapp://send?text=Hai%'+data['owner']['userfullname']+', saya melihat produk '+data["detailnama"]+' di DfunStation, boleh bertanya?&phone='+data["owner"]["userphonegsm"]+'" class="waves-effect btn-large waves-light accent-color animated bouncein delay-2 button button-block button-positive">Kirim Pesan</a>&nbsp;<a href="product-buy.html?id='+id+'" class="waves-effect btn-large waves-light primary-color animated bouncein delay-2 button button-block button-positive">Beli Sekarang</a></center></div>';
+						  datalist += '</div></div>';						
+						  $("#bloglist").append(datalist);
+						  delete(datalist);
+							
+					  }
+					 
+				  }
+			  });
+							
+	
+		</script>
+        
+      <!-- Main Content -->
+	  
+        <div class="animated fadeinup" id="bloglist"> 
+
+               
+        </div>
+		
+		<br><br><div class="steps-controllers">
+              <div  class="waves-effect waves-ripple"><a href="javascript:fade('index.html')"><span class="menubuttom"><span class="fal fa-home-alt"></span></span><br>Home</a></div>
+              <div class="waves-effect waves-ripple"><a href="javascript:fade('product.html')" class="active"><span class="menubuttom"><span class="fal fa-search"></span></span><br>Produk</a></div>
+              <div class="waves-effect waves-ripple"><a href="javascript:fade('transaksi.html')"><span class="menubuttom"><span class="fal fa-list-alt"></span></span><br>Transaksi</a></div>
+              <div class="waves-effect waves-ripple"><a href="javascript:fade('pesan.html')"><span class="menubuttom"><span class="fal fa-envelope"></span></span><br>Inbox</a></div>
+              <div class="waves-effect waves-ripple"><a href="javascript:fade('setting.html')"><span class="menubuttom"><span class="fal fa-user"></span></span><br>Akun</a></div>
+       </div>
+ </div> <!-- End of Page Container -->
+    
+    <script type="text/javascript" src="cordova.js"></script>
+
+    <script src="js/jquery.swipebox.min.js"></script>   
+    <script src="js/jquery.smoothState.min.js"></script> 
+    <script src="js/materialize.min.js"></script> 
+    <script src="js/swiper.min.js"></script>  
+    <script src="js/jquery.mixitup.min.js"></script>
+    <script src="js/functions.js"></script>
+  </body>
+</html>

@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Ansania</title>
+    <meta content="IE=edge" http-equiv="x-ua-compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <!-- Fonts -->
+    <!-- Icons -->
+    <link href="css/ionicons.min.css" media="all" rel="stylesheet" type="text/css">
+    <!-- Styles -->
+    <link href="css/keyframes.css" rel="stylesheet" type="text/css">
+    <link href="css/materialize.min.css" rel="stylesheet" type="text/css">
+    <link href="css/swiper.css" rel="stylesheet" type="text/css">
+    <link href="css/swipebox.min.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+	<script src="js/jquery-2.1.0.min.js"></script>
+    <script src="js/fastclick.js"></script>
+	<script type="text/javascript">
+    
+	var url = window.location.pathname;
+    var filename = url.substring(url.lastIndexOf('/') + 1);
+	
+ 
+  
+	</script>
+    <script type="text/javascript" src="js/main.js"></script>
+
+  <script type="text/javascript" src="js/iscroll.js"></script>
+	<script type="text/javascript">
+    var myScroll;
+    function loaded () {
+        myScroll = new IScroll('#content', { mouseWheel: true });
+    }
+    </script>
+</head>
+
+  <body>
+ 
+        
+    <div class="m-scene" id="main">
+
+           <!-- Page Content -->
+      <div id="content" class="grey-blue page" style="background:#ffffff">
+
+        <!-- Toolbar -->
+        <div id="toolbar"  class="primary-color">
+          <div class="open-left waves-effect waves-circle">
+            <a href="javascript:fade('product.html');"><i class="fal fa-arrow-left"></i></a>
+          </div>
+          <span class="title">Keranjang Belanja</span>
+        </div>
+        
+          <!-- Main Content -->
+        <div class="animated fadeinup">
+          <!-- Order Recap -->
+          <ul class="collapsible checkout-header animated fadeindown delay-2" data-collapsible="accordion">
+            <li>
+              <div class="collapsible-header">
+               Keranjang belanja
+                <i class="ion-android-arrow-dropdown"></i>
+                <span class="checkout-price right totals"></span>
+              </div>
+              <div class="collapsible-body z-depth-1">
+
+                <div class="datacart">
+             
+                </div>
+                
+                <!-- Subtotal -->
+                <div class="subtotal">
+                  <h6>Subtotal <span class="right totals"></span></h6>
+                </div>
+
+                <!-- Total -->
+                <div class="total">
+                  <h4>Total <span class="right totals" id="totals"></span></h4>
+                </div>
+
+              </div>
+            </li>
+          </ul>
+
+          <!-- Form Inputs -->
+          <div class="form-inputs">
+            <h4>Informasi Pelanggan</h4>
+             <div class="input-field">
+              <input id="userfullname" type="text" class="validate" placeholder="Nama Lengkap">
+            </div>
+            <div class="input-field">
+              <input id="useremail" type="email" class="validate" placeholder="Alamat Email">
+            </div>
+            <div class="input-field">
+              <input id="userphonegsm" type="number" class="validate"  placeholder="Nomor Handphone">
+            </div>
+
+            <h4 class="shipping-address">Alamat Pengiriman</h4>
+             <div class="input-field">
+              <input id="useraddress" type="text" class="validate" placeholder="Alamat lengkap">
+            </div>
+             <div class="input-field">
+                <select class="browser-default" id="propid" onChange="getkota(this.value);">
+                  <option value=""  selected>Pilih Propinsi</option>
+                </select>
+            </div>
+            <div class="input-field">
+                <select class="browser-default"  id="kotaid" onChange="getkec(this.value);">
+                  <option value=""  selected>Pilih Kota/Kabupaten</option>
+                </select>
+            </div>
+            <div class="input-field">
+                <select class="browser-default" id="kecid">
+                  <option value=""  selected>Pilih Kecamatan</option>
+                </select>
+            </div>
+           <br clear="all">           
+
+           
+
+            <a class="waves-effect waves-light btn-large primary-color width-100" href="index.html">Lanjutkan</a>
+          </div>
+          
+          
+        <div class="maincontent">
+		   
+         <script> 
+       		 $(document).ready(function(){
+				var urls ="http://localhost:8080/ansaniacom/api/android/index.php/profile/profile/"+localStorage.userid+"/?callback=?";
+			  	$.ajax({
+				  type: "GET",
+				  url: urls,
+				  crossDomain: true,
+				  cache: false,
+				  success: function(data){
+					  if(data['status']=="OK")
+					  {
+						$("#userfullname").val(data['userfullname']);
+						$("#useremail").val(data['useremail']);
+						$("#userphonegsm").val(data['userphonegsm']);
+						$("#useraddress").val(data['useraddress']);
+						
+						localStorage.propid = data['propinsiid'];
+						localStorage.kotaid = data['kotaid'];
+						localStorage.kecid = data['kecid'];
+						
+					  }
+				 }
+			  });
+        
+         
+        });
+        </script>    
+        
+          <script> 
+       		 $(document).ready(function(){
+				var urls ="https://www.dfunstation.com/api/android/index.php/cart/propinsi/"+localStorage.userid+"/"+localStorage.propid+"/?callback=?";
+			  	$.ajax({
+				  type: "GET",
+				  url: urls,
+				  crossDomain: true,
+				  cache: false,
+				  success: function(data){
+					  if(data['status']=="OK")
+					  {
+							var dl = data['datalist'];
+							var jml = dl.length;
+							if(jml>0)
+							{
+								for (var key in dl)
+								{
+									if (dl.hasOwnProperty(key))
+									{									
+										var selected = dl[key]["selected"];
+										if(selected==1) var selecs = 'selected="selected"';
+										else  selecs = '';
+										$('#propid').append('<option value="'+dl[key]["propid"]+'" '+selecs+'>'+dl[key]["nama"]+'</option>');
+							 		}
+							  }
+							}
+					  }
+				 }
+			  });
+        
+         
+        });
+        </script>  
+        
+         <script> 
+       		 $(document).ready(function(){
+				var urls ="https://www.dfunstation.com/api/android/index.php/cart/kota/"+localStorage.userid+"/"+localStorage.propid+"/"+localStorage.kotaid+"/?callback=?";
+			  	$.ajax({
+				  type: "GET",
+				  url: urls,
+				  crossDomain: true,
+				  cache: false,
+				  success: function(data){
+					  if(data['status']=="OK")
+					  {
+							var dl = data['datalist'];
+							var jml = dl.length;
+							if(jml>0)
+							{
+								for (var key in dl)
+								{
+									if (dl.hasOwnProperty(key))
+									{									
+										var selected = dl[key]["selected"];
+										if(selected==1) var selecs = 'selected="selected"';
+										else  selecs = '';
+										$('#kotaid').append('<option value="'+dl[key]["kotaid"]+'" '+selecs+'>'+dl[key]["nama"]+'</option>');
+							 		}
+							  }
+							}
+					  }
+				 }
+			  });
+        
+         
+        });
+        </script>  
+        
+         <script> 
+       		 $(document).ready(function(){
+				var urls ="http://localhost:8080/ansaniacom/api/android/index.php/cart/kecamatan/"+localStorage.userid+"/"+localStorage.propid+"/"+localStorage.kotaid+"/"+localStorage.kecid+"/?callback=?";
+			  	$.ajax({
+				  type: "GET",
+				  url: urls,
+				  crossDomain: true,
+				  cache: false,
+				  success: function(data){
+					  if(data['status']=="OK")
+					  {
+							var dl = data['datalist'];
+							var jml = dl.length;
+							if(jml>0)
+							{
+								for (var key in dl)
+								{
+									if (dl.hasOwnProperty(key))
+									{									
+										var selected = dl[key]["selected"];
+										if(selected==1) var selecs = 'selected="selected"';
+										else  selecs = '';
+										$('#kecid').append('<option value="'+dl[key]["kecid"]+'" '+selecs+'>'+dl[key]["nama"]+'</option>');
+							 		}
+							  }
+							}
+					  }
+				 }
+			  });
+        
+         
+        });
+        </script>   
+        
+        <script> 
+		
+		
+        $(document).ready(function()
+		{
+		
+		 var transid = getvar('transid'); 
+		 var subid = getvar('subid');   
+		 
+		  var urls ="http://localhost:8080/ansaniacom/api/android/index.php/cart/list/"+transid+"/"+localStorage.userid+"/?callback=?";
+			   
+			  
+			  	$.ajax({
+				  type: "GET",
+				  url: urls,
+				  crossDomain: true,
+				  cache: false,
+				  success: function(data){
+				  
+
+					  if(data['status']=="OK")
+					  {
+							var datalist = "";
+							var dl = data['datalist'];
+							var jml = dl.length;	
+							
+						
+							if(jml>0)
+							{
+	
+							    for (var key in dl) {
+								if (dl.hasOwnProperty(key)) {
+							
+								  datalist += '<div class="checkout-details"';
+								  datalist += '<img class="checkout-image" src="' + dl[key]["gambar"] + '" alt="">';
+								  datalist += '<div class="checkout-product-title"> <h6>'+dl[key]["nama"]+' <span class="right">'+dl[key]["harga"]+'</span></h6><span>'+dl[key]["qty"]+' item</span></h6>';
+								  datalist += '</div></div>';
+							 
+								}
+							  }
+							  $(".datacart").append(datalist);
+														
+							}
+							 $(".totals").html(data['totaltagihanakhir']);
+						}
+					}
+				 });			
+        });
+        </script>
+        
+		</div><br><br><div class="steps-controllers">
+              <div  class="waves-effect waves-ripple"><a href="javascript:fade('index.html')"><span class="menubuttom"><span class="fal fa-home-alt"></span></span><br>Home</a></div>
+              <div class="waves-effect waves-ripple"><a href="javascript:fade('product.html')"><span class="menubuttom"><span class="fal fa-search"></span></span><br>Produk</a></div>
+              <div class="waves-effect waves-ripple"><a href="javascript:fade('transaksi.html')" class="active"><span class="menubuttom"><span class="fal fa-list-alt"></span></span><br>Transaksi</a></div>
+              <div class="waves-effect waves-ripple"><a href="javascript:fade('pesan.html')"><span class="menubuttom"><span class="fal fa-envelope"></span></span><br>Inbox</a></div>
+              <div class="waves-effect waves-ripple"><a href="javascript:fade('setting.html')"><span class="menubuttom"><span class="fal fa-user"></span></span><br>Akun</a></div>
+       </div>
+ </div> <!-- End of Page Container -->
+    
+    <script type="text/javascript" src="cordova.js"></script>
+    <script src="js/jquery.swipebox.min.js"></script>   
+    <script src="js/jquery.smoothState.min.js"></script> 
+    <script src="js/materialize.min.js"></script> 
+    <script src="js/swiper.min.js"></script>  
+    <script src="js/jquery.mixitup.min.js"></script>
+    <script src="js/masonry.min.js"></script>
+    <script src="js/chart.min.js"></script>
+    <script src="js/functions.js"></script>
+ 
+  </body>
+</html>

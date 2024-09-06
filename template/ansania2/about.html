@@ -1,0 +1,46 @@
+{include file="`$lokasitemplate`komponen/home/header.html"}
+    <!-- HOME -->
+    <div class="overlay home small-medium-size">
+        <div class="bg bg-shop"></div>
+        <div class="container vmiddle">
+            <div class="row text-center text-title-list">
+                <h1 class="text-uppercase">{$rubrik}</h1>
+                <h4>&nbsp;</h4>
+            </div>
+        </div>
+    </div>
+    <!-- /.home -->
+
+        {foreach from=$aboutmenu key=id item=a}
+    <div class="container p-0">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="{$a.gambarabout}" class="img-responsive" alt="">
+            </div>
+            <div class="col-md-6">
+            <div class="text-about-section">
+                <h4>{$a.nama}</h4>
+                {$a.lengkapabout}
+                <br clear="all" /> <br clear="all" />
+            </div>
+            </div>
+        </div>
+    </div>
+
+     <!-- HOME -->
+    <div class="overlay home about-cover small-size">
+        <div class="bg bg-shop"></div>
+        <div class="container vmiddle">
+            <div class="row text-center">
+                {if $a.ringkasabout neq ''}<h4 class="text-about-caption">"{$a.ringkasabout}"</h4>{/if}
+
+                <a href="{$fulldomain}/contact" class="btn btn-bordered">Contact Us</a>
+            </div>
+        </div>
+    </div>
+    <!-- /.home -->
+        {/foreach}
+</div>
+<!-- /.wrapper -->
+
+{include file="`$lokasitemplate`/komponen/home/footer.html"}

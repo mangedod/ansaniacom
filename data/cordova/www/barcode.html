@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>DFun Station</title>
+    <meta content="IE=edge" http-equiv="x-ua-compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <!-- Fonts -->
+    <!-- Icons -->
+    <link href="css/ionicons.min.css" media="all" rel="stylesheet" type="text/css">
+    <!-- Styles -->
+    <link href="css/keyframes.css" rel="stylesheet" type="text/css">
+    <link href="css/materialize.min.css" rel="stylesheet" type="text/css">
+    <link href="css/swiper.css" rel="stylesheet" type="text/css">
+    <link href="css/swipebox.min.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+	<script src="js/jquery-2.1.0.min.js"></script>
+      <script src="js/fastclick.js"></script>
+	<script type="text/javascript">
+    var url = window.location.pathname;
+    var filename = url.substring(url.lastIndexOf('/') + 1);
+ 
+    if (localStorage.login == "true" && filename == 'login.html') {
+        window.location.href = "index.html";
+		var userfullname = localStorage.userfullname;
+    } else if (localStorage.login == null) {
+        window.location.href = "login.html";
+    } else if (localStorage.login == "false" && filename != 'login.html') {
+        window.location.href = "login.html";
+    }
+	</script>
+    <script type="text/javascript" src="js/main.js"></script>
+
+  <script type="text/javascript" src="js/iscroll.js"></script>
+	<script type="text/javascript">
+    var myScroll;
+    function loaded () {
+        myScroll = new IScroll('#content', { mouseWheel: true });
+    }
+    </script>
+</head>
+
+  <body>
+    <div class="m-scene" id="main"> <!-- Main Container -->
+
+        <!-- Page Content -->
+      <div id="content" class="grey-blue page">
+
+        <!-- Toolbar -->
+        <div id="toolbar"  class="primary-color">
+        
+          <span class="title">Scan Barcode</span><div class="open-right waves-effect waves-circle">
+            <a href="javascript:fade('index.html');"><i class="fal fa-bars"></i></a>
+          </div>
+        </div>
+        
+       
+ 		<div class="topmenu" style="margin-top:0px; margin-bottom:20px;">
+        	<div class="topmenu-nama"><span class="fal fa-user"></span> <script>document.write(localStorage.userfullname);</script></div>
+            <div class="topmenu-poin">0 Poin</div>
+        </div>
+        
+        <script> 
+       		 $(document).ready(function(){
+				var urls ="http://localhost:8080/ansaniacom/api/android/index.php/profile/profile/"+localStorage.userid+"/?callback=?";
+			  	$.ajax({
+				  type: "GET",
+				  url: urls,
+				  crossDomain: true,
+				  cache: false,
+				  success: function(data){
+					  if(data['status']=="OK")
+					  {
+						$(".topmenu-poin").html(data['point']+" Poin");
+						$(".jmlpoint").html(data['point']);
+						$(".jmlnotif").html(data['jmlnotif']);
+					  }
+				 }
+			  });
+        
+         
+        });
+        </script>
+        
+        <script>
+		function scanbarcode()
+		{
+			 cordova.plugins.barcodeScanner.scan(
+			  function (result)
+			  {
+				var text = result.text;
+				var url="http://localhost:8080/ansaniacom/api/android/index.php/member/barcode/?callback=?";
+				var dataString="code="+text+"&userid="+localStorage.userid+"&login=";
+				
+				if($.trim(text).length>0)
+				{
+					$.ajax({
+						type: "POST",
+						url: url,
+						data: dataString,
+						crossDomain: true,
+						cache: false,
+						beforeSend: function(){ $("#scanbtn").html('Melakukan Verifikasi...');},
+						success: function(data){
+							var pesan = data['message'];
+							if(data['status']=="OK")
+							{
+								$("#barcode-info").html(pesan);
+								
+							}
+							else if(data['status']=="ERROR")
+							{
+								$("#barcode-info").html(pesan);
+							}
+						}
+					});
+				}return false;
+			  },
+			  function (error) {
+				  alert("Scanning Barcode gagal dilakukan : " + error);
+			  }
+		   );
+		}
+		</script>
+        <!-- Main Content -->
+        <div class="animated fadein">
+        	<div class="p-20" id="barcode-info">
+            <center>
+            	Anda dapat memperoleh poin tambahan dengan melakukan scan barcode yang
+                terdapat di lokasi-lokasi yang telah kami tentukan.
+                <br><img src="img/img.scanbarcode.png">
+                <a href="javascript:scanbarcode()" class="btn btn-block btn-large" id="scanbtn">Scan Barcode Sekarang</a>
+            </center>
+            </div>
+		</div>
+
+         
+         
+
+        </div> <!-- End of Main Contents -->
+      
+       
+      </div> <!-- End of Page Content --><br><br><div class="steps-controllers">
+              <div  class="waves-effect waves-ripple"><a href="javascript:fade('index.html')" class="sound-click"><img src="img/menubawah-home.png"><br>Home</a></div>
+              <div><a href="javascript:fade('cari.html')" class="sound-click"><img src="img/menubawah-cari.png"><br>Cari</a></div>
+              <div ><a href="javascript:fade('home.html')"><img src="img/menubawah-komunitas.png"><br>FunZone</a></div>
+              <div ><a href="javascript:fade('product.html')"><img src="img/menubawah-promo.png"><br>Market</a></div>
+              <div class="waves-effect waves-ripple"><a href="javascript:fade('setting.html')" class="active"><img src="img/menubawah-user-active.png"><br>User</a></div>
+         </div>
+ </div> <!-- End of Page Container -->
+    
+    <script type="text/javascript" src="cordova.js"></script>
+
+    <script src="js/jquery.swipebox.min.js"></script>   
+    <script src="js/jquery.smoothState.min.js"></script> 
+    <script src="js/materialize.min.js"></script> 
+    <script src="js/swiper.min.js"></script>  
+    <script src="js/jquery.mixitup.min.js"></script>
+    <script src="js/masonry.min.js"></script>
+    <script src="js/chart.min.js"></script>
+    <script src="js/functions.js"></script>
+  </body>
+</html>

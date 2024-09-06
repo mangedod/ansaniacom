@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type"> 
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta content="id" http-equiv="Content-Language"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<meta name="author" content="Ahmad Sanusi"> 
+	<meta name="distribution" content="Global" /> 
+	<meta name="robots" content="index, follow"> 
+	<meta name="copyright" content="Copyright 2017 {$title}" /> 
+	<meta name="language" content="in,en" /> 
+	<meta name="rating" content="General" /> 
+	<meta name="robots" content="index,follow" /> 
+	<meta name="googlebot" content="index,follow" /> 
+	<meta name="revisit-after" content="1 days" /> 
+	<meta name="expires" content="never" /> 
+	<meta name="dc.creator.e-mail" content="{$support_email}" /> 
+	<meta name="dc.creator.name" content="{$support}" /> 
+	<meta name="dc.creator.website" content="{$domain}" /> 
+	<meta name="tgn.name" content="{$title}" /> 
+	<meta name="tgn.nation" content="Indonesia" /> 
+	<meta name="keywords" content="{$metakeyword}"> 
+	<meta name="dc.title" content="{$title}" /> 
+	{if $aksi eq 'detail' or $aksi eq 'read'}
+		<meta name="title" property="og:title" content="{$detailnama}" />
+		<meta name="description" property="og:description" content="{if $detailringkas neq ''}{$detailringkas}{/if}" />
+		<meta name="image" property="og:image" content="{if $gambarshare neq ''}{$gambarshare}{else}{$detailgambar}{/if}" />
+		
+		<meta name="twitter:title" value="{$detailnama}"/> 
+		<meta name="twitter:description" value="{if $detailringkas neq ''}{$detailringkas}{/if}" /> 
+		<meta name="twitter:image" value="{if $gambarshare neq ''}{$gambarshare}{else}{$detailgambar}{/if}" /> 
+	
+	{elseif $kanal eq 'home'}
+		<meta name="title" property="og:title" content="{$title}" />
+		<meta name="description" property="og:description" content="{$webdesc}, {$metakeyword}" />
+		<meta name="image" property="og:image" content="{$lokasiwebtemplate}images/img.share.jpg" />
+		
+		<meta name="twitter:title" value="{$title}"/> 
+		<meta name="twitter:description" value="{$webdesc}, {$metakeyword}" /> 
+		<meta name="twitter:image" value="{$lokasiwebtemplate}images/img.share.jpg" /> 
+	{/if}
+	<meta name="twitter:card" value="summary_large_image"/> <meta name="twitter:creator" value="@ansania"/> 
+	<meta name="twitter:url" value="{$fulldomain}/"/> <meta name="twitter:domain" value="{$domain}"/> 
+	<meta name="twitter:site" value="{$title}"/>
+
+    <title>{if $aksi eq 'detail' or $aksi eq 'isi' or $aksi eq 'read' }{$detailnama}{else}{$title} | {$rubrik}{/if}</title>
+
+    <link rel="icon" type="image/png"  href="{$fulldomain}/favicon.ico">
+    <meta name="theme-color" content="#ffffff">
+    <link href="{$lokasiwebtemplate}css/bootstrap.css" rel="stylesheet">
+
+    <link href="{$lokasiwebtemplate}css/style.css" rel="stylesheet">
+</head>
+<body>
+
+        <div class="container">
+		<div class="row">
+
+            <div class="col-md-12 text-center">
+           
+                <div class="row">
+                {foreach from=$list_post key=produkid item=p}
+                   <div class="col-md-4">
+                   		<div class="citem item" style="margin-top:10px;">
+                        <div class="cimg">
+                            <a href="{$p.link_detail}" class="aimg" target="_blank">
+                                <img src="{$p.image_m}" alt="{$p.namaprod}">
+                                {if $p.misc_diskonn neq '0'}<div class="sticker sticker-sale">sale</div>{/if}
+                            </a>
+
+                            <div class="product-button">
+                                <a href="{$p.link_detail}" target="_blank"><i class="fa fa-eye"></i></a>
+                                <a href="{$p.link_detail}" target="_blank"><i class="fa fa-heart"></i></a>
+                            </div>
+                        </div>
+                        <h5><a href="{$p.link_detail}" class="black" target="_blank">{$p.namaprod}</a></h5>
+                        <div class="cost">
+                            {if $p.misc_diskonn neq '0'}
+                            <del>{$p.price}</del>
+                            <span class="new">{$p.misc_diskon}</span>
+                            {else}
+                            <span class="new">{$p.price}</span>
+                            {/if}
+                        </div>
+                        <div class="rating-wrap">
+                            <div class="raty" data-score="{$p.totalrating}" data-readonly="true"></div>
+                        </div>
+                    </div>
+                    </div>
+                {/foreach}
+                </div>
+            </div>
+        </div>
+        <!-- /.container -->
+
+     
+    </div>
+    <!-- /.content -->
+
+</div>
+{literal}
+<script src="{$lokasiwebtemplate}js/jquery-2.1.1.min.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-36866276-17', 'auto');
+  ga('send', 'pageview');
+
+</script>
+{/literal}
+</body>
+</html>

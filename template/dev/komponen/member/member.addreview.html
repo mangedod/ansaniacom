@@ -1,0 +1,55 @@
+<h3>{$namaaksi}</h3>
+    <hr>
+    {if $error neq ''}
+        <div class="alert {$style} alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" onclick="window.location=('{$backlink}')">
+                <span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            {$error} 
+        </div>
+    {/if}
+    <h4>{$jml_review} A review on this product</h4>    
+
+            {foreach from=$list_comment key=userid item=q}
+            <div class="comment-item">
+                <div class="row no-margin">
+                    <div class="col-xs-12 col-lg-11 col-sm-10 no-margin-right">
+                        <div class="comment-body">
+                            <div class="meta-info">
+                                <header class="row no-margin">
+                                    <div class="pull-left">
+                                        <h4 class="author"><a href="#">{$q.userfullname}</a></h4>
+                                        <span class="date">{$q.create_date}</span>
+                                    </div>
+                                </header>
+                            </div>
+                            <p class="comment-content">{$q.komentar}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {/foreach}
+                       
+    <form class="form-horizontal" role="form" action="{$fulldomain}/member/addreview" method="post" enctype="multipart/form-data">
+    	<input type="hidden" name="aksi" value="save">
+        <input type="hidden" name="produkpostid" value="{$produkpostid}">
+        <h6>Send A Review</h6>
+        <p>Please enter a review for product {$namaproduk} which you already buy.</p>
+        <div class="form-group">
+            <label class="col-sm-3">Your Rating</label>
+            <div class="col-sm-6">
+                <div class="rating-wrap">
+                    <div class="raty"><input type="hidden" name="score" required /></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label class="col-sm-3">Review</label>
+            <div class="col-sm-6">
+                <textarea class="form-control" id="inputComment" name="komentar" rows="10" required></textarea>
+            </div>
+        </div>
+		<div class="form-group">
+       		<div class="col-md-8 col-md-offset-4"><button class="btn btn-primary" type="submit">Send</button></div>
+        </div>
+    </form>

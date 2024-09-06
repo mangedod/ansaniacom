@@ -1,0 +1,29 @@
+<h3>Wishlist</h3>
+<hr>
+<div class="row text-center">
+	{foreach from=$list_wishlist key=produkpostid item=a}
+	<div class="col-md-4 citem">
+		<div class="cimg">
+			<a href="{$a.link_detail}" class="aimg"><img src="{$a.image_m}" alt=""></a>
+			<a href="{$a.link_detail}" class="btn btn-default add-cart">Add to Cart</a>
+			<div class="product-button">
+				<a href="{$a.link_detail}"><i class="fa fa-eye"></i></a>
+				<a href="{$a.link_detail}"><i class="fa fa-heart"></i></a>
+			</div>
+		</div>
+        <h5><a href="{$a.link_detail}" class="black">{$a.namaprod}</a></h5>
+		<div class="cost">
+        	{if $a.misc_diskon neq '0'}
+                <del>IDR {$a.misc_harga},-</del>
+                <span class="new">IDR {$a.misc_diskon},-</span>
+           	{else}
+            	<span class="new">IDR {$a.misc_harga},-</span>
+            {/if}
+		</div>
+		<div class="rating-wrap">
+			<div class="raty" data-score="3.5" data-readonly="true"></div>
+		</div>
+	</div>
+	{/foreach}
+</div>
+          

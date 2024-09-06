@@ -1,0 +1,12 @@
+<div class="list-group dashboard-menu">
+    <a href="{$fulldomain}/member" class="list-group-item {if $aksi eq '' or $aksi eq 'dashboard'}active{/if}">
+      Dashboard
+    </a>
+    <a href="{$fulldomain}/member/history" class="list-group-item {if $aksi eq 'history'}active{/if}">Order History</a>
+    <a href="{$fulldomain}/member/ordertracking" class="list-group-item {if $aksi eq 'ordertracking'}active{/if}">Order Tracking</a>
+    <a href="{$fulldomain}/member/wishlist" class="list-group-item {if $aksi eq 'wishlist'}active{/if}">Wishlist</a>
+    <a href="{$fulldomain}/member/review" class="list-group-item {if $aksi eq 'review' or $aksi eq 'addreview'}active{/if}">Review Product</a>
+    <a href="{$fulldomain}/member/ticketing" class="list-group-item {if $aksi eq 'ticketing' or $aksi eq 'addticketing' or $aksi eq 'detailticketing'}active{/if}">Ticketing Support</a>
+    <a href="{$fulldomain}/member/setting" class="list-group-item {if $aksi eq 'setting'}active{/if}">Profile Setting</a>
+    <a href="{$fulldomain}/member/logout" class="list-group-item">Logout</a>
+</div>

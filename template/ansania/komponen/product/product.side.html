@@ -1,0 +1,43 @@
+<!-- catalog-bar -->
+            <div class="col-sm-4 col-md-3 col-xs-4 catalog-bar">
+
+                 <!-- widget -->
+                <div class="panel panel-dark">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Categories</h3>
+                    </div>
+                    <div class="panel-body">
+                        <nav>
+                            <ul>
+                                {foreach from=$list_sec key=secid item=k}
+                                    <li><a href="{$k.url_sec}">{$k.nama}</a></li>
+                                {/foreach}
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+
+                <!-- widget -->
+                <div class="panel panel-dark">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Tags</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="tagcloud">
+                            {$hasiltagp}
+                        </div>
+                    </div>
+                </div>
+
+                <!-- widget -->
+                <div class="panel panel-dark promot-banner">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Promo</h3>
+                    </div>
+                    <div class="panel-body text-center">
+                        <a href="#"><img src="{$lokasiwebtemplate}images/banners/banner-promo.jpg" class="img-responsive" alt=""></a>
+                    </div>
+                </div>
+
+            </div>
+            <!-- /.catalog-bar -->

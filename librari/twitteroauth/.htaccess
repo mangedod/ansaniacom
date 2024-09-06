@@ -1,0 +1,15 @@
+php_flag display_errors off
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /librari/twitteroauth/
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /librari/twitteroauth/index.php [L] 
+
+RewriteCond %{HTTP_HOST} !^www\.optimasibisnis\.com
+RewriteRule (.*) http://www.optimasibisnis.com/librari/twitteroauth/$1 [R=301,L]
+</IfModule>
+
+
+

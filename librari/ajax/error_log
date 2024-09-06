@@ -1,0 +1,2 @@
+[30-Aug-2016 06:33:31 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/sygmaday/public_html/setingan/web.fungsi.php on line 321
+[30-Aug-2016 06:40:26 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/sygmaday/public_html/setingan/web.fungsi.php on line 321

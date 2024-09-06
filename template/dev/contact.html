@@ -1,0 +1,109 @@
+{include file="`$lokasitemplate`komponen/home/header.html"}
+    
+    <!-- CONTENT -->
+    <div class="content">
+
+        <!-- CONTACT-map -->
+        <div class="contact-map">
+            <div id="contact-map"></div>
+        </div>
+
+        <!-- CONTAINER -->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="text-center text-uppercase text-title">Contact us</h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-4">
+                <div class="contact-list">
+                    <p><i class="fa fa-map-marker"></i> {$contactalamat11}</p>
+                    <p>
+                        <i class="fa fa-envelope"></i> {$contactemail} <br>
+                        {$contactemail_support}
+                    </p>
+                    <p>
+                        <i class="fa fa-phone"></i> {$contactgsm}
+                    </p>
+                    <p>
+                        <i class="fa fa-facebook"></i> {$webfacebook}
+                    </p>
+                    <p>
+                        <i class="fa fa-instagram"></i> {$contactig}
+                    </p>
+                    <p>
+                        <i class="fa fa-twitter"></i> {$webtwitter}
+                    </p>
+                </div>
+                </div>
+                <div class="col-sm-7 col-sm-offset-1">
+                    {if $berhasil eq '1'}
+                        <div class="alert alert-success">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            {$pesanhasil}
+                        </div>
+                    {elseif $berhasil eq '0'}
+                        <div class="alert alert-warning">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            {$pesanhasil}
+                        </div>
+                        <ul>
+                            {foreach from=$pesan key=id item=i}
+                            <li>{$i.pesan}</li>
+                            {/foreach}
+                        </ul>
+                    {/if}
+                    {if $berhasil neq '1'}   
+                    <form action="{$fulldomain}/contact" role="form" class="form-horizontal" method="post">
+                        <input type="hidden" name="action" value="savepesan" />
+                        <div class="form-group">
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="firstname" placeholder="First Name">
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="lastname" placeholder="Last Name">
+                            </div>
+                        </div>
+                         <div class="form-group">
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="useremail" placeholder="Email">
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" nama="phone" placeholder="Phone">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <textarea name="pesan" id="pesan" cols="30" rows="10" placeholder="Message"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-6">
+                                <div class="secure-codebox">
+                                    <img id="siimage" align="left" style="padding-right: 0px; margin-bottom: 11px;" src="{$fulldomain}/librari/captcha/securimage_show.php?sid={$kodegen}" />
+                                   	<a class="recaptcha-reload" tabindex="-1" style="border-style: none; float:left; margin-top: 25px;margin-left: 12px;" href="#" title="Refresh Code" onclick="document.getElementById('siimage').src = '{$fulldomain}/librari/captcha/securimage_show.php?sid=' + Math.random(); return false">[Refresh]</a>
+                                </div>
+                                <div class="col-md-6">
+                                	<input class="input-text" name="code" id="scode" type="text" placeholder="Enter Code" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-3 col-md-offset-9 text-right col-sm-4 col-sm-offset-8">
+                                 <button type="submit" class="btn btn-primary btn-wd btn-block">Send</button>
+                            </div>
+                        </div>
+                    </form>
+                    {/if}
+                </div>
+            </div>
+        </div>
+        <!-- /.container -->
+    </div>
+    <!-- /.content -->
+</div>
+<!-- /.wrapper -->
+
+{include file="`$lokasitemplate`/komponen/home/footer.html"}

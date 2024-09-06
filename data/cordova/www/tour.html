@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Ansania</title>
+    <meta content="IE=edge" http-equiv="x-ua-compatible">
+    <meta content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <!-- Icons -->
+    <link href="css/ionicons.min.css" media="all" rel="stylesheet" type="text/css">
+    <!-- Styles -->
+    <link href="css/keyframes.css" rel="stylesheet" type="text/css">
+    <link href="css/materialize.min.css" rel="stylesheet" type="text/css">
+    <link href="css/swiper.css" rel="stylesheet" type="text/css">
+    <link href="css/swipebox.min.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+  </head>
+
+  <body>
+    <div class="m-scene" id="main"> <!-- Main Container -->
+
+     
+
+      <!-- Page Content -->
+      <div id="content" class="pagetour">
+
+      
+        
+        <!-- Main Content -->
+        <div class="animated fadein fullscreen">
+        <script>
+			function skip()
+			{
+				localStorage.tour = "1";
+				window.location.href = "index.html";
+				
+			}
+		</script>
+          
+          <!-- Slider -->         
+          <div class="swiper-container slider slider-fullscreen" style="height:100%">
+          	
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img src="img/tour-1.png" />
+                <br>
+                <center>
+                <span class="tour-title">Temukan <br>Hijab Terbaik</span><br>
+                <span class="tour-desc">Banyak pilihan kerudung untuk <br>anda yang ingin tampil trendi</span>
+                </center>
+              </div>
+              <div class="swiper-slide">
+                 <img src="img/tour-2.png" />
+                <br>
+                <center>
+                <span class="tour-title">Dapatkan Update <br>Terbaru</span><br>
+                <span class="tour-desc">Akan selalu ada update terbaru <br>dari koleksi terbaik kami</span>
+                </center>
+              </div>
+              <div class="swiper-slide">
+                 <img src="img/tour-3.png" />
+                <br>
+                <center>
+                <span class="tour-title">Penuh Warna<br>Penuh Rupa</span><br>
+                <span class="tour-desc">Banyak warna dan rupa hijab untuk anda <br>hanya ada di Ansania</span>
+                </center>
+              </div>
+     			      
+            </div>
+            
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+          <!-- End of Slider -->
+          </div>
+          <span class="skip"><a href="index.html" id="skip" onClick="skip();">Lewati dan Masuk</a></span>
+        </div> <!-- End of Main Contents -->
+      
+       
+      </div> <!-- End of Page Content -->
+
+    </div> <!-- End of Page Container -->
+    
+    
+    <script src="js/jquery-2.1.0.min.js"></script>
+    <script src="js/jquery.swipebox.min.js"></script>   
+    <script src="js/jquery.smoothState.min.js"></script> 
+    <script src="js/materialize.min.js"></script> 
+    <script src="js/swiper.min.js"></script>  
+    <script src="js/jquery.mixitup.min.js"></script>
+    <script src="js/masonry.min.js"></script>
+    <script src="js/functions.js"></script>
+    <script>
+	var swiper = new Swiper('.slider', {
+		pagination: '.swiper-pagination',
+		paginationClickable: true,
+		nextButton: '.swiper-button-next',
+		prevButton: '.swiper-button-prev',
+		autoplay: 5000,
+		loop: true
+	});
+	</script>
+	</body>
+</html>

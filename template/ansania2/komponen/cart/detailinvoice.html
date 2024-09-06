@@ -1,0 +1,167 @@
+
+    <!-- HOME -->
+    <div class="overlay home small-medium-size">
+        <div class="bg bg-shop"></div>
+        <div class="container vmiddle">
+            <div class="row text-center text-title-list">
+                <h1 class="text-uppercase" style="font-size: 50px">Order Detail</h1>
+                <!-- <h4>Dashboard page</h4> -->
+            </div>
+        </div>
+    </div>
+    <!-- /.home -->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-xs-12 no-margin">
+                        <div class="billing-address">
+                            <h4>Order Detail #{$orderid}, Invoice #{$invoiceid}</h4>
+                            <br clear="all" /><br />
+                            <a href="{$urldownload}" target="_blank" class="btn btn-primary btn-xs">Print Invoice</a><br clear="all" /><br />
+                            <span class='infodetail'>Date </span>: {$tanggaltransaksi}<br>
+                            <span class='infodetail'>Method Of Payment</span> : {$pembayarannya} {if $pembayaran eq 'CreditCard'}- Bank {$bankpaynya} - {$kodepaynya} {elseif $pembayaran eq 'BankTransfer'}- {$virtualacnya}{/if}<br>
+                            <span class='infodetail'>Shipping Method</span> : {$pengiriman}<br>
+                            <span class='infodetail'>Status</span> : <strong>{$stats}</strong><br><br>
+
+                                {if $status eq '1' and $pembayaran eq 'Transfer'}<a href="{$urlconfirm}" target="_blank" class="btn btn-primary btn-xs">Payment Confirmation</a><br /><br />{/if}
+                        </div>
+                        <!-- /.billing-address -->
+                        <div class="col-md-12">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-cart">
+                                    <thead>
+                                        <tr>
+                                            <th class="normal" width="10%">No</th>
+                                            <th width="15%">Product Name</th>
+                                            <th class="text-center" width="20%">Product Code</th>
+                                            <th class="text-center" width="20%">Description</th>
+                                            <th class="text-center" width="10%">Quantity</th>
+                                            <th class="text-center" width="10%">Price</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    {foreach from=$detailproduk key=id item=a}
+                                        <tr>
+                                            <td class="normal">{$a.xx}</td>
+                                            <td>{$a.namaprod}</td>
+                                            <td class="text-center"><a href="{$i.urldetail}">{$a.kodeproduk}</a></td>
+                                            <td class="text-center">Color : {$a.namawarna} <br/>Size : {$a.size}</td>
+                                            <td class="text-center">{$a.qty}</td>
+                                            <td class="text-center">{$a.harga}</td>
+                                        </tr>
+                                    {/foreach}
+                                    </tbody>
+                                    <tfoot>
+                                        {if $total_diskon > 0 }
+                                        <tr>
+                                            <td colspan="5" class="text-right">
+                                                <span class="text-uppercase"><b>Discount Voucher {$namadiskon} {$diskonnya} ({$kode_voucher})</b></span>
+                                            </td>
+                                            <td colspan="1" class="text-right">
+                                                <b>(-) {$total_diskon2}</b>
+                                            </td>
+                                        </tr>
+                                        {/if}
+                                        {if $ongkos_kirim > 0 }
+                                        <tr>
+                                            <td colspan="5" class="text-right">
+                                                <span class="text-uppercase"><b>Shipping ({$totberat} Gram)</b></span>
+                                            </td>
+                                            <td colspan="1" class="text-right">
+                                                <b>{$ongkos_kirim2}</b>
+                                            </td>
+                                        </tr>
+                                        {/if}
+                                        <tr>
+                                            <td colspan="5" class="text-right">
+                                                <span class="text-uppercase"><b>Grand Total</b></span>
+                                            </td>
+                                            <td colspan="1" class="text-right">
+                                                <b>{$totaltagihanakhird}</b>
+                                            </td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div> 
+
+                        <!-- <div class="col-md-12">
+                        </div> -->
+                        <div class="col-md-6">
+                            <h4>Payment Information</h4>
+                            <table class="table table-cart table-description">
+                                <tbody>
+                                    <tr>
+                                        {if $pembayaran eq 'Transfer'}
+                                        <td>
+                                            Payment is made in <strong>Transfer</strong>
+                                            <br>To complete the payment transaction, please transfer to : <br><br>
+                                            <ol>
+                                            {foreach from=$rekening key=id item=b}
+                                                <li><b>{$b.bank} ({$b.akun} a.n {$b.namaak})</b></li>
+                                            {/foreach}
+                                            </ol>
+                                        </td>
+                                        {elseif $pembayaran eq 'CreditCard'}
+                                        <td>
+                                            Payment is made in <strong>{$pembayarannya}</strong><br>
+                                            Name of Bank : <strong>{$bankpaynya}</strong><br>
+                                            Card Number : <strong>{$kodepaynya}</strong>
+                                        </td>
+                                        {elseif $pembayaran eq 'BankTransfer'}
+                                        <td>
+                                            Payment is made in <strong>{$pembayarannya}</strong><br>
+                                            Please do payment with<br>
+                                            Virtual Account No : <strong>{$virtualacnya}</strong>
+                                        </td>
+                                        {/if}
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-md-6">
+                            <h4>Billing Information</h4>
+                            <table class="table table-cart table-description">
+                                <tbody>
+                                    <tr>
+                                        <td>Name</td><td><b>: &nbsp;{$billingnama}</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Email</td><td><b>: &nbsp;{$billingemail}</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Address</td><td><b>: &nbsp;{$billingalamat}</b></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="clearfix">&nbsp;</div>
+                            <h4>Shipping Information</h4>
+                            <table class="table table-cart table-description">
+                                <tbody>
+                                    <tr>
+                                        <td>Shipping Agent</td><td><b>: &nbsp;{$namaagen} - {$services}</b></td>
+                                    </tr>
+                                    {if $no_resi neq ''}
+                                    <tr>
+                                        <td>Delivery Receipt Number</td><td><b>: &nbsp;{$no_resi}</b></td>
+                                    </tr>
+                                    {/if}
+                                    <tr>
+                                        <td>Full Name</td><td><b>: &nbsp;{$namalengkap}</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Shipping Address</td><td><b>: &nbsp;{$alamatpengiriman}</b></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.place-order-button -->
+
+                </div>
+                <!-- /.col -->
+            </div>
+        </div>
+    </div>

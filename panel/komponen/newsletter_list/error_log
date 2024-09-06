@@ -1,0 +1,7 @@
+[21-Jul-2016 07:12:23 UTC] PHP Warning:  include(../setingan/global.inc.php): failed to open stream: No such file or directory in /home/sygmaday/public_html/panel/komponen/newsletter_list/preview2.php on line 2
+[21-Jul-2016 07:12:23 UTC] PHP Warning:  include(../setingan/global.inc.php): failed to open stream: No such file or directory in /home/sygmaday/public_html/panel/komponen/newsletter_list/preview2.php on line 2
+[21-Jul-2016 07:12:23 UTC] PHP Warning:  include(): Failed opening '../setingan/global.inc.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/sygmaday/public_html/panel/komponen/newsletter_list/preview2.php on line 2
+[21-Jul-2016 07:12:23 UTC] PHP Warning:  include(../panel/setingan/cms.fungsi.php): failed to open stream: No such file or directory in /home/sygmaday/public_html/panel/komponen/newsletter_list/preview2.php on line 3
+[21-Jul-2016 07:12:23 UTC] PHP Warning:  include(../panel/setingan/cms.fungsi.php): failed to open stream: No such file or directory in /home/sygmaday/public_html/panel/komponen/newsletter_list/preview2.php on line 3
+[21-Jul-2016 07:12:23 UTC] PHP Warning:  include(): Failed opening '../panel/setingan/cms.fungsi.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/sygmaday/public_html/panel/komponen/newsletter_list/preview2.php on line 3
+[21-Jul-2016 07:12:23 UTC] PHP Fatal error:  Call to undefined function sql() in /home/sygmaday/public_html/panel/komponen/newsletter_list/preview2.php on line 9

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type"> 
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta content="id" http-equiv="Content-Language"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<meta name="distribution" content="Global" /> 
+	<meta name="robots" content="index, follow"> 
+	<meta name="copyright" content="Copyright 2017 {$title}" /> 
+	<meta name="language" content="in,en" /> 
+	<meta name="rating" content="General" /> 
+	<meta name="robots" content="index,follow" /> 
+	<meta name="googlebot" content="index,follow" /> 
+	<meta name="revisit-after" content="1 days" /> 
+	<meta name="expires" content="never" /> 
+	<meta name="dc.creator.e-mail" content="{$support_email}" /> 
+	<meta name="dc.creator.name" content="{$support}" /> 
+	<meta name="dc.creator.website" content="{$domain}" /> 
+	<meta name="tgn.name" content="{$title}" /> 
+	<meta name="tgn.nation" content="Indonesia" /> 
+	<meta name="keywords" content="{$metakeyword}"> 
+	<meta name="dc.title" content="{$title}" /> 
+	{if $aksi eq 'detail' or $aksi eq 'read'}
+		<meta name="title" property="og:title" content="{$detailnama}" />
+		<meta name="description" property="og:description" content="{if $detailringkas neq ''}{$detailringkas}{/if}" />
+		<meta name="image" property="og:image" content="{if $gambarshare neq ''}{$gambarshare}{else}{$detailgambar}{/if}" />
+		
+		<meta name="twitter:title" value="{$detailnama}"/> 
+		<meta name="twitter:description" value="{if $detailringkas neq ''}{$detailringkas}{/if}" /> 
+		<meta name="twitter:image" value="{if $gambarshare neq ''}{$gambarshare}{else}{$detailgambar}{/if}" /> 
+	
+	{elseif $kanal eq 'home'}
+		<meta name="title" property="og:title" content="{$title}" />
+		<meta name="description" property="og:description" content="{$webdesc}, {$metakeyword}" />
+		<meta name="image" property="og:image" content="{$lokasiwebtemplate}/images/img.share.jpg" />
+		
+		<meta name="twitter:title" value="{$title}"/> 
+		<meta name="twitter:description" value="{$webdesc}, {$metakeyword}" /> 
+		<meta name="twitter:image" value="{$lokasiwebtemplate}/images/img.share.jpg" /> 
+	{/if}
+	<meta name="twitter:card" value="summary_large_image"/> <meta name="twitter:creator" value="@ansania"/> 
+	<meta name="twitter:url" value="{$fulldomain}/"/> <meta name="twitter:domain" value="{$domain}"/> 
+	<meta name="twitter:site" value="{$title}"/>
+
+    <title>{if $aksi eq 'detail' or $aksi eq 'isi' or $aksi eq 'read' }{$detailnama}{else}{$title} | {$rubrik}{/if}</title>
+
+    <link rel="icon" type="image/png"  href="{$fulldomain}/favicon.ico">
+    <meta name="theme-color" content="#ffffff">
+    <link href="{$lokasiwebtemplate}css/bootstrap.css" rel="stylesheet">
+    {if $kanal eq 'product' and $aksi eq 'read'}
+    <link href="{$lokasiwebtemplate}css/bootstrap-spinner.css" rel="stylesheet">
+    {/if}
+    {if $kanal eq 'cart' and $aksi eq 'confirm'}
+    <link href="{$lokasiwebtemplate}js/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet">
+    {/if}
+    <link href="{$lokasiwebtemplate}css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="{$lokasiwebtemplate}css/jssocials.css" />
+    <link rel="stylesheet" href="{$lokasiwebtemplate}css/jssocials-theme-flat.css" />
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+</head>
+<body>
+
+<!-- Header Section Starts -->
+<div class="topmenu">
+
+<!-- Starts -->
+    <div class="container">
+    
+    <!-- Main Header Starts -->
+        <div class="main-header">
+            <div class="row">
+            <!-- Logo Starts -->
+            		<div class="col-md-4">
+                    	<span class="infotopmenu"><i class="fa fa-whatsapp"></i>&nbsp;{$contacttelp}</span>
+                        <span class="infotopmenu"><i class="fa fa-envelope-o"></i>&nbsp;{$contactemail}</span>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="pull-right">
+                            
+                           <a href="{$fulldomain}/about">Tentang Ansania</a>
+                           <a href="{$fulldomain}/faq">Panduan Belanja</a>
+                           <a href="{$fulldomain}/cart/confirm">Konfirmasi Bayar</a>
+                           <a href="{$fulldomain}/testimoni">Testimonial</a>
+                       </div> 
+                   </div>
+                  <!-- <div class="col-md-4">  
+                    <form class="search-form" method="post" action="{$fulldomain}/product/list">
+                            <div class="input-group">
+                            	<input type="hidden" value="cari" name="aksi">
+                                <input type="text" class="form-control" placeholder="Cari Produk" name="kata">
+                                <div class="input-group-btn">
+                                    <button class="btn" type="submit"><i class="icon-magnifier"></i></button>
+                                </div>
+                            </div>
+                    </form>
+                    </div> -->
+                   
+                    
+            </div>
+        </div>
+    <!-- Main Header Ends -->
+    </div>
+ <!-- Ends -->
+</div>
+<!-- Header Section Ends -->
+
+<!-- WRAPPER -->
+<div class="wrapper">
+
+    <!-- HEADER -->
+    <header class="header sides">
+        <div class="hbottom right-pos dark">
+            <div class="container">
+                <div class="col-md-2 col-sm-3 logo not-sticky hidden-xs">
+                    <a href="{$fulldomain}/"><img src="{$lokasiwebtemplate}images/img.logo.png" alt=""> </a>
+                </div>
+                <div class="col-md-4 col-sm-4 iconmenu pull-right">
+                	
+                   			
+                  
+                    <a href="{$fulldomain}/cart" class="visible-xs menuicon"><i class="icon-cart"></i></i>{if $jumlah_cart > 0} <span class="label label-danger">{$jumlah_cart}</span> {/if}</a>
+                    <div class="hcart pull-right hidden-xs">
+                    <a href="{$fulldomain}/cart" class="menuicon"><i class="icon-cart"></i> Keranjang {if $jumlah_cart > 0} <span class="label label-danger">{$jumlah_cart}</span> {/if}</a>
+                        <div class="dropdown">
+                            {if $jumlah_cart neq '0'}
+                                <nav>
+                                    <ul class="hcart-list">
+                                        {foreach from=$topcart key=id item=a}
+                                        <li>
+                                            <a href="{$a.urld}" class="fig pull-left"><img width="60" src="{$a.gambarprodukd}" alt="{$a.namaproduk}"></a>
+                                            <div class="block">
+                                                <a href="{$fulldomain}/product">{$a.namaproduk}</a>
+                                                <div class="cost">{$a.qtyd} x {$a.misc_hargaprodukd}</div>
+                                            </div>
+                                        </li>
+                                        {/foreach}
+                                    </ul>
+                                </nav>
+                                <div class="hcart-total">
+                                    <a href="{$fulldomain}/cart" class="btn btn-default">Cart</a>
+                                    <div class="total">Total - <ins>{$totaltagihanhead}</ins></div>
+                                </div>
+                            {else}
+                                <!-- <span>Recently added item(s) - <ins>no item</ins></span> -->
+                            {/if}
+                        </div>
+                         
+                      {if $login eq '1'}
+                        <a href="{$fulldomain}/member/dashboard" class="hidden-xs menuicon"><i class="icon-user"></i></a>
+                        {else}
+                         <a href="{$fulldomain}/member" class="hidden-xs menuicon"><i class="icon-user"></i></a>
+                        {/if}	
+                       <a href="#" class="hidden-xs menuicon mt-8"><i class="icon-magnifier"></i></a>
+                                
+                </div>
+                </div>
+                <div class="col-md-2 contact-info">
+                    <div class="logo pull-left">
+                        <a href="{$fulldomain}/"><img  src="{$lokasiwebtemplate}images/img.logo.png" alt="Logo Ansania"></a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-8 mainmenu">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <div class="mobile-logo visible-xs">
+                        <a href="{$fulldomain}/"><img  src="{$lokasiwebtemplate}images/img.logo.png" alt="Logo Ansania"></a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="navbar-collapse">
+                        <nav class="text-center">
+                           
+                            <ul class="nav navbar-nav navbar-right">
+
+                                 <li><a href="{$fulldomain}/">Home</a></li>
+                                 <li class="dropdown ">
+                                    <a href="#"  class="dropdown-toggle" data-toggle="dropdown">Produk </span></a>
+                                    <ul class="dropdown-menu submenu">
+                                    	<li><a href="{$fulldomain}/product">Semua Produk</a></li>
+                                    	 {foreach from=$tipeproduk key=tipeid item=i}
+                                   
+                                                {foreach from=$menusec[$i.tipeid] key=secid item=s}
+                                                <li><a href="{$s.url_sec}">{$s.namasech}</a></li>
+                                                {/foreach}
+                                          
+                                        {/foreach}</ul>
+                                </li>
+                              
+                                <li><a href="{$fulldomain}/sale">Sale</a></li>
+                                <li><a href="{$fulldomain}/video">Video</a></li>
+                                <li><a href="{$fulldomain}/blog">Blog</a></li>
+                                <li><a href="{$fulldomain}/reseller">Reseller</a></li>
+								
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- /.header -->

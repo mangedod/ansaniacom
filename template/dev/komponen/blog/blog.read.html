@@ -1,0 +1,112 @@
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "NewsArticle",
+    "mainEntityOfPage":{
+      "@type":"WebPage",
+      "@id":"{$uri}"
+    },
+    "headline": "{$detailnama}",
+    "image": {
+      "@type": "ImageObject",
+      "url": "{$detailgambar}",
+      "height": 800,
+      "width": 800
+    },
+    "datePublished": "{$detaildate}",
+    "dateModified": "{$detaildate}",
+    "author": {
+      "@type": "Person",
+       "name": "{if $detailcreator eq ''}Adi Sumaryadi{else}{$detailcreator}{/if}"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "{$title}",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "{$fulldomain}/{$lokasiwebtemplate}images/img.logo.png",
+        "width": 253,
+        "height": 49
+      }
+    },
+    "description": "{$detaillengkap}"
+  }
+  </script>
+<div class="container">
+	<div class="row">
+        <div class="col-md-8">
+<div class="blog-list">
+            <div class="beritahome">
+            	<div class="img-detail mt-20" style="height:auto">
+                    <img src="{$detailgambar}" style="width:100%" alt="{$detailnama}" />
+                </div>
+            	<div class="title-headline">
+                    <h1 itemprop='headline'>{$detailnama}</h1>
+                </div>
+                 <div class="detail-info">
+                   {if $detailcreator neq ''}Oleh <span itemprop='author' itemscope='itemscope' itemtype='http://schema.org/Person'><span itemprop='name'>{$detailcreator}</span></span> | {/if} {$detailtanggal} | {$detailviews} Views
+                   <span itemprop='datePublished' title='{$detaildate}' style="display:none">{$detaildate}</span>
+                   <span itemprop='dateModified' title='{$detaildate}' style="display:none">{$detaildate}</span>
+                </div>
+                
+                
+                 <div class="box-content" itemprop='blogPost' itemscope='itemscope' itemtype='http://schema.org/BlogPosting'>
+                    <div class="large-content">
+                        <p class="lengkap" itemprop='description articleBody'>{$detaillengkap}</p>
+                        <span itemprop='publisher' style="display:none">{$title}</span>
+                        
+                        <div class="tags" itemprop="keywords">
+                        {foreach from=$tags key=id item=a}
+                        	<a href="{$a.url}" class="tags">{$a.tag}</a>&nbsp;
+                        {/foreach}</div>
+                        
+                      <br clear="all" />
+                    <hr />
+                        {include file="`$lokasitemplate`/komponen/home/komentar.html"}
+                    </div>
+            </div>
+             
+             
+             <br clear="all" />
+            <div class="infodetail"><span class="infodetail-1"><strong>{$rubrik} Lainnya</strong></span></div>
+                {foreach from=$terkait key=id item=a}
+                 <div class="col-md-12">
+                 <div class="boxnewspilihan">
+                    <div class="boxnewspilihan-isi">
+                        <div class="box-boxnewspilihan">
+                            <a href="{$a.url}" class="judul1"><img src="{$a.gambar}" alt="{$a.nama}" border="0" /></a>
+                        </div>
+                        <span><a href="{$a.url}" class="judul1"><strong>{$a.nama}</strong></a></span><br />
+                        {$a.ringkas}
+                    </div>
+                </div>
+                </div>
+                {/foreach}<br clear="all" />
+	</div>
+</div>
+
+
+            </div>    
+            
+
+<div class="col-md-4" style="margin-top:-20px;">
+<br clear="all" />
+<div class="panel panel-dark blog-category">
+    <div class="panel-heading">
+        <h3 class="panel-title">BLOG TERPOPULER</h3>
+    </div>
+    <div class="panel-body">
+          {foreach from=$datapopuler key=id item=a}
+            <div class="blog-populer-item">
+                <div class="blog-populer-item-img">
+                    <img src="{$a.gambar}" alt="{$a.nama}" />
+                </div>
+               <a href="{$a.link}">{$a.nama}</a>
+            </div>
+        {/foreach}
+    </div>
+</div>
+
+</div>
+</div>
+<br clear="all" />

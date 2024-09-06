@@ -1,0 +1,189 @@
+<div class="col-md-3">
+                 
+<form>
+    <input value="{$xsecid}" name="xsecid" id="xsecid" type="hidden" />
+    <input value="{$kata}" name="xkeyword" id="xkeyword" type="hidden" />
+    <div class="box-filter">
+     
+        <div class="box-filter-judul">Tipe Produk</div>
+        <div class="box-filter-isi">
+            <ul>
+                
+            {foreach from=$datajenis key=jenisid item=u}
+            <li class="filter-content-item">
+                <input type="checkbox" class="filter filterjenisid" name="jenisid" value="{$u.jenisid}" {if $u.selected eq '1'} checked="checked"{/if}/> {$u.nama}
+            </li>
+            {/foreach}
+              
+           </ul>
+        </div>
+        <div class="box-filter-judul">Kategori</div>
+        <div class="box-filter-isi">
+            <ul>
+                
+            {foreach from=$datasec key=secid item=u}
+            <li class="filter-content-item">
+                <input type="checkbox" class="filter filtersecid" name="secid" value="{$u.secid}" {if $u.selected eq '1'} checked="checked"{/if}/> {$u.nama}
+            </li>
+            {/foreach}
+              
+           </ul>
+        </div>
+       
+         <div class="box-filter-judul">Kisaran Harga</div>
+        <div class="box-filter-isi">
+                <ul>
+                   <li class="filter-content-item"><input type="radio" class="filter filterhargaid" name="hargaid" value="0" {if $hargaid eq '0'} checked="checked"{/if} /> Semua Harga</li>
+                   <li class="filter-content-item"><input type="radio" class="filter filterhargaid" name="hargaid" value="1" {if $hargaid eq '1'} checked="checked"{/if}/> 0-10.000</li>
+                   <li class="filter-content-item"><input type="radio"class="filter filterhargaid" name="hargaid" value="2" {if $hargaid eq '2'} checked="checked"{/if} /> 10.000-25.000</li>
+                   <li class="filter-content-item"><input type="radio"class="filter filterhargaid" name="hargaid" value="3" {if $hargaid eq '3'} checked="checked"{/if} /> 25.000-50.000</li>
+                   <li class="filter-content-item"><input type="radio"class="filter filterhargaid" name="hargaid" value="4" {if $hargaid eq '4'} checked="checked"{/if} /> 50.000-100.000</li>
+                   <li class="filter-content-item"><input type="radio"class="filter filterhargaid" name="hargaid" value="5" {if $hargaid eq '5'} checked="checked"{/if} /> > 100.000</li>
+               </ul>
+           </ul>
+        </div>
+        
+         <div class="box-filter-judul">Pilihan Warna</div>
+        <div class="box-filter-isi">
+            <div id="listResults">
+            <div class="row">
+
+            {foreach from=$warna key=warnaid item=u}
+             <div class="col-xs-3 text-center">
+             <style type="text/css">
+                 .warna-{$u.warnaid}{literal}{background-color: {/literal}{$u.kode};  border: 1px solid #ccc; border-color: #ccc;{literal}}{/literal}
+             </style>
+              <div class="checkbox checkbox-circle warna-{$u.warnaid}">
+                <input id="warna-{$u.warnaid}" type="checkbox" value='{$u.warnaid}' class="filter filterwarnaid warna-{$u.warnaid}" {if $u.selected eq '1'} checked {/if}>
+                <label></label>
+              </div>
+            </div>
+
+            {/foreach}
+        </div>
+        </div>
+   </div>
+
+  <script>
+    
+    $( ".filter" ).click(function() {
+    
+        var secid = $("#xsecid").val();
+        var keyword = $("#xkeyword").val();
+       
+        
+        
+        var filterjenisid = "";
+        $(".filterjenisid").each(function() {
+            if($(this).is(':checked')) {
+                filterjenisid = filterjenisid+$(this).val()+",";
+            }
+        });
+        
+        var filtersecid = "";
+        $(".filtersecid").each(function() {
+            if($(this).is(':checked')) {
+                filtersecid = filtersecid+$(this).val()+",";
+            }
+        });
+        
+        var filterhargaid = "";
+        $(".filterhargaid").each(function() {
+            if($(this).is(':checked')) {
+                filterhargaid = filterhargaid+$(this).val();
+            }
+        });
+        
+        
+        var filterwarnaid = "";
+        $(".filterwarnaid").each(function() {
+             if($(this).is(':checked')) {
+                filterwarnaid = filterwarnaid+$(this).val()+",";
+             }
+
+        });
+        
+         
+        var filter = "/?keyword="+keyword+"&fjenisid="+filterjenisid+"&filterhargaid="+filterhargaid+"&fsecid="+filtersecid+"&fwarnaid="+filterwarnaid;
+        var url = $(location).attr('href');
+        var res = url.split("/?");
+        var realurl = res[0];
+        //var lasturl = realurl+filter;
+        var lasturl = "{$fulldomain}/product"+filter;
+        window.location.href = lasturl;     
+        
+    });
+    
+    
+    $( "#showr" ).click(function() {
+       $( "#filter" ).show();
+    });
+     
+    $( "#hidr" ).click(function() {
+      $( "#filter" ).hide();
+    });
+    </script>
+    
+</div>
+
+</div>
+<div class="col-md-9">
+    <div class="row">
+
+        {if !$list_post}
+            <center>
+                <img src="{$lokasiwebtemplate}images/img.kosong.png" alt="Kosong">
+                <br>Mohon maaf produk yang anda cari belum ditemukan, silahkan<br>
+                pilih model atau warna yang lain
+            </center>
+        {else}
+
+                {foreach from=$list_post key=produkid item=p}
+                   <div class="col-md-4">
+                   		<div class="citem wow fadeIn">
+                        <div class="cimg">
+                            <a href="{$p.link_detail}" class="aimg">
+                                  <img src="{$p.image_m}" data-src="{$p.image_m}" data-alt-src="{$p.image_m1}" class="product-img" alt="{$p.namaprod}">
+                                  <!-- {if $p.misc_diskonn neq '0'}<div class="sticker sticker-sale">sale</div>{/if} -->
+                            </a>
+                        </div>
+                        <h5><a href="{$p.link_detail}" class="black">{$p.namaprod}</a></h5>
+                       <div class="cost">
+                            {if $p.misc_diskonn neq '0'}
+                            <del>{$p.price}</del>
+                            <span class="new">{$p.misc_diskon}</span>
+                            {else}
+                            <span class="new">{$p.price}</span>
+                            {/if}
+                        </div>                        
+                    </div>
+                    </div>
+                {/foreach}
+
+           {/if}
+
+
+            </div>
+          
+              
+        </div>
+        <!-- /.container -->
+
+        <!-- CONTAINER -->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-offset-7 col-xs-10 col-xs-offset-2 col-md-5 col-sm-offset-5 col-sm-7 text-right pagination-box">
+                    <ul class="pagination">
+                        {foreach from=$stringpage key=pageid item=a}
+                            {if $a.link neq ''}
+                                <li class="{$a.class}"><a href="{$a.link}">{$a.nama}</a></li>
+                            {else}
+                                <li class="{$a.class}"><a href="javascript:void(0)">{$a.nama}</a></li>
+                            {/if}
+                        {/foreach}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- /.container -->
+        <div class="clearfix">&nbsp;</div>

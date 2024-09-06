@@ -1,0 +1,25 @@
+[28-Mar-2024 01:22:50 UTC] PHP Fatal error:  Uncaught Error: [] operator not supported for strings in http://localhost:8080/ansaniacom/public_html/panel/komponen/laporan-penjualan/cms.laporan-penjualan.php:116
+Stack trace:
+#0 http://localhost:8080/ansaniacom/public_html/panel/template/index.tpl.php(301): include()
+#1 http://localhost:8080/ansaniacom/public_html/panel/index.php(81): include('/home/ansania.c...')
+#2 {main}
+  thrown in http://localhost:8080/ansaniacom/public_html/panel/komponen/laporan-penjualan/cms.laporan-penjualan.php on line 116
+[28-Mar-2024 01:23:25 UTC] PHP Deprecated:  The each() function is deprecated. This message will be suppressed on further calls in http://localhost:8080/ansaniacom/public_html/panel/komponen/custom-lapbulan/cms.custom-lapbulan.php on line 27
+[28-Mar-2024 01:23:25 UTC] PHP Stack trace:
+[28-Mar-2024 01:23:25 UTC] PHP   1. {main}() http://localhost:8080/ansaniacom/public_html/panel/index.php:0
+[28-Mar-2024 01:23:25 UTC] PHP   2. include() http://localhost:8080/ansaniacom/public_html/panel/index.php:81
+[28-Mar-2024 01:23:25 UTC] PHP   3. include() http://localhost:8080/ansaniacom/public_html/panel/template/index.tpl.php:301
+[28-Mar-2024 01:23:25 UTC] PHP   4. each() http://localhost:8080/ansaniacom/public_html/panel/komponen/custom-lapbulan/cms.custom-lapbulan.php:27
+[28-Mar-2024 01:23:37 UTC] PHP Deprecated:  The each() function is deprecated. This message will be suppressed on further calls in http://localhost:8080/ansaniacom/public_html/panel/komponen/custom-lapchannel/cms.custom-lapchannel.php on line 27
+[28-Mar-2024 01:23:37 UTC] PHP Stack trace:
+[28-Mar-2024 01:23:37 UTC] PHP   1. {main}() http://localhost:8080/ansaniacom/public_html/panel/index.php:0
+[28-Mar-2024 01:23:37 UTC] PHP   2. include() http://localhost:8080/ansaniacom/public_html/panel/index.php:81
+[28-Mar-2024 01:23:37 UTC] PHP   3. include() http://localhost:8080/ansaniacom/public_html/panel/template/index.tpl.php:301
+[28-Mar-2024 01:23:37 UTC] PHP   4. each() http://localhost:8080/ansaniacom/public_html/panel/komponen/custom-lapchannel/cms.custom-lapchannel.php:27
+[28-Mar-2024 03:26:14 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in http://localhost:8080/ansaniacom/public_html/panel/setingan/cms.fungsi.php on line 362
+[28-Mar-2024 03:26:14 UTC] PHP Stack trace:
+[28-Mar-2024 03:26:14 UTC] PHP   1. {main}() http://localhost:8080/ansaniacom/public_html/panel/index.php:0
+[28-Mar-2024 03:26:14 UTC] PHP   2. include() http://localhost:8080/ansaniacom/public_html/panel/index.php:81
+[28-Mar-2024 03:26:14 UTC] PHP   3. include() http://localhost:8080/ansaniacom/public_html/panel/template/index.tpl.php:301
+[28-Mar-2024 03:26:14 UTC] PHP   4. sql_get_var() http://localhost:8080/ansaniacom/public_html/panel/komponen/transaksi/cms.transaksi.php:507
+[28-Mar-2024 03:26:14 UTC] PHP   5. mysqli_fetch_array() /home/ansania.com/public_html/panel/setingan/cms.fungsi.php:362

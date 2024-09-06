@@ -1,0 +1,6 @@
+<h3>{$detailnama}</h3>
+{$detailpengirim} - {$tanggalpesan}<br />{$detailpesan}
+
+{foreach from=$listpesan key=ticketingbalasid item=s}
+{$s.judul}<br />oleh {$s.oleh} - {$s.tanggal}<br />{$s.isijawaban}<br /><br />
+{/foreach}
